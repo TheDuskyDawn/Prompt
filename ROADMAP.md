@@ -36,8 +36,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 27. [x] Add responsive resource cards.
 28. [x] Add a resource detail dialog.
 29. [x] Add copy actions with feedback and fallback.
-30. [x] Add keyboard-friendly interactions and visible focus.
-30a. [x] Add a Surprise me action to open a random resource for visitors who want to explore.
+30. [x] Add keyboard-friendly interactions, visible focus, and random-resource discovery.
 
 ## Stage 4 — Personalisation
 31. [x] Add favourites.
@@ -125,6 +124,6 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 
 ## Current implementation
 
-The live catalogue contains 30 original prompts and skills across six curated collections. Implemented features include full-text search; type, category, collection, difficulty, tag, and favourites filters; related-resource recommendations; sorting; prompt personalisation; live preview; copy and text download; full catalogue JSON export; shareable filtered and individual-resource links; local favourites backup/restore; theme preference; offline caching; dedicated offline fallback page; install metadata; an offline status indicator; privacy notice; online user guide; contribution and security policies; and CI checks for catalogue data, JavaScript, local links, and PWA assets.
+The live catalogue contains 31 original prompts and skills across six curated collections. Implemented features include full-text search; type, category, collection, difficulty, tag, and favourites filters; related-resource recommendations; random-resource discovery; sorting; prompt personalisation; live preview; copy and text download; full catalogue JSON export; shareable filtered and individual-resource links; local favourites backup/restore; theme preference; offline caching; dedicated offline fallback page; install metadata; an offline status indicator; privacy notice; online user guide; contribution and security policies; and CI checks for catalogue data, JavaScript, local links, and PWA assets.
 
 Automated browser coverage now includes favourites backup validation, shareable filter restoration, theme persistence, offline navigation to secondary pages, keyboard operation of the resource dialog, and skip navigation. The service worker caches each successful navigation under its own URL and falls back to the requested page before the library or offline page. The remaining work is tracked above. Accounts, ratings, and cross-device sync remain deferred because they require additional services, privacy decisions, and moderation capacity.

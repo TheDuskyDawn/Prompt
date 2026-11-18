@@ -72,3 +72,4 @@ Notable project changes are recorded here.
 - Added coverage ensuring a visitor's explicit theme choice takes precedence over later operating-system theme changes.
 - Added 320px and 360px viewport regression checks across the library, guide, privacy, and offline pages; adjusted narrow-screen library header wrapping to prevent horizontal overflow.
 - Added a Surprise me discovery action that opens a random catalogue resource and avoids immediately repeating the currently open item.
+- Added an original evidence-audit prompt that distinguishes supported, unsupported, contradicted, and unverifiable claims without inventing sources.

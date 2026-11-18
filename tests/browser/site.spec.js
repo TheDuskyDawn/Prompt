@@ -8,7 +8,7 @@ test.beforeEach(async ({ page }) => {
 
 test("loads all curated resources", async ({ page }) => {
   await expect(page.locator("#total")).toHaveText("30");
-  await expect(page.locator(".card")).toHaveCount(30);
+  await expect(page.locator(".card")).toHaveCount(31);
 });
 
 test("searches inside resource content", async ({ page }) => {
@@ -164,14 +164,14 @@ test("resets every active filter", async ({ page }) => {
   await page.locator("#clear-filters").click();
   await expect(page.locator("#search")).toHaveValue("");
   await expect(page.locator("#difficulty")).toHaveValue("all");
-  await expect(page.locator(".card")).toHaveCount(30);
+  await expect(page.locator(".card")).toHaveCount(31);
 });
 
 test("handles unknown direct resource IDs without opening a broken dialog", async ({ page }) => {
   await page.goto("/?resource=not-a-real-resource");
   await expect(page.locator("#detail")).not.toBeVisible();
   await expect(page).not.toHaveURL(/resource=not-a-real-resource/);
-  await expect(page.locator(".card")).toHaveCount(30);
+  await expect(page.locator(".card")).toHaveCount(31);
 });
 
 test("keeps the visited guide available when navigating offline", async ({ page, context }) => {
@@ -233,7 +233,7 @@ test("shows the review status on resource cards and details", async ({ page }) =
 
 test("search includes resource review metadata", async ({ page }) => {
   await page.locator("#search").fill("curated");
-  await expect(page.locator(".card")).toHaveCount(30);
+  await expect(page.locator(".card")).toHaveCount(31);
 });
 
 
@@ -412,4 +412,10 @@ test("opens a randomly selected resource from Surprise me", async ({ page }) => 
   await expect(page.locator("#detail")).toBeVisible();
   await expect(page.locator("#detailBody h2")).not.toBeEmpty();
   await expect(page).toHaveURL(/resource=[a-z0-9-]+/);
+});
+
+
+test("finds the evidence-audit resource through search", async ({ page }) => {
+  await page.locator("#search").fill("audit factual claims evidence");
+  await expect(page.locator(".card h3").first()).toHaveText("Audit factual claims against evidence");
 });
