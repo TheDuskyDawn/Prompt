@@ -24,3 +24,5 @@ Notable project changes are recorded here.
 - Added retryable loading states, resilient local storage, skip navigation, and reduced-motion support.
 
 - Added automated issue label creation and assignment.
+
+- Added CI performance budgets for core text assets and font preconnect hints.
