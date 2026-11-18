@@ -16,7 +16,7 @@ test("searches inside resource content", async ({ page }) => {
 });
 
 test("filters by collection and difficulty", async ({ page }) => {
-  await page.locator("#collection").selectOption("Developer Toolkit");
+  await page.locator("#collection").selectOption("Project Builder");
   await expect(page.locator(".card")).not.toHaveCount(0);
   await page.locator("#difficulty").selectOption("advanced");
   await expect(page.locator(".card h3", { hasText: "Build a practical project risk register" })).toBeVisible();
@@ -72,7 +72,9 @@ test("keeps the mobile layout within the viewport", async ({ page }) => {
 });
 
 test("supports offline navigation after the service worker is ready", async ({ page, context }) => {
-  await page.evaluate(() => navigator.serviceWorker.ready);
+  await page.evaluate(async () => { await navigator.serviceWorker.ready; return true; });
+  await page.reload();
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller));
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator("h1")).toContainText("Find the right words");
