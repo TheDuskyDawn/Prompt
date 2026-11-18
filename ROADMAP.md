@@ -47,7 +47,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 36. [x] Add difficulty and collection metadata.
 37. [x] Make the layout and controls responsive on mobile.
 38. [x] Add visible keyboard focus states.
-39. [~] Review contrast systematically across themes.
+39. [x] Add automated 4.5:1 text contrast checks across both themes.
 40. [~] Complete a screen-reader audit.
 
 ## Stage 5 — Quality
