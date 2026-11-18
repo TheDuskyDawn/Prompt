@@ -356,6 +356,18 @@ $("#detailBody").addEventListener("click", async (event) => {
   }
 });
 
+$("#download-catalogue").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(items, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "prompt-vault-catalogue.json";
+  document.body.append(link);
+  link.click();
+  link.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
 $("#clear-filters").addEventListener("click", () => {
   $("#search").value = "";
   $("#type").value = "all";
