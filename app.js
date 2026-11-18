@@ -133,8 +133,8 @@ function openDetail(id) {
     '</h2><p class="detailmeta">' + escapeHTML(item.description) +
     '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
     '</div><h3>Content</h3><div class="detailtext" id="resourceText">' +
-    escapeHTML(item.content) + '</div><button class="copy" id="copy">Copy ' +
-    escapeHTML(item.type) + "</button>";
+    escapeHTML(item.content) + '</div><div class="detail-actions"><button class="copy" id="copy">Copy ' +
+    escapeHTML(item.type) + '</button><button class="copy-link" id="share-resource">Copy resource link</button></div>';
   const detailParams = new URLSearchParams(window.location.search);
   detailParams.set("resource", item.id);
   history.replaceState(null, "", window.location.pathname + "?" + detailParams.toString() + "#library");
