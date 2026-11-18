@@ -246,7 +246,7 @@ test("filters by resource type and category", async ({ page }) => {
   await page.locator("#type").selectOption("skill");
   await expect(page.locator(".card")).not.toHaveCount(0);
   await expect(page.locator(".card .kind")).toContainText("skill");
-  await page.locator("#category").selectOption({ index: 1 });
+  await page.locator("#category").selectOption("Productivity");
   await expect(page.locator(".card")).not.toHaveCount(0);
 });
 
