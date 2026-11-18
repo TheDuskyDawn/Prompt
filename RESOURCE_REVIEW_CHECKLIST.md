@@ -33,7 +33,7 @@ Use this checklist when reviewing a proposed prompt or skill before adding it to
 - [ ] Placeholder personalisation, copy, and download work where applicable.
 - [ ] The change is understandable on a narrow mobile screen.
 
-A resource should not be merged until every applicable item is checked. If an item cannot be verified, explain the limitation in the pull request.
+A resource should not be merged until every applicable item is checked. Unreviewed or pending suggestions must remain in the issue queue and must never be added to the public JSON catalogue. If an item cannot be verified, explain the limitation in the pull request.
 
 ## Review status
 
