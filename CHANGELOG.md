@@ -12,4 +12,5 @@ Notable project changes are recorded here.
 - Improved keyboard focus, selected-state labels, and clipboard fallback behaviour.
 - Strengthened catalogue validation and added JavaScript syntax and local-link checks to CI.
 - Added shareable filtered views and direct links to individual resources.
+- Added plain-text downloads for individual prompts and skills.
 - Added retryable loading states, resilient local storage, skip navigation, and reduced-motion support.
