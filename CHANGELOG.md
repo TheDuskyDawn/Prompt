@@ -30,3 +30,5 @@ Notable project changes are recorded here.
 - Added automated text contrast checks for both color themes and improved light-theme accent contrast.
 
 - Added static accessibility checks for page language, headings, IDs, labels, skip navigation, and dialog naming.
+
+- Added related-resource recommendations based on shared collections and tags.
