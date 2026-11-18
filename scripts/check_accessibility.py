@@ -2,7 +2,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 import sys
 
-PAGES = [Path("index.html"), Path("privacy.html"), Path("guide.html")]
+PAGES = [Path("index.html"), Path("privacy.html"), Path("guide.html"), Path("offline.html")]
 
 class AccessibilityScanner(HTMLParser):
     def __init__(self):
