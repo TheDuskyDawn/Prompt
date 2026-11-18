@@ -163,6 +163,20 @@ function getFilledContent(item) {
   return content;
 }
 
+function getRelatedResources(item) {
+  return items
+    .filter((candidate) => candidate.id !== item.id)
+    .map((candidate) => ({
+      item: candidate,
+      score: candidate.collections.filter((name) => item.collections.includes(name)).length * 3 +
+        candidate.tags.filter((tag) => item.tags.includes(tag)).length
+    }))
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+    .slice(0, 3)
+    .map((entry) => entry.item);
+}
+
 function openDetail(id) {
   const item = items.find((entry) => entry.id === id);
   if (!item) return;
@@ -185,6 +199,16 @@ function openDetail(id) {
     escapeHTML(item.content) + '</div><div class="detail-actions"><button class="copy" id="copy">Copy ' +
     escapeHTML(item.type) + '</button><button class="copy-link" id="share-resource">Copy resource link</button>' +
     '<button class="copy-link" id="download-resource">Download .txt</button></div>';
+
+  const related = getRelatedResources(item);
+  if (related.length) {
+    $("#detailBody").insertAdjacentHTML("beforeend",
+      '<section class="related"><h3>Related resources</h3><div class="related-list">' +
+      related.map((entry) => '<button type="button" data-related-open="' + escapeHTML(entry.id) +
+        '"><span>' + escapeHTML(entry.title) + '</span><small>' + escapeHTML(entry.type) +
+        ' · ' + escapeHTML(entry.category) + '</small></button>').join("") +
+      '</div></section>');
+  }
 
   const detailParams = new URLSearchParams(window.location.search);
   detailParams.set("resource", item.id);
@@ -301,6 +325,11 @@ $("#detailBody").addEventListener("input", (event) => {
 });
 
 $("#detailBody").addEventListener("click", async (event) => {
+  const relatedButton = event.target.closest("[data-related-open]");
+  if (relatedButton) {
+    openDetail(relatedButton.dataset.relatedOpen);
+    return;
+  }
   if (event.target.id === "share-resource") {
     const button = event.target;
     try { await copyText(window.location.href); button.textContent = "Link copied ✓"; }
