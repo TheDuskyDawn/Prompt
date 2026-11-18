@@ -59,7 +59,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 46. [x] Reject empty content and invalid metadata.
 47. [x] Add CI validation.
 48. [~] Exercise missing-data and network-failure cases on real devices.
-49. [x] Add automated browser tests for multi-term search, relevance ranking, sorting, type/category/tag/collection/difficulty filters, empty states, review provenance, favourites backup/restore, personalisation, shareable URLs, theme persistence and device preference, offline navigation/status, downloads, keyboard interactions, random discovery, and 320px/360px page overflow.
+49. [x] Add automated browser tests for multi-term search, relevance ranking, sorting, type/category/tag/collection/difficulty filters, empty states, review provenance, favourites backup/restore, personalisation, shareable URLs, theme persistence and device preference, offline navigation/status, downloads, keyboard interactions, random discovery, and 320px–1024px responsive page overflow.
 50. [x] Implement clipboard fallback after denied modern API writes, permission-error feedback, and safe personalised input rendering.
 
 ## Stage 6 — Deployment
@@ -113,7 +113,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 ## Stage 10 — Launch and maintenance
 91. [x] Run an initial content review.
 92. [x] Run automated local-link checks.
-93. [~] Add automated 320px and 360px overflow coverage for the library, guide, privacy, and offline pages; complete hands-on testing on physical phones and tablets.
+93. [~] Add automated 320px, 360px, 600px, 768px, 820px, and 1024px overflow coverage for the library, guide, privacy, and offline pages; complete hands-on testing on physical phones and tablets.
 94. [~] Add automated Chromium browser coverage; complete hands-on desktop and cross-browser testing.
 95. [~] Verify deployment from a clean, final commit and smoke-test all live assets.
 96. [x] Write launch notes in the changelog.

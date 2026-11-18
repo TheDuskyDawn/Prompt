@@ -397,7 +397,7 @@ test("keeps an explicit theme choice when the device preference changes", async 
 
 
 test("avoids horizontal page overflow at narrow phone widths", async ({ page }) => {
-  for (const width of [320, 360]) {
+  for (const width of [320, 360, 600, 768, 820, 1024]) {
     await page.setViewportSize({ width, height: 800 });
     for (const path of ["/", "/guide.html", "/privacy.html", "/offline.html"]) {
       await page.goto(path);
