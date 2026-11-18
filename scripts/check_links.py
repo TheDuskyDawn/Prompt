@@ -4,7 +4,7 @@ import sys
 from urllib.parse import unquote, urlsplit
 
 ROOT = Path(".")
-HTML_FILES = [ROOT / "index.html", ROOT / "privacy.html"]
+HTML_FILES = [ROOT / "index.html", ROOT / "privacy.html", ROOT / "guide.html"]
 
 class LinkScanner(HTMLParser):
     def __init__(self):
