@@ -329,3 +329,9 @@ $("#share-view").addEventListener("click", async () => {
   try { await copyText(window.location.href); button.textContent = "Link copied ✓"; }
   catch (error) { button.textContent = "Could not copy link"; console.warn(error); }
 });
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./service-worker.js").catch((error) => console.warn("Offline support could not be enabled.", error));
+  });
+}
