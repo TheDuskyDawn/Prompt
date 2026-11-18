@@ -96,5 +96,47 @@
     ],
     "date": "2026-11-18",
     "content": "Review checklist:\\n- Does the result satisfy the stated goal and acceptance criteria?\\n- Are factual claims supported and uncertainty labelled?\\n- Are edge cases and failure states handled?\\n- Is the structure accessible and easy to navigate?\\n- Are names, links, and instructions consistent?\\n- Are privacy and security risks considered?\\n- Are tests or examples included where useful?\\n- List issues by severity and recommend specific fixes."
+  },
+  {
+    "id": "prompt-product-requirements",
+    "type": "prompt",
+    "category": "Productivity",
+    "title": "Turn an idea into clear product requirements",
+    "description": "Convert an early concept into user needs, scope, requirements, and acceptance criteria.",
+    "tags": [
+      "product",
+      "planning",
+      "requirements"
+    ],
+    "date": "2026-11-18",
+    "content": "Act as a product analyst. Help turn this idea into a concise product requirements document: [IDEA]. First identify the target users and problem. Separate confirmed facts from assumptions, and ask clarifying questions where a decision would materially change the solution. Then draft: problem statement, user stories, goals and non-goals, functional requirements, accessibility and privacy considerations, edge cases, success measures, and testable acceptance criteria. Prioritise requirements as must-have, should-have, or later. Do not invent market evidence."
+  },
+  {
+    "id": "prompt-compare-options",
+    "type": "prompt",
+    "category": "Research",
+    "title": "Compare options with a transparent decision matrix",
+    "description": "Evaluate alternatives using explicit criteria, evidence, trade-offs, and uncertainty.",
+    "tags": [
+      "decision-making",
+      "comparison",
+      "analysis"
+    ],
+    "date": "2026-11-18",
+    "content": "Help me compare these options: [OPTIONS]. My goal and constraints are: [GOAL AND CONSTRAINTS]. Propose decision criteria and explain why each matters. Ask me to confirm the criteria and weights before scoring if they are not provided. Build a comparison table, distinguish sourced facts from estimates, identify trade-offs and unknowns, and run a brief sensitivity check showing whether different priorities change the result. End with a reasoned recommendation and what evidence could change it. Never fabricate data or citations."
+  },
+  {
+    "id": "prompt-learn-by-practice",
+    "type": "prompt",
+    "category": "Learning",
+    "title": "Teach through guided practice",
+    "description": "Build understanding with small exercises, hints, feedback, and spaced review.",
+    "tags": [
+      "learning",
+      "practice",
+      "tutoring"
+    ],
+    "date": "2026-11-18",
+    "content": "Be my learning coach for [TOPIC]. My current level is [LEVEL], and my goal is [GOAL]. Teach one small concept at a time. Start by checking what I already understand. Give me a worked example, then a similar question to solve independently. Wait for my attempt before revealing the solution. Give kind, specific feedback and a hint before the full answer. Gradually increase difficulty, revisit earlier ideas, and finish with a short recap and a few questions for later review."
   }
 ]
