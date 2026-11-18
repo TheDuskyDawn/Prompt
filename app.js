@@ -50,7 +50,14 @@ async function init() {
     restoreViewFromURL();
     render();
     const resourceId = new URLSearchParams(window.location.search).get("resource");
-    if (resourceId) openDetail(resourceId);
+    if (resourceId && items.some((item) => item.id === resourceId)) {
+      openDetail(resourceId);
+    } else if (resourceId) {
+      const params = new URLSearchParams(window.location.search);
+      params.delete("resource");
+      const query = params.toString();
+      history.replaceState(null, "", window.location.pathname + (query ? "?" + query : "") + window.location.hash);
+    }
   } catch (error) {
     $("#cards").setAttribute("aria-busy", "false");
     $("#cards").innerHTML = '<div class="empty" role="alert"><p>The catalogue could not be loaded.</p><button id="retry-load" type="button">Try again</button></div>';
