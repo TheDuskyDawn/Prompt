@@ -67,3 +67,4 @@ Notable project changes are recorded here.
 - Added isolated regression tests proving pending resources are rejected, accepted community resources pass, and invalid review states fail catalogue validation.
 - Expanded the curated catalogue from 25 to 30 original prompts and reusable skills, adding scenario planning, technical documentation, data-quality review, constructive feedback, and lesson design.
 - Added a browser security regression test proving personalised prompt input is rendered as text, not executable HTML.
+- Updated workflow concurrency so new pushes no longer cancel an active validation or deployment; only the newest pending run is retained by GitHub.
