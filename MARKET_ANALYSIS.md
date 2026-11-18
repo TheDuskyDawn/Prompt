@@ -37,7 +37,7 @@ Prompt Vault should not compete on raw prompt count. Its strongest achievable po
 ### Strengths already implemented
 
 - Free, static hosting on GitHub Pages.
-- 25 curated prompts and reusable skills in a separate JSON catalogue.
+- 25 curated prompts and reusable skills in a separate JSON catalogue, each carrying validated review-status metadata shown in cards and details.
 - Search across resource text, title, description, category, type, difficulty, collections, and tags.
 - Type, category, five curated collections, difficulty, tag, and favourites filters; alphabetical and date sorting.
 - Detail view, variable-based prompt personalisation with live preview, copy, plain-text download, and shareable direct links.
@@ -53,7 +53,7 @@ Prompt Vault should not compete on raw prompt count. Its strongest achievable po
 
 - The catalogue is still small compared with large public directories.
 - No evidence-backed user research or usage analytics yet.
-- No in-site submission/review queue; GitHub Issues and pull requests are the current intake route.
+- No in-site submission/review queue; GitHub Issues and pull requests are the current intake route. The catalogue now reserves explicit curated, community, and pending statuses, but current entries are all curated.
 - Favourites are local to each browser unless the user exports and imports a backup.
 - No prompt execution, model integrations, collaborative workspaces, or cross-device accounts.
 - No automated content freshness or model-compatibility checks.

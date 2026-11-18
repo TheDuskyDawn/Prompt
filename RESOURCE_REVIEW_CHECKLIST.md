@@ -34,3 +34,10 @@ Use this checklist when reviewing a proposed prompt or skill before adding it to
 - [ ] The change is understandable on a narrow mobile screen.
 
 A resource should not be merged until every applicable item is checked. If an item cannot be verified, explain the limitation in the pull request.
+
+## Review status
+
+- Set `review_status` to `curated`, `community`, or `pending` in the catalogue.
+- Use `curated` only after the resource has passed the checks above.
+- Keep unreviewed submissions out of the public catalogue; `community` is for accepted community-authored entries that have passed review, not a bypass for review.
+- Never label a resource `curated` merely because it is original; verify usefulness, safety, clarity, and accuracy first.

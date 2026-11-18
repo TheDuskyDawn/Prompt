@@ -219,3 +219,16 @@ test("rejects oversized favourites backups without changing saved items", async 
   await expect(page.locator(".card")).toHaveCount(1);
   await expect(page.locator(".card h3")).toContainText("Explain a complex topic clearly");
 });
+
+
+test("shows the review status on resource cards and details", async ({ page }) => {
+  const card = page.locator(".card").first();
+  await expect(card.locator(".kind")).toContainText("curated");
+  await card.locator('[data-open]').click();
+  await expect(page.locator("#detailBody")).toContainText("Review: curated");
+});
+
+test("search includes resource review metadata", async ({ page }) => {
+  await page.locator("#search").fill("curated");
+  await expect(page.locator(".card")).toHaveCount(25);
+});
