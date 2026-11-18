@@ -74,3 +74,4 @@ Notable project changes are recorded here.
 - Added a Surprise me discovery action that opens a random catalogue resource and avoids immediately repeating the currently open item.
 - Added an original evidence-audit prompt that distinguishes supported, unsupported, contradicted, and unverifiable claims without inventing sources.
 - Extended responsive overflow checks from phone-only widths to six viewport sizes through 1024px, and made the library heading/actions stack cleanly on tablet-sized screens.
+- Bumped the offline cache to v5 so returning visitors receive the latest catalogue and interface, and added CI checks for versioned cache names and cleanup of obsolete caches.

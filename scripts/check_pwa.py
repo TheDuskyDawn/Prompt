@@ -30,6 +30,11 @@ worker = (root / "service-worker.js").read_text(encoding="utf-8")
 app = (root / "app.js").read_text(encoding="utf-8")
 page = (root / "index.html").read_text(encoding="utf-8")
 
+if not re.search(r'const CACHE_NAME = "prompt-vault-v\d+";', worker):
+    sys.exit("The service worker cache name must use a versioned prompt-vault-vN identifier")
+if 'key.startsWith("prompt-vault-") && key !== CACHE_NAME' not in worker:
+    sys.exit("The service worker must remove outdated Prompt Vault caches during activation")
+
 if 'serviceWorker.register("./service-worker.js")' not in app:
     sys.exit("The app does not register its service worker")
 if 'rel="manifest" href="manifest.webmanifest"' not in page:
