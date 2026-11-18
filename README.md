@@ -13,6 +13,7 @@ A free, static library of reusable AI prompts and skills, designed for GitHub Pa
 - Share filtered views and direct links to individual resources
 - Export the complete catalogue as JSON and back up favourites separately
 - Curated collection of 31 original starter resources with explicit review-status metadata and provenance labels
+- Versioned five-dimension quality rubric with validated per-resource assessment records; unassessed entries are labelled honestly
 - Save favourites and light/dark theme preference locally; the initial theme follows the device preference
 - Offline caching through a service worker, a dedicated offline fallback page, and install metadata for supported browsers
 - Retryable loading states, responsive layout, skip navigation, reduced-motion support, keyboard focus indicators, and accessible labels
@@ -65,7 +66,7 @@ Run a local static server from the repository root (for example, python -m http.
 
 Check JavaScript syntax with node --check app.js.
 
-See [privacy.html](https://theduskydawn.github.io/Prompt/privacy.html) for how browser storage, offline caching, and external services are handled. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [RESOURCE_REVIEW_CHECKLIST.md](RESOURCE_REVIEW_CHECKLIST.md), and [SECURITY.md](SECURITY.md) for community, content review, and security guidance.
+See [QUALITY_RUBRIC.md](QUALITY_RUBRIC.md) for the editorial scoring standard and [RESOURCE_REVIEW_CHECKLIST.md](RESOURCE_REVIEW_CHECKLIST.md) for publication checks. See [privacy.html](https://theduskydawn.github.io/Prompt/privacy.html) for how browser storage, offline caching, and external services are handled. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [RESOURCE_REVIEW_CHECKLIST.md](RESOURCE_REVIEW_CHECKLIST.md), and [SECURITY.md](SECURITY.md) for community, content review, and security guidance.
 
 ## Project research
 

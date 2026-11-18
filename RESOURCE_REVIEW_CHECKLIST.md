@@ -41,3 +41,8 @@ A resource should not be merged until every applicable item is checked. Unreview
 - Use `curated` only after the resource has passed the checks above.
 - Keep unreviewed submissions out of the public catalogue; `community` is for accepted community-authored entries that have passed review, not a bypass for review.
 - Never label a resource `curated` merely because it is original; verify usefulness, safety, clarity, and accuracy first.
+
+
+## Structured quality rubric
+
+Complete the five-dimension [quality rubric](QUALITY_RUBRIC.md) for each resource when an editorial score is required. Record clarity, completeness, usefulness, originality, and limitations separately. Do not invent historical scores: existing entries remain explicitly marked not assessed until a reviewer records a dated assessment. A rubric score does not replace safety, rights, factual, or technical checks.

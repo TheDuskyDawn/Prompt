@@ -13,7 +13,7 @@ except Exception as error:
 if not isinstance(resources, list):
     sys.exit("Catalogue must be a JSON array")
 
-required = {"id", "type", "category", "title", "description", "tags", "date", "content", "difficulty", "collections", "review_status"}
+required = {"id", "type", "category", "title", "description", "tags", "date", "content", "difficulty", "collections", "review_status", "quality_review"}
 seen_ids = set()
 
 for index, item in enumerate(resources, start=1):
@@ -43,6 +43,40 @@ for index, item in enumerate(resources, start=1):
 
     if not isinstance(item["review_status"], str) or item["review_status"] not in {"curated", "community", "pending"}:
         sys.exit(f"{prefix}: review_status must be curated, community, or pending")
+
+    quality = item["quality_review"]
+    if not isinstance(quality, dict):
+        sys.exit(f"{prefix}: quality_review must be an object")
+    if quality.get("rubric_version") != "1.0":
+        sys.exit(f"{prefix}: quality_review.rubric_version must be 1.0")
+    quality_status = quality.get("status")
+    if quality_status not in {"not-assessed", "assessed", "needs-revision", "ready"}:
+        sys.exit(f"{prefix}: invalid quality_review.status")
+    if quality_status == "not-assessed":
+        if quality.get("scores") is not None or quality.get("reviewer") is not None or quality.get("reviewed_at") is not None:
+            sys.exit(f"{prefix}: not-assessed quality reviews must not contain scores, reviewer, or reviewed_at")
+    else:
+        scores = quality.get("scores")
+        dimensions = {"clarity", "completeness", "usefulness", "originality", "limitations"}
+        if not isinstance(scores, dict) or set(scores) != dimensions:
+            sys.exit(f"{prefix}: completed quality reviews require exactly five rubric dimensions")
+        if any(type(score) is not int or score < 1 or score > 5 for score in scores.values()):
+            sys.exit(f"{prefix}: quality scores must be integers from 1 to 5")
+        if not isinstance(quality.get("reviewer"), str) or not quality["reviewer"].strip():
+            sys.exit(f"{prefix}: completed quality reviews require a reviewer")
+        if not isinstance(quality.get("reviewed_at"), str) or not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}", quality["reviewed_at"]):
+            sys.exit(f"{prefix}: completed quality reviews require reviewed_at in YYYY-MM-DD format")
+        try:
+            date.fromisoformat(quality["reviewed_at"])
+        except ValueError:
+            sys.exit(f"{prefix}: quality review date is not a valid calendar date")
+        if not isinstance(quality.get("notes"), str):
+            sys.exit(f"{prefix}: quality review notes must be text")
+        minimum = min(scores.values())
+        if quality_status == "ready" and minimum < 3:
+            sys.exit(f"{prefix}: ready quality reviews require every score to be at least 3")
+        if quality_status == "needs-revision" and minimum > 2:
+            sys.exit(f"{prefix}: needs-revision requires at least one score of 1 or 2")
 
     if not isinstance(item["collections"], list) or not item["collections"]:
         sys.exit(f"{prefix}: collections must be a non-empty array")

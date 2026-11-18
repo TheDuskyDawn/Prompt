@@ -115,7 +115,7 @@ function render() {
   const list = items.filter((item) => {
     const searchable = [
       item.title, item.description, item.category, item.type, item.difficulty,
-      ...item.collections, item.content, item.review_status, ...item.tags
+      ...item.collections, item.content, item.review_status, item.quality_review?.status, ...item.tags
     ].join(" ").toLowerCase();
     return (type === "all" || item.type === type) &&
       (category === "all" || item.category === category) &&
@@ -150,7 +150,7 @@ function render() {
   $("#cards").innerHTML = list.map((item) => {
     const isFavourite = favourites.has(item.id);
     return '<article class="card"><div class="cardtop"><span class="kind">' +
-      escapeHTML(item.type) + " · " + escapeHTML(item.category) + " · " + escapeHTML(item.difficulty) + " · " + escapeHTML(item.review_status) +
+      escapeHTML(item.type) + " · " + escapeHTML(item.category) + " · " + escapeHTML(item.difficulty) + " · " + escapeHTML(item.review_status) + " · Quality: " + escapeHTML(item.quality_review?.status || "not-assessed") +
       '</span><button class="fav ' + (isFavourite ? "on" : "") + '" data-fav="' +
       escapeHTML(item.id) + '" aria-label="' + (isFavourite ? "Remove " : "Add ") +
       escapeHTML(item.title) + ' ' + (isFavourite ? "from" : "to") +
@@ -230,7 +230,7 @@ function openDetail(id) {
     : '<p class="detailmeta">This resource has no fill-in fields.</p>';
 
   $("#detailBody").innerHTML = '<p class="eyebrow">' + escapeHTML(item.type) + " / " +
-    escapeHTML(item.category) + " / " + escapeHTML(item.difficulty) + " / Review: " + escapeHTML(item.review_status) +
+    escapeHTML(item.category) + " / " + escapeHTML(item.difficulty) + " / Review: " + escapeHTML(item.review_status) + " · Quality review: " + escapeHTML(item.quality_review?.status || "not-assessed") +
     '</p><h2 id="detailTitle">' + escapeHTML(item.title) +
     '</h2><p class="detailmeta">' + escapeHTML(item.description) +
     '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +

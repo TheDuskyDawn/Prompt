@@ -17,7 +17,14 @@
       "Getting Started",
       "Learning Lab"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-study-planner",
@@ -37,7 +44,14 @@
       "Getting Started",
       "Project Builder"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-debug-helper",
@@ -56,7 +70,14 @@
     "collections": [
       "Developer Toolkit"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-writing-editor",
@@ -76,7 +97,14 @@
       "Getting Started",
       "Writing Desk"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-research-brief",
@@ -95,7 +123,14 @@
     "collections": [
       "Research & Decisions"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "skill-project-planner",
@@ -114,7 +149,14 @@
     "collections": [
       "Project Builder"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "skill-quality-review",
@@ -134,7 +176,14 @@
       "Developer Toolkit",
       "Project Builder"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-product-requirements",
@@ -153,7 +202,14 @@
     "collections": [
       "Project Builder"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-compare-options",
@@ -172,7 +228,14 @@
     "collections": [
       "Research & Decisions"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-learn-by-practice",
@@ -192,7 +255,14 @@
       "Getting Started",
       "Learning Lab"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-brainstorm-options",
@@ -212,7 +282,14 @@
       "Getting Started",
       "Writing Desk"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-meeting-action-notes",
@@ -232,7 +309,14 @@
       "Project Builder",
       "Writing Desk"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-risk-register",
@@ -252,7 +336,14 @@
       "Project Builder",
       "Research & Decisions"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-accessibility-review",
@@ -271,7 +362,14 @@
     "collections": [
       "Developer Toolkit"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "skill-research-source-check",
@@ -290,7 +388,14 @@
     "collections": [
       "Research & Decisions"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-meeting-agenda",
@@ -310,7 +415,14 @@
       "Writing Desk"
     ],
     "content": "Create a focused agenda for a meeting about [TOPIC]. Desired outcome: [OUTCOME]. Attendees and available time: [DETAILS]. Include a short objective, preparation needed, time-boxed discussion items, decisions to make, and a closing recap. Prioritise the essential items so the meeting can finish on time. Do not invent attendees or decisions.",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-test-case-generator",
@@ -330,7 +442,14 @@
       "Project Builder"
     ],
     "content": "Act as a careful software test analyst. Review these requirements: [REQUIREMENTS]. Identify assumptions and ambiguities first. Then create test cases with an ID, scenario, preconditions, steps, test data, and expected result. Include normal, boundary, invalid-input, accessibility, and failure-state cases where relevant. Map each test to a requirement. Do not invent product behaviour that is not specified; mark open questions clearly.",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-user-guide-writer",
@@ -350,7 +469,14 @@
       "Getting Started"
     ],
     "content": "Write a user guide for [PRODUCT OR TASK] for readers with [EXPERIENCE LEVEL]. Use only the information provided: [SOURCE NOTES]. Organise it into purpose, prerequisites, numbered steps, expected result, common problems, and where to get help. Use plain language, short sentences, descriptive headings, and warnings only where necessary. Flag missing information rather than making up interface labels or behaviour.",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-error-message-explainer",
@@ -370,7 +496,14 @@
       "Learning Lab"
     ],
     "content": "Explain this error message in plain language: [ERROR MESSAGE]. Context: [WHAT I WAS DOING]. Environment: [DEVICE, APP, OR LANGUAGE]. Describe what the message means, list likely causes in order of evidence, and suggest safe checks that do not delete data or expose secrets. Ask for missing details when needed. Do not guess at a definitive cause or claim a fix was tested.",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "skill-weekly-review",
@@ -390,7 +523,14 @@
       "Project Builder"
     ],
     "content": "1. Review the goals and commitments you set for this week.\n2. Record what was completed and what remains, without judgement.\n3. Note important outcomes, blockers, and lessons learned.\n4. Identify tasks that can be removed, delegated, or postponed.\n5. Choose up to three meaningful priorities for next week.\n6. Break each priority into a small first action.\n7. Add realistic time estimates and leave buffer space.\n8. Check that the plan allows for rest and existing commitments.\n9. Revisit the plan midweek and adjust when circumstances change.",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-code-review",
@@ -409,7 +549,14 @@
       "Developer Toolkit"
     ],
     "content": "Review the code below for correctness, readability, maintainability, and likely edge cases. Context and intended behaviour: [CONTEXT]. First summarise what the code appears to do. Then list findings by severity, pointing to the relevant function or section. Explain why each issue matters and suggest the smallest practical improvement. Distinguish confirmed defects from questions that need more context. Do not invent test results or claim the code was executed. Code: [PASTE CODE]",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-study-quiz",
@@ -429,7 +576,14 @@
       "Getting Started"
     ],
     "content": "Create a learning quiz about [TOPIC] for someone at [LEVEL]. Cover the most important concepts without relying on trick questions. Include a mix of recall, explanation, and application questions. Put the answer key and short explanations in a separate section after the questions. Label any assumptions and avoid facts that are not established in the supplied material: [SOURCE MATERIAL, IF ANY].",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-email-draft",
@@ -449,7 +603,14 @@
       "Getting Started"
     ],
     "content": "Draft an email for this situation: [SITUATION]. Recipient and relationship: [RECIPIENT]. Desired outcome: [OUTCOME]. Key points to include: [POINTS]. Use a [TONE] tone, keep it concise, and make the requested next step clear. Do not invent dates, promises, or facts. Provide a subject line and one polished draft. If important details are missing, use clear placeholders rather than guessing.",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-project-retrospective",
@@ -468,7 +629,14 @@
       "Project Builder"
     ],
     "content": "Facilitate a constructive retrospective for [PROJECT OR PERIOD]. Context and outcomes: [DETAILS]. Organise observations into what worked, what was difficult, what surprised us, and what we learned. Separate evidence from interpretation and avoid blaming individuals. Identify a small number of improvements, each with an owner only if one is provided, a first action, and a way to tell whether it helped. End with open questions.",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "skill-decision-log",
@@ -488,7 +656,14 @@
       "Research & Decisions"
     ],
     "content": "For each meaningful project decision, record:\n1. Date and decision title.\n2. Context and the problem being addressed.\n3. Options considered, including doing nothing where relevant.\n4. Criteria and constraints that mattered.\n5. The chosen option and concise rationale.\n6. Known trade-offs, risks, and assumptions.\n7. Who made or approved the decision, if stated.\n8. What evidence or event would trigger a review.\nKeep entries factual and brief. Do not rewrite old decisions as if the outcome had been obvious.",
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-scenario-planning",
@@ -508,7 +683,14 @@
       "Project Builder",
       "Research & Decisions"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "skill-technical-documentation",
@@ -527,7 +709,14 @@
     "collections": [
       "Developer Toolkit"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-data-quality-review",
@@ -547,7 +736,14 @@
       "Research & Decisions",
       "Developer Toolkit"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-constructive-feedback",
@@ -567,7 +763,14 @@
       "Writing Desk",
       "Getting Started"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "skill-lesson-design",
@@ -587,7 +790,14 @@
       "Learning Lab",
       "Getting Started"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   },
   {
     "id": "prompt-claim-evidence-audit",
@@ -608,6 +818,13 @@
       "Research & Decisions",
       "Learning Lab"
     ],
-    "review_status": "curated"
+    "review_status": "curated",
+    "quality_review": {
+      "rubric_version": "1.0",
+      "status": "not-assessed",
+      "scores": null,
+      "reviewed_at": null,
+      "notes": ""
+    }
   }
 ]
