@@ -1,4 +1,4 @@
-const CACHE_NAME = "prompt-vault-v8";
+const CACHE_NAME = "prompt-vault-v9";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -10,6 +10,8 @@ const CORE_ASSETS = [
   "./browse-tasks.js",
   "./builder.html",
   "./builder.js",
+  "./learning.html",
+  "./learning.js",
   "./privacy.html",
   "./offline.html",
   "./styles.css",

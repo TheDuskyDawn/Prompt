@@ -63,16 +63,16 @@
 
 ### Stage 4 — Learning and onboarding
 
-131. [P0] Add a beginner learning path explaining prompt structure.
-132. [P0] Add short lessons on context, constraints, examples, and output formats.
-133. [P0] Add interactive exercises using safe, fictional practice scenarios.
-134. [P1] Add before/after examples that explain why a revision is clearer.
-135. [P1] Add a glossary of prompt-engineering terms.
-136. [P1] Add role-based learning tracks for students, educators, developers, and researchers.
-137. [P1] Add progress tracking stored only in the visitor's browser.
-138. [P1] Add printable lesson notes and accessible text-only versions.
-139. [P2] Add knowledge checks with explanations, not just scores.
-140. [P2] Add a contributor learning path covering originality, testing, attribution, and safe publishing.
+131. [x] [P0] Add a beginner learning path explaining prompt structure. **Learning path implemented on the planning branch.**
+132. [x] [P0] Add short lessons on context, constraints, examples, and output formats. **Learning path implemented on the planning branch.**
+133. [x] [P0] Add interactive exercises using safe, fictional practice scenarios. **Learning path implemented on the planning branch.**
+134. [x] [P1] Add before/after examples that explain why a revision is clearer. **Learning path implemented on the planning branch.**
+135. [x] [P1] Add a glossary of prompt-engineering terms. **Learning path implemented on the planning branch.**
+136. [x] [P1] Add role-based learning tracks for students, educators, developers, and researchers. **Learning path implemented on the planning branch.**
+137. [x] [P1] Add progress tracking stored only in the visitor's browser. **Learning path implemented on the planning branch.**
+138. [x] [P1] Add printable lesson notes and accessible text-only versions. **Learning path implemented on the planning branch.**
+139. [x] [P2] Add knowledge checks with explanations, not just scores. **Learning path implemented on the planning branch.**
+140. [x] [P2] Add a contributor learning path covering originality, testing, attribution, and safe publishing. **Learning path implemented on the planning branch.**
 
 ### Stage 5 — Workflows and reusable skills
 
