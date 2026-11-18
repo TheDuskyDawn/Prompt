@@ -15,7 +15,8 @@ A free, static library of reusable AI prompts and skills, designed for GitHub Pa
 - Save favourites and light/dark theme preference locally; the initial theme follows the device preference
 - Offline caching through a service worker, a dedicated offline fallback page, and install metadata for supported browsers
 - Retryable loading states, responsive layout, skip navigation, reduced-motion support, keyboard focus indicators, and accessible labels
-- Automatically validate catalogue data, JavaScript, local links, PWA assets, and core asset-size budgets, and theme contrast, and static accessibility before deployment
+- Automatically validate catalogue data, JavaScript, local links, PWA assets, core asset-size budgets, theme contrast, and static accessibility before deployment
+- Run Playwright browser regression tests in desktop and mobile projects before deployment
 
 ## User guide
 
