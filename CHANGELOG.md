@@ -26,3 +26,5 @@ Notable project changes are recorded here.
 - Added automated issue label creation and assignment.
 
 - Added CI performance budgets for core text assets and font preconnect hints.
+
+- Added automated text contrast checks for both color themes and improved light-theme accent contrast.
