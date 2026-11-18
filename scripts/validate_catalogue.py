@@ -97,6 +97,19 @@ for index, item in enumerate(resources, start=1):
         sys.exit(f"{prefix}: invalid testing status")
     if not isinstance(testing.get("records"), list):
         sys.exit(f"{prefix}: testing.records must be an array")
+    for record in testing["records"]:
+        if not isinstance(record, dict) or not all(isinstance(record.get(key), str) and record[key].strip() for key in ("model", "tested_at", "scope", "result")):
+            sys.exit(f"{prefix}: test records require model, tested_at, scope, and result")
+        if record["result"] not in {"pass", "partial", "fail"}:
+            sys.exit(f"{prefix}: test result must be pass, partial, or fail")
+        try:
+            date.fromisoformat(record["tested_at"])
+        except ValueError:
+            sys.exit(f"{prefix}: test record date must be valid YYYY-MM-DD")
+    if testing["status"] == "tested" and (not testing["records"] or any(r["result"] != "pass" for r in testing["records"])):
+        sys.exit(f"{prefix}: tested status requires passing dated test records")
+    if testing["status"] == "partial" and not testing["records"]:
+        sys.exit(f"{prefix}: partial testing status requires at least one test record")
     if testing["status"] == "untested" and testing["records"]:
         sys.exit(f"{prefix}: untested resources cannot contain test records")
 
@@ -116,11 +129,20 @@ for index, item in enumerate(resources, start=1):
         sys.exit(f"{prefix}: failure_modes must be an array of non-empty strings")
     if not isinstance(item.get("version_history"), list):
         sys.exit(f"{prefix}: version_history must be an array")
+    for entry in item["version_history"]:
+        if not isinstance(entry, dict) or not all(isinstance(entry.get(key), str) and entry[key].strip() for key in ("version", "date", "summary")):
+            sys.exit(f"{prefix}: version history entries require version, date, and summary")
+        try:
+            date.fromisoformat(entry["date"])
+        except ValueError:
+            sys.exit(f"{prefix}: version history date must be valid YYYY-MM-DD")
     provenance = item.get("provenance")
     if not isinstance(provenance, dict) or provenance.get("kind") not in {"original", "adapted", "third-party-permission"}:
         sys.exit(f"{prefix}: invalid provenance record")
     if not isinstance(provenance.get("sources"), list) or any(not isinstance(x, str) or not x.strip() for x in provenance["sources"]):
         sys.exit(f"{prefix}: provenance.sources must be an array of non-empty strings")
+    if not isinstance(provenance.get("notes", ""), str):
+        sys.exit(f"{prefix}: provenance.notes must be text")
 
     if not isinstance(item["collections"], list) or not item["collections"]:
         sys.exit(f"{prefix}: collections must be a non-empty array")
