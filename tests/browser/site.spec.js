@@ -419,3 +419,16 @@ test("finds the evidence-audit resource through search", async ({ page }) => {
   await page.locator("#search").fill("audit factual claims evidence");
   await expect(page.locator(".card h3").first()).toHaveText("Audit factual claims against evidence");
 });
+
+
+test("keeps random discovery disabled until the catalogue has loaded", async ({ page }) => {
+  let releaseRequest;
+  await page.route("**/data/resources.json", async (route) => {
+    await new Promise((resolve) => { releaseRequest = resolve; });
+    await route.continue();
+  });
+  await page.goto("/");
+  await expect(page.locator("#surprise")).toBeDisabled();
+  releaseRequest();
+  await expect(page.locator("#surprise")).toBeEnabled();
+});
