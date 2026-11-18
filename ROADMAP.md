@@ -1,33 +1,129 @@
 # Prompt Vault — 100-step roadmap
 
+Status: [x] complete · [~] partially implemented or awaiting hands-on verification · [ ] not started
+
 ## Stage 1 — Foundation
-1. Define the product purpose. 2. Identify audiences. 3. Review competing libraries. 4. Choose a free static architecture. 5. Define resource schema. 6. Create repository structure. 7. Build responsive shell. 8. Establish visual design. 9. Add accessible navigation. 10. Document setup.
+1. [x] Define the product purpose.
+2. [~] Identify primary audiences and validate their needs.
+3. [x] Review competing libraries and document market positioning.
+4. [x] Choose a free static architecture.
+5. [x] Define the resource schema.
+6. [x] Create the repository structure.
+7. [x] Build the responsive site shell.
+8. [x] Establish the visual design.
+9. [x] Add accessible navigation and skip navigation.
+10. [x] Document setup and deployment.
 
 ## Stage 2 — Catalogue
-11. Create prompt entries. 12. Create skill entries. 13. Add categories. 14. Add tags. 15. Add stable IDs. 16. Separate data from UI. 17. Load JSON dynamically. 18. Handle load errors. 19. Add resource counts. 20. Validate schema.
+11. [x] Create original prompt entries.
+12. [x] Create reusable skill entries.
+13. [x] Add categories.
+14. [x] Add tags.
+15. [x] Add stable unique IDs.
+16. [x] Separate catalogue data from the UI.
+17. [x] Load JSON dynamically.
+18. [x] Handle load failures and provide retry.
+19. [x] Add live resource counts.
+20. [x] Validate the catalogue schema.
 
 ## Stage 3 — Discovery
-21. Add full-text search. 22. Add type filter. 23. Add category filter. 24. Add tag filter. 25. Add sorting. 26. Add empty state. 27. Add responsive cards. 28. Add detail dialog. 29. Add copy action. 30. Add keyboard-friendly interactions.
+21. [x] Add full-text search across resource content and metadata.
+22. [x] Add resource-type filtering.
+23. [x] Add category filtering.
+24. [x] Add tag filtering.
+25. [x] Add alphabetical and date sorting.
+26. [x] Add an empty state.
+27. [x] Add responsive resource cards.
+28. [x] Add a resource detail dialog.
+29. [x] Add copy actions with feedback and fallback.
+30. [x] Add keyboard-friendly interactions and visible focus.
 
 ## Stage 4 — Personalisation
-31. Add favourites. 32. Persist favourites locally. 33. Add theme toggle. 34. Persist theme. 35. Add clear feedback after copy. 36. Add metadata. 37. Improve mobile navigation. 38. Add focus states. 39. Test contrast. 40. Test screen-reader labels.
+31. [x] Add favourites.
+32. [x] Persist favourites locally.
+33. [x] Add a theme toggle.
+34. [x] Persist the theme preference.
+35. [x] Add clear feedback after copy.
+36. [x] Add difficulty and collection metadata.
+37. [x] Make the layout and controls responsive on mobile.
+38. [x] Add visible keyboard focus states.
+39. [~] Review contrast systematically across themes.
+40. [~] Complete a screen-reader audit.
 
 ## Stage 5 — Quality
-41. Validate JSON. 42. Check unique IDs. 43. Check required fields. 44. Check allowed types. 45. Check date format. 46. Check empty content. 47. Add CI validation. 48. Test missing data. 49. Test search edge cases. 50. Test clipboard fallback/permissions.
+41. [x] Validate JSON catalogue data.
+42. [x] Check unique IDs.
+43. [x] Check required fields.
+44. [x] Check allowed resource types and difficulty values.
+45. [x] Check valid date format.
+46. [x] Reject empty content and invalid metadata.
+47. [x] Add CI validation.
+48. [~] Exercise missing-data and network-failure cases on real devices.
+49. [~] Add automated search-behaviour tests for edge cases.
+50. [x] Implement clipboard fallback and permission-error feedback.
 
 ## Stage 6 — Deployment
-51. Configure Pages workflow. 52. Set Pages source to Actions. 53. Deploy on main pushes. 54. Add deployment permissions. 55. Add concurrency control. 56. Verify published URL. 57. Add nojekyll. 58. Check asset paths. 59. Test HTTPS. 60. Document deployment.
+51. [x] Configure the GitHub Pages workflow.
+52. [x] Set Pages source to GitHub Actions.
+53. [x] Deploy on pushes to main.
+54. [x] Scope deployment permissions.
+55. [x] Add concurrency control.
+56. [x] Confirm successful Pages deployment runs.
+57. [x] Add .nojekyll.
+58. [x] Check local asset paths in CI.
+59. [x] Deploy over HTTPS.
+60. [x] Document deployment.
 
 ## Stage 7 — Growth
-61. Create contribution guide. 62. Add issue templates. 63. Define content guidelines. 64. Add request labels. 65. Add moderation checklist. 66. Add submission instructions. 67. Review contributions. 68. Add changelog. 69. Add release tags. 70. Invite feedback.
+61. [x] Create a contribution guide.
+62. [x] Add resource suggestion and bug-report issue forms.
+63. [x] Define content and safety guidelines.
+64. [~] Confirm repository labels are configured for issue forms.
+65. [x] Add moderation and review checks to the PR process.
+66. [x] Add submission instructions.
+67. [ ] Review and merge external community contributions.
+68. [x] Add a changelog.
+69. [ ] Create a versioned release.
+70. [x] Invite feedback through GitHub Issues.
 
 ## Stage 8 — Discoverability
-71. Add page title and description. 72. Add social metadata. 73. Add favicon. 74. Add sitemap. 75. Add robots.txt. 76. Improve semantic HTML. 77. Add canonical URL. 78. Optimise font loading. 79. Audit performance. 80. Audit accessibility.
+71. [x] Add a descriptive page title and description.
+72. [x] Add social sharing metadata.
+73. [x] Add a favicon and app icon.
+74. [x] Add a sitemap.
+75. [x] Add robots.txt.
+76. [x] Improve semantic HTML structure.
+77. [x] Add a canonical URL.
+78. [~] Review font loading and offline font fallback.
+79. [~] Run a measured performance audit on mobile and desktop.
+80. [~] Complete a manual accessibility audit.
 
 ## Stage 9 — Advanced options
-81. Evaluate public submission form. 82. Evaluate serverless storage. 83. Evaluate authentication. 84. Evaluate cross-device sync. 85. Evaluate ratings carefully. 86. Design moderation queue. 87. Evaluate analytics with privacy. 88. Consider version history UI. 89. Consider collections and sharing. 90. Estimate hosting and maintenance costs.
+81. [x] Evaluate a public submission path; GitHub issue forms are the current intake.
+82. [x] Evaluate serverless storage; retain static JSON until demand justifies a backend.
+83. [x] Evaluate authentication; accounts are not needed for the current feature set.
+84. [x] Evaluate cross-device sync; local export/import is the current privacy-friendly option.
+85. [x] Evaluate ratings; defer until there is enough usage and moderation capacity.
+86. [~] Design a moderation queue using issue and pull-request review.
+87. [x] Evaluate analytics with privacy; no analytics or tracking are currently installed.
+88. [~] Evaluate version history; Git history and the changelog provide the current baseline.
+89. [x] Add curated collections and shareable resource links.
+90. [x] Estimate hosting and maintenance costs; current static hosting has no paid backend.
 
 ## Stage 10 — Launch and maintenance
-91. Run content review. 92. Run link check. 93. Test on mobile. 94. Test on desktop. 95. Test deployment from clean commit. 96. Write launch notes. 97. Publish project overview. 98. Collect feedback. 99. Prioritise improvements. 100. Review roadmap quarterly.
+91. [x] Run an initial content review.
+92. [x] Run automated local-link checks.
+93. [ ] Complete hands-on mobile-device testing.
+94. [ ] Complete hands-on desktop-browser testing.
+95. [~] Verify deployment from a clean, final commit and smoke-test all live assets.
+96. [x] Write launch notes in the changelog.
+97. [x] Publish the project overview in README.
+98. [x] Collect feedback through issue forms.
+99. [x] Prioritise improvements in this roadmap.
+100. [ ] Schedule a quarterly roadmap review.
 
-**Current implementation:** foundation, 20 curated resources, full-text search, type/category/difficulty/collection/tag/favourites filters, prompt personalisation, sorting, detail/copy, browser-local favourites and theme, JSON favourites backup/restore, shareable filtered and individual-resource links, text downloads, retryable loading, resilient local storage, stronger schema validation, JavaScript syntax checks, local-link checks, accessibility improvements, documentation, market analysis, offline caching, install metadata, privacy notice, PR validation, offline status indicator, and successful Pages deployments. Advanced submissions, accounts, ratings, and cross-device sync remain future work requiring additional services or moderation.
+## Current implementation
+
+The live catalogue contains 20 original prompts and skills across five curated collections. Implemented features include full-text search; type, category, collection, difficulty, tag, and favourites filters; sorting; prompt personalisation; live preview; copy and text download; shareable filtered and individual-resource links; local favourites backup/restore; theme preference; offline caching; install metadata; an offline status indicator; privacy notice; contribution and security policies; and CI checks for catalogue data, JavaScript, local links, and PWA assets.
+
+The remaining work is tracked above. Accounts, ratings, and cross-device sync remain deferred because they require additional services, privacy decisions, and moderation capacity.
