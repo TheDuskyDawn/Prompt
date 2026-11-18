@@ -39,7 +39,7 @@ Prompt Vault should not compete on raw prompt count. Its strongest achievable po
 - Free, static hosting on GitHub Pages.
 - 30 curated prompts and reusable skills in a separate JSON catalogue, each carrying validated review-status metadata shown in cards and details.
 - Search across resource text, title, description, category, type, difficulty, collections, and tags.
-- Type, category, five curated collections, difficulty, tag, and favourites filters; alphabetical and date sorting.
+- Type, category, six curated collections, difficulty, tag, and favourites filters; alphabetical and date sorting.
 - Detail view, variable-based prompt personalisation with live preview, copy, plain-text download, and shareable direct links.
 - Shareable filtered views and related-resource recommendations.
 - Browser-local favourites and theme preference, with JSON backup and restore.
