@@ -180,3 +180,23 @@ test("keeps the visited guide available when navigating offline", async ({ page,
   await expect(page.locator("h1")).toHaveText("Make the library work for you.");
   await context.setOffline(false);
 });
+
+test("opens and closes a resource using only the keyboard", async ({ page }) => {
+  const openButton = page.locator('[data-open="prompt-clear-explainer"]');
+  await openButton.focus();
+  await page.keyboard.press("Enter");
+  await expect(page.locator("#detail")).toBeVisible();
+  await expect(page.locator("#copy")).toBeFocused();
+  await page.keyboard.press("Escape");
+  await expect(page.locator("#detail")).not.toBeVisible();
+  await expect(page).not.toHaveURL(/resource=prompt-clear-explainer/);
+});
+
+test("provides a working skip link for keyboard navigation", async ({ page }) => {
+  await page.keyboard.press("Tab");
+  const skipLink = page.locator(".skip-link");
+  await expect(skipLink).toBeFocused();
+  await page.keyboard.press("Enter");
+  await expect(page).toHaveURL(/#main-content$/);
+  await expect(page.locator("#main-content")).toBeFocused();
+});
