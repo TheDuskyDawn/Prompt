@@ -28,3 +28,5 @@ Notable project changes are recorded here.
 - Added CI performance budgets for core text assets and font preconnect hints.
 
 - Added automated text contrast checks for both color themes and improved light-theme accent contrast.
+
+- Added static accessibility checks for page language, headings, IDs, labels, skip navigation, and dialog naming.
