@@ -27,3 +27,5 @@
 .library-actions button{white-space:nowrap}
 
 .related{margin-top:24px}.related-list{display:grid;gap:8px}.related-list button{display:flex;flex-direction:column;gap:4px;text-align:left;background:var(--panel2);border:1px solid var(--line);border-radius:9px;padding:11px;color:var(--text);cursor:pointer}.related-list button:hover{border-color:var(--accent)}.related-list small{color:var(--muted);font-size:11px}
+
+@media(max-width:480px){.top{padding-left:16px;padding-right:16px}nav{gap:10px}nav a[href="#library"],nav a[href="#about"]{display:none}.brand{gap:8px;font-size:17px}}
