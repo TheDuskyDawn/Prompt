@@ -232,3 +232,26 @@ test("search includes resource review metadata", async ({ page }) => {
   await page.locator("#search").fill("curated");
   await expect(page.locator(".card")).toHaveCount(25);
 });
+
+
+test("restores a selected tag from a shareable URL", async ({ page }) => {
+  await page.locator('[data-tag="learning"]').click();
+  await expect(page).toHaveURL(/tag=learning/);
+  await page.reload();
+  await expect(page.locator('[data-tag="learning"]')).toHaveAttribute("aria-pressed", "true");
+  await expect(page.locator(".card")).not.toHaveCount(0);
+});
+
+test("filters by resource type and category", async ({ page }) => {
+  await page.locator("#type").selectOption("skill");
+  await expect(page.locator(".card")).not.toHaveCount(0);
+  await expect(page.locator(".card .kind")).toContainText("skill");
+  await page.locator("#category").selectOption({ index: 1 });
+  await expect(page.locator(".card")).not.toHaveCount(0);
+});
+
+test("shows a helpful empty state when nothing matches", async ({ page }) => {
+  await page.locator("#search").fill("no-resource-can-match-this-query-92741");
+  await expect(page.locator(".card")).toHaveCount(0);
+  await expect(page.locator("#empty")).toBeVisible();
+});
