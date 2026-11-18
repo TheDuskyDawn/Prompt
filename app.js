@@ -1,6 +1,10 @@
 const $ = (selector) => document.querySelector(selector);
 let items = [];
 let activeTag = "all";
+let compareIds = new Set();
+let showRecentOnly = false;
+const RECENT_KEY = "pv-recent";
+const SAVED_SEARCH_KEY = "pv-saved-searches";
 function readStorage(key, fallback = null) {
   try { return localStorage.getItem(key) ?? fallback; }
   catch { return fallback; }
@@ -81,6 +85,7 @@ function restoreViewFromURL() {
   $("#collection").value = [...$("#collection").options].some((option) => option.value === params.get("collection")) ? params.get("collection") : "all";
   $("#sort").value = ["featured", "az", "newest"].includes(params.get("sort")) ? params.get("sort") : "featured";
   $("#difficulty").value = ["all", "beginner", "intermediate", "advanced"].includes(params.get("difficulty")) ? params.get("difficulty") : "all";
+  $("#audience").value=["all","student","educator","developer","researcher","creator"].includes(params.get("audience"))?params.get("audience"):"all"; $("#output-format").value=["all","text","table","json","checklist","code"].includes(params.get("format"))?params.get("format"):"all"; $("#time").value=["all","5","10","20"].includes(params.get("time"))?params.get("time"):"all";
   $("#favourites").checked = params.get("favourites") === "1";
   activeTag = params.get("tag") || "all";
   if (activeTag !== "all" && !items.some((item) => item.tags.includes(activeTag))) activeTag = "all";
@@ -111,6 +116,8 @@ function getReviewState(item) {
   return Date.now() > reviewedAt + interval * 86400000 ? "stale" : "current";
 }
 
+function editDistance(a,b){const row=Array.from({length:b.length+1},(_,i)=>i);for(let i=1;i<=a.length;i++){let prev=row[0];row[0]=i;for(let j=1;j<=b.length;j++){const old=row[j];row[j]=Math.min(row[j]+1,row[j-1]+1,prev+(a[i-1]===b[j-1]?0:1));prev=old;}}return row[b.length];}
+function termMatches(term,text){if(text.includes(term))return true;if(term.length<5)return false;return text.split(/[^a-z0-9]+/).some(w=>w.length>=4&&Math.abs(w.length-term.length)<=1&&editDistance(term,w)<=1);}
 function render() {
   const query = $("#search").value.trim().toLowerCase();
   const terms = query.split(/\s+/).filter(Boolean);
@@ -119,20 +126,28 @@ function render() {
   const collection = $("#collection").value;
   const sort = $("#sort").value;
   const difficulty = $("#difficulty").value;
+  const audience = $("#audience").value;
+  const outputFormat = $("#output-format").value;
+  const maxTime = $("#time").value;
   const onlyFavourites = $("#favourites").checked;
 
+  const recentIds = JSON.parse(readStorage(RECENT_KEY, "[]"));
   const list = items.filter((item) => {
     const searchable = [
       item.title, item.description, item.category, item.type, item.difficulty,
-      ...item.collections, item.content, item.review_status, item.quality_review?.status, item.review_record?.status, item.testing?.status, ...item.tags
+      ...item.collections, item.content, item.review_status, item.quality_review?.status, item.review_record?.status, item.testing?.status, ...(item.audiences || []), ...(item.output_formats || []), ...(item.task_groups || []), ...item.tags
     ].join(" ").toLowerCase();
     return (type === "all" || item.type === type) &&
       (category === "all" || item.category === category) &&
       (collection === "all" || item.collections.includes(collection)) &&
       (difficulty === "all" || item.difficulty === difficulty) &&
+      (audience === "all" || (item.audiences || []).includes(audience)) &&
+      (outputFormat === "all" || (item.output_formats || []).includes(outputFormat)) &&
+      (maxTime === "all" || item.estimated_minutes <= Number(maxTime)) &&
+      (!showRecentOnly || recentIds.includes(item.id)) &&
       (activeTag === "all" || item.tags.includes(activeTag)) &&
       (!onlyFavourites || favourites.has(item.id)) &&
-      terms.every((term) => searchable.includes(term));
+      terms.every((term) => termMatches(term, searchable));
   });
 
   if (sort === "featured" && terms.length) {
@@ -226,7 +241,9 @@ function getRelatedResources(item) {
     .map((entry) => entry.item);
 }
 
+function recordRecent(id){let recent=[];try{recent=JSON.parse(readStorage(RECENT_KEY,"[]"));}catch{}recent=[id,...recent.filter(x=>x!==id)].slice(0,8);writeStorage(RECENT_KEY,JSON.stringify(recent));}
 function openDetail(id) {
+  recordRecent(id);
   const item = items.find((entry) => entry.id === id);
   if (!item) return;
   const variables = [...new Set([...item.content.matchAll(/\[([A-Z][A-Z0-9 _/-]{1,40})\]/g)].map((match) => match[1]))];
@@ -276,6 +293,7 @@ function openDetail(id) {
   };
 }
 
+$("#cards").addEventListener("change",event=>{const c=event.target.closest("[data-compare]");if(!c)return;if(c.checked&&compareIds.size>=3){c.checked=false;return;}c.checked?compareIds.add(c.dataset.compare):compareIds.delete(c.dataset.compare);$("#compare-open").disabled=compareIds.size<2;$("#compare-open").textContent="Compare ("+compareIds.size+")";});
 $("#cards").addEventListener("click", (event) => {
   const favouriteButton = event.target.closest("[data-fav]");
   const openButton = event.target.closest("[data-open]");
@@ -296,7 +314,7 @@ $("#tags").addEventListener("click", (event) => {
   }
 });
 
-["search", "type", "category", "collection", "sort", "difficulty", "favourites"].forEach((id) => {
+["search", "type", "category", "collection", "sort", "difficulty", "audience", "output-format", "time", "favourites"].forEach((id) => {
   const control = $("#" + id);
   control.addEventListener(id === "search" ? "input" : "change", render);
 });
@@ -445,6 +463,7 @@ $("#clear-filters").addEventListener("click", () => {
   $("#category").value = "all";
   $("#collection").value = "all";
   $("#difficulty").value = "all";
+  $("#audience").value = "all"; $("#output-format").value = "all"; $("#time").value = "all"; showRecentOnly=false;
   $("#favourites").checked = false;
   activeTag = "all";
   render();
@@ -479,3 +498,9 @@ $("#surprise").addEventListener("click", () => {
   const pool = candidates.length ? candidates : items;
   openDetail(pool[Math.floor(Math.random() * pool.length)].id);
 });
+
+$("#recent-toggle").addEventListener("click",()=>{showRecentOnly=!showRecentOnly;$("#recent-toggle").textContent=showRecentOnly?"Show all resources":"Recently viewed";render();let ids=[];try{ids=JSON.parse(readStorage(RECENT_KEY,"[]"));}catch{}const list=ids.map(id=>items.find(x=>x.id===id)).filter(Boolean);const root=$("#recent-list");root.hidden=false;root.innerHTML=list.length?list.map(x=>'<button data-recent-open="'+escapeHTML(x.id)+'">'+escapeHTML(x.title)+'</button>').join(""):'<p>No recently viewed resources on this device.</p>';});
+$("#recent-list").addEventListener("click",e=>{const b=e.target.closest("[data-recent-open]");if(b)openDetail(b.dataset.recentOpen);});
+$("#compare-open").addEventListener("click",()=>{const selected=[...compareIds].map(id=>items.find(x=>x.id===id)).filter(Boolean);if(selected.length<2)return;$("#detailBody").innerHTML='<h2 id="compareTitle">Compare resources</h2><div class="compare-grid">'+selected.map(x=>'<section><h3>'+escapeHTML(x.title)+'</h3><p>'+escapeHTML(x.description)+'</p><p>Audience: '+escapeHTML((x.audiences||[]).join(", "))+'</p><p>Output: '+escapeHTML((x.output_formats||[]).join(", "))+'</p><p>Difficulty: '+escapeHTML(x.difficulty)+'</p><p>Estimated time: '+x.estimated_minutes+' min</p><p>Prerequisites: '+escapeHTML((x.prerequisites||[]).join(", ")||"None listed")+'</p></section>').join("")+'</div>';$("#detail").showModal();});
+$("#save-search").addEventListener("click",()=>{const name=prompt("Name this search (saved only in this browser):");if(!name||!name.trim())return;let saved=[];try{saved=JSON.parse(readStorage(SAVED_SEARCH_KEY,"[]"));}catch{}saved.unshift({name:name.trim().slice(0,50),url:location.href});writeStorage(SAVED_SEARCH_KEY,JSON.stringify(saved.slice(0,20)));$("#save-search").textContent="Search saved ✓";});
+$("#saved-searches").addEventListener("click",()=>{let saved=[];try{saved=JSON.parse(readStorage(SAVED_SEARCH_KEY,"[]"));}catch{}if(!saved.length){alert("No saved searches on this device.");return;}const n=prompt("Choose a saved search number:\n"+saved.map((s,i)=>(i+1)+". "+s.name).join("\n"));const entry=saved[Number(n)-1];if(entry?.url)location.href=entry.url;});

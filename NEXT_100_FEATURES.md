@@ -37,16 +37,16 @@
 
 ### Stage 2 — Better discovery and navigation
 
-111. [P0] Add a dedicated browse-by-task landing page.
-112. [P0] Add audience filters such as learner, educator, developer, researcher, and creator.
-113. [P0] Add input/output format filters such as text, table, JSON, checklist, and code.
-114. [P1] Add estimated completion-time metadata and filtering.
-115. [P1] Add resource prerequisites and prerequisite-aware recommendations.
-116. [P1] Add saved search presets in browser storage.
-117. [P1] Add search suggestions and typo-tolerant matching.
-118. [P1] Add a recently viewed list stored locally.
-119. [P1] Add a compare-resources view for side-by-side metadata and use cases.
-120. [P2] Add curated seasonal/topic collections with review dates and expiry rules.
+111. [x] [P0] Add a dedicated browse-by-task landing page. **Implemented on the planning branch.**
+112. [x] [P0] Add audience filters such as learner, educator, developer, researcher, and creator. **Implemented on the planning branch.**
+113. [x] [P0] Add input/output format filters such as text, table, JSON, checklist, and code. **Implemented on the planning branch.**
+114. [x] [P1] Add estimated completion-time metadata and filtering. **Implemented on the planning branch.**
+115. [x] [P1] Add resource prerequisites and prerequisite-aware recommendations. **Implemented on the planning branch.**
+116. [x] [P1] Add saved search presets in browser storage. **Implemented on the planning branch.**
+117. [x] [P1] Add search suggestions and typo-tolerant matching. **Implemented on the planning branch.**
+118. [x] [P1] Add a recently viewed list stored locally. **Implemented on the planning branch.**
+119. [x] [P1] Add a compare-resources view for side-by-side metadata and use cases. **Implemented on the planning branch.**
+120. [x] [P2] Add curated seasonal/topic collections with review dates and expiry rules. **Implemented on the planning branch.**
 
 ### Stage 3 — Prompt builder and authoring tools
 

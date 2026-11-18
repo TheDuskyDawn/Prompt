@@ -42,7 +42,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "educator"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "learning",
+      "explanation"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-study-planner",
@@ -87,7 +102,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "productivity",
+      "study",
+      "planning"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-debug-helper",
@@ -131,7 +161,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "developer"
+    ],
+    "output_formats": [
+      "json",
+      "code"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "development",
+      "coding",
+      "debugging"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-writing-editor",
@@ -176,7 +221,21 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "creator"
+    ],
+    "output_formats": [
+      "text"
+    ],
+    "estimated_minutes": 3,
+    "prerequisites": [],
+    "task_groups": [
+      "writing",
+      "editing"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-research-brief",
@@ -220,7 +279,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "researcher"
+    ],
+    "output_formats": [
+      "table",
+      "text"
+    ],
+    "estimated_minutes": 3,
+    "prerequisites": [],
+    "task_groups": [
+      "research",
+      "analysis"
+    ],
+    "seasonal": null
   },
   {
     "id": "skill-project-planner",
@@ -264,7 +338,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "general"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "productivity",
+      "planning",
+      "workflow"
+    ],
+    "seasonal": null
   },
   {
     "id": "skill-quality-review",
@@ -309,7 +398,21 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "general"
+    ],
+    "output_formats": [
+      "checklist"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "development",
+      "quality",
+      "review"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-product-requirements",
@@ -353,7 +456,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "general"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "productivity",
+      "product",
+      "planning"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-compare-options",
@@ -397,7 +515,23 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "researcher"
+    ],
+    "output_formats": [
+      "table",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "research",
+      "decision-making",
+      "comparison"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-learn-by-practice",
@@ -442,7 +576,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "educator"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "learning",
+      "practice"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-brainstorm-options",
@@ -487,7 +636,21 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "creator"
+    ],
+    "output_formats": [
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "creative",
+      "brainstorming",
+      "creativity"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-meeting-action-notes",
@@ -532,7 +695,21 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "general"
+    ],
+    "output_formats": [
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "productivity",
+      "meetings",
+      "notes"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-risk-register",
@@ -577,7 +754,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "general"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "planning",
+      "risk",
+      "projects"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-accessibility-review",
@@ -621,7 +813,21 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "general"
+    ],
+    "output_formats": [
+      "checklist"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "development",
+      "accessibility",
+      "web"
+    ],
+    "seasonal": null
   },
   {
     "id": "skill-research-source-check",
@@ -665,7 +871,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "researcher"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 5,
+    "prerequisites": [],
+    "task_groups": [
+      "research",
+      "sources"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-meeting-agenda",
@@ -710,7 +931,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "creator"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 3,
+    "prerequisites": [],
+    "task_groups": [
+      "productivity",
+      "meetings",
+      "planning"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-test-case-generator",
@@ -755,7 +991,23 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "developer",
+      "researcher"
+    ],
+    "output_formats": [
+      "table",
+      "code"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "development",
+      "testing",
+      "software"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-user-guide-writer",
@@ -800,7 +1052,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "developer",
+      "creator"
+    ],
+    "output_formats": [
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "writing",
+      "documentation"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-error-message-explainer",
@@ -845,7 +1112,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "developer"
+    ],
+    "output_formats": [
+      "checklist",
+      "code"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "development",
+      "debugging",
+      "troubleshooting"
+    ],
+    "seasonal": null
   },
   {
     "id": "skill-weekly-review",
@@ -890,7 +1172,23 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "educator"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 5,
+    "prerequisites": [],
+    "task_groups": [
+      "productivity",
+      "reflection",
+      "planning"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-code-review",
@@ -934,7 +1232,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "developer"
+    ],
+    "output_formats": [
+      "checklist",
+      "json",
+      "code"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "development",
+      "code-review"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-study-quiz",
@@ -979,7 +1292,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "educator"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "learning",
+      "quiz"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-email-draft",
@@ -1024,7 +1352,21 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "creator"
+    ],
+    "output_formats": [
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "writing",
+      "email"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-project-retrospective",
@@ -1068,7 +1410,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "educator"
+    ],
+    "output_formats": [
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "productivity",
+      "retrospective",
+      "projects"
+    ],
+    "seasonal": null
   },
   {
     "id": "skill-decision-log",
@@ -1113,7 +1470,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "developer"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 4,
+    "prerequisites": [],
+    "task_groups": [
+      "planning",
+      "decisions",
+      "documentation"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-scenario-planning",
@@ -1158,7 +1530,23 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "researcher"
+    ],
+    "output_formats": [
+      "checklist",
+      "table",
+      "text"
+    ],
+    "estimated_minutes": 5,
+    "prerequisites": [],
+    "task_groups": [
+      "planning",
+      "scenario-planning",
+      "strategy"
+    ],
+    "seasonal": null
   },
   {
     "id": "skill-technical-documentation",
@@ -1202,7 +1590,21 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "developer"
+    ],
+    "output_formats": [
+      "code"
+    ],
+    "estimated_minutes": 5,
+    "prerequisites": [],
+    "task_groups": [
+      "development",
+      "documentation",
+      "developer"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-data-quality-review",
@@ -1247,7 +1649,25 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "developer",
+      "researcher"
+    ],
+    "output_formats": [
+      "checklist",
+      "table",
+      "json",
+      "text"
+    ],
+    "estimated_minutes": 5,
+    "prerequisites": [],
+    "task_groups": [
+      "research",
+      "data-quality"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-constructive-feedback",
@@ -1292,7 +1712,23 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "creator"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 5,
+    "prerequisites": [],
+    "task_groups": [
+      "writing",
+      "feedback",
+      "communication"
+    ],
+    "seasonal": null
   },
   {
     "id": "skill-lesson-design",
@@ -1337,7 +1773,24 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "educator",
+      "creator"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 5,
+    "prerequisites": [],
+    "task_groups": [
+      "learning",
+      "teaching",
+      "lesson-design"
+    ],
+    "seasonal": null
   },
   {
     "id": "prompt-claim-evidence-audit",
@@ -1383,6 +1836,22 @@
       "kind": "original",
       "sources": [],
       "notes": ""
-    }
+    },
+    "audiences": [
+      "student",
+      "researcher"
+    ],
+    "output_formats": [
+      "checklist",
+      "text"
+    ],
+    "estimated_minutes": 6,
+    "prerequisites": [],
+    "task_groups": [
+      "research",
+      "fact-checking",
+      "evidence"
+    ],
+    "seasonal": null
   }
 ]
