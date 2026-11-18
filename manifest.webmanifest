@@ -1,0 +1,18 @@
+{
+  "name": "Prompt Vault — AI Prompts & Skills",
+  "short_name": "Prompt Vault",
+  "description": "A searchable, portable library of original AI prompts and reusable skills.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#10131c",
+  "theme_color": "#10131c",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
