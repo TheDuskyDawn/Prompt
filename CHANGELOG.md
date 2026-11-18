@@ -46,3 +46,6 @@ Notable project changes are recorded here.
 - Added a one-click JSON export of the complete resource catalogue.
 
 - Added Playwright browser tests for catalogue loading, search, filters, favourites, prompt personalisation, direct links, downloads, mobile overflow, and offline navigation.
+- Fixed offline navigation so each successfully visited page is cached under its own URL, with a page-specific offline fallback before the library fallback.
+- Added browser regression coverage for invalid favourites imports, unfilled placeholders, clearing filters, unknown resource links, keyboard dialog operation, skip navigation, theme persistence, and offline guide navigation.
+- Expanded the QA roadmap to distinguish automated coverage from remaining hands-on device and cross-browser checks.
