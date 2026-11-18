@@ -351,3 +351,18 @@ test("renders personalised user input as text rather than executable HTML", asyn
   await expect(page.locator("#resourceText")).toContainText(payload);
   await expect(page.locator("#resourceText img")).toHaveCount(0);
 });
+
+
+test("falls back to document copy when clipboard permission is denied", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async () => { throw new Error("permission denied"); } }
+    });
+    document.execCommand = () => true;
+  });
+  await page.reload();
+  await page.locator('[data-open="prompt-clear-explainer"]').click();
+  await page.locator("#copy").click();
+  await expect(page.locator("#copy")).toHaveText("Copied ✓");
+});

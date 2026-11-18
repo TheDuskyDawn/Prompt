@@ -171,8 +171,12 @@ function render() {
 
 async function copyText(text) {
   if (navigator.clipboard && navigator.clipboard.writeText) {
-    await navigator.clipboard.writeText(text);
-    return;
+    try {
+      await navigator.clipboard.writeText(text);
+      return;
+    } catch (error) {
+      // Continue to the legacy fallback when clipboard permission is denied.
+    }
   }
   const temporary = document.createElement("textarea");
   temporary.value = text;

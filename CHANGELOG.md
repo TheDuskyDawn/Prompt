@@ -68,3 +68,4 @@ Notable project changes are recorded here.
 - Expanded the curated catalogue from 25 to 30 original prompts and reusable skills, adding scenario planning, technical documentation, data-quality review, constructive feedback, and lesson design.
 - Added a browser security regression test proving personalised prompt input is rendered as text, not executable HTML.
 - Updated workflow concurrency so new pushes no longer cancel an active validation or deployment; only the newest pending run is retained by GitHub.
+- Clipboard copying now falls back to the legacy document copy method when the modern clipboard API rejects a write.
