@@ -27,7 +27,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 20. [x] Validate the catalogue schema.
 
 ## Stage 3 — Discovery
-21. [x] Add full-text search across resource content and metadata.
+21. [x] Add multi-term, relevance-ranked search across resource content and metadata.
 22. [x] Add resource-type filtering.
 23. [x] Add category filtering.
 24. [x] Add tag filtering.
