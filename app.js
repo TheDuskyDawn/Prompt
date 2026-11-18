@@ -1,19 +1,26 @@
 const $ = (selector) => document.querySelector(selector);
 let items = [];
 let activeTag = "all";
-let favourites = new Set();
-try {
-  favourites = new Set(JSON.parse(localStorage.getItem("pv-favs") || "[]"));
-} catch {
-  localStorage.removeItem("pv-favs");
+function readStorage(key, fallback = null) {
+  try { return localStorage.getItem(key) ?? fallback; }
+  catch { return fallback; }
 }
+
+function writeStorage(key, value) {
+  try { localStorage.setItem(key, value); return true; }
+  catch { return false; }
+}
+
+let favourites = new Set();
+try { favourites = new Set(JSON.parse(readStorage("pv-favs", "[]"))); }
+catch { favourites = new Set(); }
 
 const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
   "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
 })[char]);
 
 function saveFavourites() {
-  localStorage.setItem("pv-favs", JSON.stringify([...favourites]));
+  writeStorage("pv-favs", JSON.stringify([...favourites]));
 }
 
 function updateThemeButton() {
@@ -23,12 +30,15 @@ function updateThemeButton() {
 }
 
 async function init() {
+  $("#cards").setAttribute("aria-busy", "true");
+  $("#cards").innerHTML = '<p class="empty" role="status">Loading the library…</p>';
   try {
     const response = await fetch("data/resources.json");
     if (!response.ok) throw new Error("Catalogue request failed (" + response.status + ")");
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error("Catalogue must be a JSON array");
     items = data;
+    $("#cards").setAttribute("aria-busy", "false");
     $("#total").textContent = items.length;
     const categories = [...new Set(items.map((item) => item.category))].sort();
     $("#category").innerHTML = '<option value="all">All categories</option>' +
@@ -38,7 +48,9 @@ async function init() {
     const resourceId = new URLSearchParams(window.location.search).get("resource");
     if (resourceId) openDetail(resourceId);
   } catch (error) {
-    $("#cards").innerHTML = '<p class="empty" role="alert">The catalogue could not be loaded. Please refresh or try again later.</p>';
+    $("#cards").setAttribute("aria-busy", "false");
+    $("#cards").innerHTML = '<div class="empty" role="alert"><p>The catalogue could not be loaded.</p><button id="retry-load" type="button">Try again</button></div>';
+    $("#retry-load").addEventListener("click", init);
     console.error(error);
   }
 }
@@ -191,11 +203,11 @@ $("#detail").addEventListener("click", (event) => {
 });
 $("#theme").onclick = () => {
   document.body.classList.toggle("light");
-  localStorage.setItem("pv-theme", document.body.classList.contains("light") ? "light" : "dark");
+  writeStorage("pv-theme", document.body.classList.contains("light") ? "light" : "dark");
   updateThemeButton();
 };
 
-if (localStorage.getItem("pv-theme") === "light") document.body.classList.add("light");
+if (readStorage("pv-theme") === "light") document.body.classList.add("light");
 updateThemeButton();
 init();
 
