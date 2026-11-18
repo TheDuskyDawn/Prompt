@@ -8,7 +8,7 @@ Notable project changes are recorded here.
 - Added catalogue search, category/type/tag filters, sorting, resource details, and copy.
 - Added browser-local favourites and theme preference.
 - Added favourites-only filtering and JSON import/export for favourites.
-- Expanded the curated collection to 20 original prompts and skills.
+- Expanded the curated collection to 25 original prompts and skills.
 - Improved keyboard focus, selected-state labels, and clipboard fallback behaviour.
 - Strengthened catalogue validation and added JavaScript syntax and local-link checks to CI.
 - Added shareable filtered views and direct links to individual resources.
