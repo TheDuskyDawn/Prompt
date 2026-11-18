@@ -128,3 +128,42 @@ test("persists the selected theme after reload", async ({ page }) => {
   await page.reload();
   await expect(page.locator("body")).toHaveClass(/light/);
 });
+
+
+test("rejects an invalid favourites backup without changing saved items", async ({ page }) => {
+  page.on("dialog", dialog => dialog.accept());
+  await page.locator('[data-fav="prompt-clear-explainer"]').click();
+  const chooserPromise = page.waitForEvent("filechooser");
+  await page.locator("#import-favourites").click();
+  const chooser = await chooserPromise;
+  await chooser.setFiles({
+    name: "invalid.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify({ format: "wrong-format", version: 9, favourites: [] }))
+  });
+  await page.locator("#favourites").check();
+  await expect(page.locator(".card")).toHaveCount(1);
+  await expect(page.locator(".card h3")).toContainText("Explain a complex topic clearly");
+});
+
+test("keeps unfilled placeholders in the personalised preview", async ({ page }) => {
+  await page.locator('[data-open="prompt-clear-explainer"]').click();
+  await page.locator('[data-variable="TOPIC"]').fill("ecosystems");
+  await expect(page.locator("#resourceText")).toContainText("ecosystems");
+  await expect(page.locator("#resourceText")).toContainText("[KNOWLEDGE LEVEL]");
+});
+
+test("resets every active filter", async ({ page }) => {
+  await page.locator("#search").fill("boundary");
+  await page.locator("#difficulty").selectOption("advanced");
+  await page.locator("#clear-filters").click();
+  await expect(page.locator("#search")).toHaveValue("");
+  await expect(page.locator("#difficulty")).toHaveValue("all");
+  await expect(page.locator(".card")).toHaveCount(25);
+});
+
+test("handles unknown direct resource IDs without opening a broken dialog", async ({ page }) => {
+  await page.goto("/?resource=not-a-real-resource");
+  await expect(page.locator("#detail")).not.toBeVisible();
+  await expect(page.locator(".card")).toHaveCount(25);
+});
