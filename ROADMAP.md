@@ -95,7 +95,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 76. [x] Improve semantic HTML structure.
 77. [x] Add a canonical URL.
 78. [~] Review font loading and offline font fallback.
-79. [~] Run a measured performance audit on mobile and desktop.
+79. [~] Add automated asset-size budgets and font preconnect; run a measured Lighthouse audit on mobile and desktop.
 80. [~] Complete a manual accessibility audit.
 
 ## Stage 9 — Advanced options
