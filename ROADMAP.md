@@ -60,7 +60,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 47. [x] Add CI validation.
 48. [~] Exercise missing-data and network-failure cases on real devices.
 49. [x] Add automated browser tests for multi-term search, relevance ranking, sorting, type/category/tag/collection/difficulty filters, empty states, review provenance, favourites backup/restore, personalisation, shareable URLs, theme persistence and device preference, offline navigation/status, downloads, and keyboard interactions.
-50. [x] Implement clipboard fallback and permission-error feedback.
+50. [x] Implement clipboard fallback and permission-error feedback; verify personalised input is rendered safely.
 
 ## Stage 6 — Deployment
 51. [x] Configure the GitHub Pages workflow.

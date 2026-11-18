@@ -342,3 +342,12 @@ test("follows live device color-scheme changes when no theme is saved", async ({
   await page.emulateMedia({ colorScheme: "dark" });
   await expect(page.locator("body")).not.toHaveClass(/light/);
 });
+
+
+test("renders personalised user input as text rather than executable HTML", async ({ page }) => {
+  await page.locator('[data-open="prompt-clear-explainer"]').click();
+  const payload = '<img src=x onerror="alert(1)">';
+  await page.locator('[data-variable="TOPIC"]').fill(payload);
+  await expect(page.locator("#resourceText")).toContainText(payload);
+  await expect(page.locator("#resourceText img")).toHaveCount(0);
+});
