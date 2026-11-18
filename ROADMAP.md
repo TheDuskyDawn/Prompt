@@ -78,7 +78,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 61. [x] Create a contribution guide.
 62. [x] Add resource suggestion and bug-report issue forms.
 63. [x] Define content and safety guidelines.
-64. [~] Confirm repository labels are configured for issue forms.
+64. [x] Automatically create and apply issue labels with a least-privilege workflow.
 65. [x] Add moderation and review checks to the PR process.
 66. [x] Add submission instructions.
 67. [ ] Review and merge external community contributions.
