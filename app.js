@@ -45,6 +45,7 @@ async function init() {
       saveFavourites();
     }
     $("#download-catalogue").disabled = false;
+    $("#surprise").disabled = false;
     $("#cards").setAttribute("aria-busy", "false");
     $("#total").textContent = items.length;
     const categories = [...new Set(items.map((item) => item.category))].sort();

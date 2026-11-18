@@ -77,3 +77,4 @@ Notable project changes are recorded here.
 - Bumped the offline cache to v5 so returning visitors receive the latest catalogue and interface, and added CI checks for versioned cache names and cleanup of obsolete caches.
 - Completed the roadmap evaluations for offline font fallback, the GitHub Issues/pull-request moderation queue, and the existing Git-based version-history baseline.
 - Scheduled an automated quarterly Prompt Vault roadmap review, beginning 18 February 2027.
+- Disabled random discovery until the catalogue has loaded, preventing an early click from appearing unresponsive.
