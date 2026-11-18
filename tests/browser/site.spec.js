@@ -292,3 +292,9 @@ test("ranks title matches ahead of mentions in resource content", async ({ page 
   await page.locator("#search").fill("study");
   await expect(page.locator(".card h3").first()).toHaveText("Build a realistic study plan");
 });
+
+
+test("matches multi-word searches across different resource fields", async ({ page }) => {
+  await page.locator("#search").fill("software boundary");
+  await expect(page.locator(".card h3", { hasText: "Generate practical software test cases" })).toBeVisible();
+});

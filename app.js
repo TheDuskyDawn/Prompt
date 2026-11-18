@@ -111,7 +111,7 @@ function render() {
     (difficulty === "all" || item.difficulty === difficulty) &&
     (activeTag === "all" || item.tags.includes(activeTag)) &&
     (!onlyFavourites || favourites.has(item.id)) &&
-    [item.title, item.description, item.category, item.type, item.difficulty, ...item.collections, item.content, item.review_status, ...item.tags].join(" ").toLowerCase().includes(query)
+    [item.title, item.description, item.category, item.type, item.difficulty, ...item.collections, item.content, item.review_status, ...item.tags].join(" ").toLowerCase().split(/\\s+/).filter(Boolean).every((term) => [item.title, item.description, item.category, item.type, item.difficulty, ...item.collections, item.content, item.review_status, ...item.tags].join(" ").toLowerCase().includes(term))
   );
 
   if (sort === "featured" && query) {
@@ -121,11 +121,12 @@ function render() {
       const tags = item.tags.join(" ").toLowerCase();
       const metadata = [item.category, item.type, item.difficulty, ...item.collections, item.review_status].join(" ").toLowerCase();
       const content = item.content.toLowerCase();
-      return (title.includes(query) ? 16 : 0) +
-        (description.includes(query) ? 8 : 0) +
-        (tags.includes(query) ? 6 : 0) +
-        (metadata.includes(query) ? 3 : 0) +
-        (content.includes(query) ? 1 : 0);
+      return query.split(/\\s+/).filter(Boolean).reduce((score, term) =>
+        score + (title.includes(term) ? 16 : 0) +
+          (description.includes(term) ? 8 : 0) +
+          (tags.includes(term) ? 6 : 0) +
+          (metadata.includes(term) ? 3 : 0) +
+          (content.includes(term) ? 1 : 0), 0);
     };
     list.sort((a, b) => relevance(b) - relevance(a));
   }

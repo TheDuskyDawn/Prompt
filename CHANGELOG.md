@@ -56,3 +56,4 @@ Notable project changes are recorded here.
 - Added axe-core browser accessibility scans for the library and resource detail dialog, failing deployment on serious or critical WCAG violations.
 - Clarified that new community contributions must start as pending and only maintainers assign reviewed statuses.
 - Improved default search relevance so title, description, and tag matches appear ahead of incidental mentions in resource content.
+- Search now matches every query term across separate resource fields, not only an exact contiguous phrase, while retaining relevance ranking.
