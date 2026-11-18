@@ -14,6 +14,7 @@ Notable project changes are recorded here.
 - Added shareable filtered views and direct links to individual resources.
 - Added plain-text downloads for individual prompts and skills.
 - Added difficulty metadata and a difficulty filter with shareable URL state.
+- Added five curated collections and a collection filter.
 - Added fill-in fields that personalise prompts with a live preview before copying or downloading.
 - Added market analysis and positioning recommendations.
 - Added retryable loading states, resilient local storage, skip navigation, and reduced-motion support.
