@@ -10,10 +10,13 @@ const CORE_ASSETS = [
   "./manifest.webmanifest"
 ];
 
+const INDEX_URL = new URL("./index.html", self.location.href).toString();
+const CORE_URLS = CORE_ASSETS.map((asset) => new URL(asset, self.location.href).toString());
+
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(CORE_ASSETS))
+      .then((cache) => cache.addAll(CORE_URLS))
       .then(() => self.skipWaiting())
   );
 });
@@ -37,10 +40,10 @@ self.addEventListener("fetch", (event) => {
       fetch(request)
         .then((response) => {
           const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put("./index.html", copy));
+          caches.open(CACHE_NAME).then((cache) => cache.put(INDEX_URL, copy));
           return response;
         })
-        .catch(() => caches.match("./index.html"))
+        .catch(() => caches.match(INDEX_URL))
     );
     return;
   }
