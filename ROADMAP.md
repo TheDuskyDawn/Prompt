@@ -124,6 +124,6 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 
 ## Current implementation
 
-The live catalogue contains 20 original prompts and skills across five curated collections. Implemented features include full-text search; type, category, collection, difficulty, tag, and favourites filters; related-resource recommendations; sorting; prompt personalisation; live preview; copy and text download; shareable filtered and individual-resource links; local favourites backup/restore; theme preference; offline caching; install metadata; an offline status indicator; privacy notice; contribution and security policies; and CI checks for catalogue data, JavaScript, local links, and PWA assets.
+The live catalogue contains 20 original prompts and skills across five curated collections. Implemented features include full-text search; type, category, collection, difficulty, tag, and favourites filters; related-resource recommendations; sorting; prompt personalisation; live preview; copy and text download; shareable filtered and individual-resource links; local favourites backup/restore; theme preference; offline caching; install metadata; an offline status indicator; privacy notice; online user guide; contribution and security policies; and CI checks for catalogue data, JavaScript, local links, and PWA assets.
 
 The remaining work is tracked above. Accounts, ratings, and cross-device sync remain deferred because they require additional services, privacy decisions, and moderation capacity.
