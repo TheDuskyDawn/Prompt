@@ -324,6 +324,17 @@ $("#detailBody").addEventListener("click", async (event) => {
   }
 });
 
+$("#clear-filters").addEventListener("click", () => {
+  $("#search").value = "";
+  $("#type").value = "all";
+  $("#category").value = "all";
+  $("#collection").value = "all";
+  $("#difficulty").value = "all";
+  $("#favourites").checked = false;
+  activeTag = "all";
+  render();
+});
+
 $("#share-view").addEventListener("click", async () => {
   const button = $("#share-view");
   try { await copyText(window.location.href); button.textContent = "Link copied ✓"; }
