@@ -182,7 +182,7 @@ function render() {
       '</button></div><h3>' + escapeHTML(item.title) + '</h3><p>' +
       escapeHTML(item.description) + '</p><div class="cardbottom"><div class="chips">' +
       item.tags.slice(0, 3).map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
-      '</div><button class="open" data-open="' + escapeHTML(item.id) + '">View →</button></div></article>';
+      '</div><button class="open" data-open="' + escapeHTML(item.id) + '">View →</button><label class="compare-check"><input type="checkbox" data-compare="' + escapeHTML(item.id) + '" ' + (compareIds.has(item.id) ? "checked" : "") + '> Compare</label></div></article>';
   }).join("");
 
   $("#empty").hidden = list.length > 0;
@@ -228,6 +228,7 @@ function getFilledContent(item) {
 }
 
 function getRelatedResources(item) {
+  const completed = new Set(JSON.parse(readStorage("pv-completed", "[]")));
   return items
     .filter((candidate) => candidate.id !== item.id)
     .map((candidate) => ({
@@ -235,7 +236,7 @@ function getRelatedResources(item) {
       score: candidate.collections.filter((name) => item.collections.includes(name)).length * 3 +
         candidate.tags.filter((tag) => item.tags.includes(tag)).length
     }))
-    .filter((entry) => entry.score > 0)
+    .filter((entry) => entry.score > 0 && (entry.item.prerequisites || []).every((id) => completed.has(id)))
     .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
     .slice(0, 3)
     .map((entry) => entry.item);
@@ -259,7 +260,7 @@ function openDetail(id) {
     escapeHTML(item.category) + " / " + escapeHTML(item.difficulty) + " / Review: " + escapeHTML(item.review_status) + " · Quality review: " + escapeHTML(item.quality_review?.status || "not-assessed") + " · Content review: " + escapeHTML(getReviewState(item)) + " · Model testing: " + escapeHTML(item.testing?.status || "untested") +
     '</p><h2 id="detailTitle">' + escapeHTML(item.title) +
     '</h2><p class="detailmeta">' + escapeHTML(item.description) +
-    '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
+    '</p><p class="detailmeta">Estimated time: ' + (item.estimated_minutes || "—") + ' minutes · Audience: ' + escapeHTML((item.audiences || []).join(", ")) + ' · Output: ' + escapeHTML((item.output_formats || []).join(", ")) + '</p>' + ((item.prerequisites || []).length ? '<p class="detailmeta">Prerequisites: ' + item.prerequisites.map(id => { const prerequisite = items.find(entry => entry.id === id); return escapeHTML(prerequisite ? prerequisite.title : id); }).join(", ") + '</p>' : '<p class="detailmeta">Prerequisites: none listed</p>') + '<div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
     '</div><section class="resource-evidence"><h3>Evidence and maintenance</h3><p class="detailmeta">Content review: ' + escapeHTML(item.review_record?.status || "not-reviewed") + (item.review_record?.reviewed_at ? " · Reviewed " + escapeHTML(item.review_record.reviewed_at) : " · No review date recorded") + '</p><p class="detailmeta">Model testing: ' + escapeHTML(item.testing?.status || "untested") + '</p><p class="detailmeta">Compatibility records: ' + (item.compatibility?.length || 0) + ' · Version entries: ' + (item.version_history?.length || 0) + '</p>' + (item.testing?.records?.length ? '<h4>Recorded tests</h4><ul>' + item.testing.records.map((record) => '<li>' + escapeHTML(record.model || "Model not specified") + " · " + escapeHTML(record.tested_at || "Date not specified") + " · " + escapeHTML(record.scope || "Scope not specified") + (record.result ? " · " + escapeHTML(record.result) : "") + '</li>').join("") + '</ul>' : '') + (item.compatibility?.length ? '<h4>Compatibility records</h4><ul>' + item.compatibility.map((record) => '<li>' + escapeHTML(record.model) + " · " + escapeHTML(record.tested_at) + " · " + escapeHTML(record.scope) + '</li>').join("") + '</ul>' : '') + (item.expected_output ? '<h4>Expected output</h4><p>' + escapeHTML(item.expected_output) + '</p>' : '') + (item.failure_modes?.length ? '<h4>Known failure modes</h4><ul>' + item.failure_modes.map((failure) => '<li>' + escapeHTML(failure) + '</li>').join("") + '</ul>' : '') + (item.version_history?.length ? '<h4>Version history</h4><ul>' + item.version_history.map((entry) => '<li>' + escapeHTML(entry.version || "Version") + " · " + escapeHTML(entry.date || "Date not specified") + " · " + escapeHTML(entry.summary || "No summary") + '</li>').join("") + '</ul>' : '') + '<p class="detailmeta">Provenance: ' + escapeHTML(item.provenance?.kind || "not-recorded") + (item.provenance?.sources?.length ? " · Sources: " + item.provenance.sources.map(escapeHTML).join(", ") : " · No external sources recorded") + '</p></section><div class="collection-list">' + item.collections.map((name) => '<span>' + escapeHTML(name) + '</span>').join("") + '</div><h3>Personalise this resource</h3>' + variableMarkup +
     '<h3>Ready-to-use preview</h3><div class="detailtext" id="resourceText">' +
     escapeHTML(item.content) + '</div><div class="detail-actions"><button class="copy" id="copy">Copy ' +

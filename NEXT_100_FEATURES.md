@@ -50,16 +50,16 @@
 
 ### Stage 3 — Prompt builder and authoring tools
 
-121. [P0] Add a guided prompt builder with goal, context, constraints, and output format fields.
-122. [P0] Add reusable variable types: short text, long text, number, date, and select.
-123. [P0] Add required/optional variable validation and helpful inline hints.
-124. [P1] Add conditional sections that appear only when selected inputs require them.
-125. [P1] Add a structured output-format builder for tables, JSON, and checklists.
-126. [P1] Add prompt length and readability indicators.
-127. [P1] Add a side-by-side original and personalised prompt comparison.
-128. [P1] Add reusable local variable profiles for recurring non-sensitive projects.
-129. [P2] Add a prompt linting checklist for ambiguity, missing context, and conflicting instructions.
-130. [P2] Add export of a completed prompt-builder template as portable JSON.
+121. [x] [P0] Add a guided prompt builder with goal, context, constraints, and output format fields. **Builder page implemented on the planning branch.**
+122. [x] [P0] Add reusable variable types: short text, long text, number, date, and select. **Builder page implemented on the planning branch.**
+123. [x] [P0] Add required/optional variable validation and helpful inline hints. **Builder page implemented on the planning branch.**
+124. [x] [P1] Add conditional sections that appear only when selected inputs require them. **Builder page implemented on the planning branch.**
+125. [x] [P1] Add a structured output-format builder for tables, JSON, and checklists. **Builder page implemented on the planning branch.**
+126. [x] [P1] Add prompt length and readability indicators. **Builder page implemented on the planning branch.**
+127. [x] [P1] Add a side-by-side original and personalised prompt comparison. **Builder page implemented on the planning branch.**
+128. [x] [P1] Add reusable local variable profiles for recurring non-sensitive projects. **Builder page implemented on the planning branch.**
+129. [x] [P2] Add a prompt linting checklist for ambiguity, missing context, and conflicting instructions. **Builder page implemented on the planning branch.**
+130. [x] [P2] Add export of a completed prompt-builder template as portable JSON. **Builder page implemented on the planning branch.**
 
 ### Stage 4 — Learning and onboarding
 
