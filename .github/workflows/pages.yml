@@ -26,6 +26,7 @@ jobs:
       - run: node --check service-worker.js
       - run: python scripts/check_links.py
       - run: python scripts/check_pwa.py
+      - run: python scripts/check_performance.py
   deploy:
     if: github.event_name != 'pull_request'
     needs: validate
