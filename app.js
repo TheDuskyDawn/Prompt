@@ -103,7 +103,7 @@ function render() {
     (difficulty === "all" || item.difficulty === difficulty) &&
     (activeTag === "all" || item.tags.includes(activeTag)) &&
     (!onlyFavourites || favourites.has(item.id)) &&
-    [item.title, item.description, item.category, item.content, ...item.tags].join(" ").toLowerCase().includes(query)
+    [item.title, item.description, item.category, item.type, item.difficulty, ...item.collections, item.content, ...item.tags].join(" ").toLowerCase().includes(query)
   );
 
   if (sort === "az") list.sort((a, b) => a.title.localeCompare(b.title));
@@ -180,7 +180,7 @@ function openDetail(id) {
     '</p><h2 id="detailTitle">' + escapeHTML(item.title) +
     '</h2><p class="detailmeta">' + escapeHTML(item.description) +
     '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
-    '</div><h3>Personalise this resource</h3>' + variableMarkup +
+    '</div><div class="collection-list">' + item.collections.map((name) => '<span>' + escapeHTML(name) + '</span>').join("") + '</div><h3>Personalise this resource</h3>' + variableMarkup +
     '<h3>Ready-to-use preview</h3><div class="detailtext" id="resourceText">' +
     escapeHTML(item.content) + '</div><div class="detail-actions"><button class="copy" id="copy">Copy ' +
     escapeHTML(item.type) + '</button><button class="copy-link" id="share-resource">Copy resource link</button>' +
