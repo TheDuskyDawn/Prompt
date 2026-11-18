@@ -13,7 +13,7 @@ except Exception as error:
 if not isinstance(resources, list):
     sys.exit("Catalogue must be a JSON array")
 
-required = {"id", "type", "category", "title", "description", "tags", "date", "content", "difficulty"}
+required = {"id", "type", "category", "title", "description", "tags", "date", "content", "difficulty", "collections"}
 seen_ids = set()
 
 for index, item in enumerate(resources, start=1):
@@ -40,6 +40,13 @@ for index, item in enumerate(resources, start=1):
 
     if item["type"] not in {"prompt", "skill"}:
         sys.exit(f"{prefix}: type must be prompt or skill")
+
+    if not isinstance(item["collections"], list) or not item["collections"]:
+        sys.exit(f"{prefix}: collections must be a non-empty array")
+    if any(not isinstance(name, str) or not name.strip() for name in item["collections"]):
+        sys.exit(f"{prefix}: collection names must be non-empty text")
+    if len(set(item["collections"])) != len(item["collections"]):
+        sys.exit(f"{prefix}: duplicate collections are not allowed")
 
     if not isinstance(item["tags"], list) or not item["tags"]:
         sys.exit(f"{prefix}: tags must be a non-empty array")
