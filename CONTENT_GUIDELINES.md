@@ -25,6 +25,8 @@ Prompt Vault aims to publish original, practical, reusable resources.
 - Use a unique lowercase kebab-case ID.
 - Choose exactly one resource type: prompt or skill.
 - Use a concise category and a few relevant tags.
+- Choose beginner, intermediate, or advanced difficulty based on the amount of prior knowledge required.
+- Select one or more existing curated collections that genuinely fit the resource.
 - Use a valid YYYY-MM-DD date.
 - Keep titles, descriptions, and content within the limits enforced by the catalogue validator.
 
