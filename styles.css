@@ -31,3 +31,4 @@
 @media(max-width:480px){.top{padding-left:16px;padding-right:16px}nav{gap:10px}nav a[href="#library"],nav a[href="#about"]{display:none}.brand{gap:8px;font-size:17px}}
 
 .library-actions button:disabled{opacity:.45;cursor:not-allowed}
+.policy p a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}

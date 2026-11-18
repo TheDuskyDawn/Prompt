@@ -248,9 +248,10 @@ test("restores a selected tag from a shareable URL", async ({ page }) => {
 test("filters by resource type and category", async ({ page }) => {
   await page.locator("#type").selectOption("skill");
   await expect(page.locator(".card")).not.toHaveCount(0);
-  await expect(page.locator(".card .kind")).toContainText("skill");
+  await expect(page.locator(".card .kind").first()).toContainText("skill");
   await page.locator("#category").selectOption("Productivity");
-  await expect(page.locator(".card")).not.toHaveCount(0);
+  await expect(page.locator(".card")).toHaveCount(2);
+  await expect(page.locator(".card .kind").first()).toContainText("Productivity");
 });
 
 test("shows a helpful empty state when nothing matches", async ({ page }) => {
