@@ -66,4 +66,4 @@ See [MARKET_ANALYSIS.md](MARKET_ANALYSIS.md) for competitor patterns, positionin
 
 ## Contributions
 
-Use GitHub Issues for suggestions or submit a pull request. Please do not include private, copyrighted, unsafe, or misleading content.
+Use the [resource suggestion form](https://github.com/TheDuskyDawn/Prompt/issues/new?template=resource_suggestion.yml) for new ideas, the [bug report form](https://github.com/TheDuskyDawn/Prompt/issues/new?template=bug_report.yml) for problems, or submit a pull request. Please do not include private, copyrighted, unsafe, or misleading content.
