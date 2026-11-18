@@ -5,3 +5,5 @@
 .card:focus-within{border-color:var(--accent)}.fav[aria-pressed="true"]{color:var(--accent)}.tag[aria-pressed="true"]{border-color:var(--accent)}.copy:focus-visible,.open:focus-visible,.fav:focus-visible,.tag:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 
 .favourite-tools{display:flex;gap:8px;flex-wrap:wrap}.favourite-tools button{background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:9px 11px;cursor:pointer;font-size:12px}.favourite-tools button:hover{border-color:var(--accent)}@media(max-width:760px){.favourite-tools{grid-column:span 2}}
+
+.library-actions{display:flex;align-items:center;gap:12px}.library-actions button{background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:9px 11px;cursor:pointer;font-size:12px}.library-actions button:hover{border-color:var(--accent)}@media(max-width:480px){.library-actions{align-items:flex-end;flex-direction:column;gap:6px}}
