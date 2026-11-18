@@ -19,6 +19,10 @@ jobs:
         with:
           python-version: '3.x'
       - run: python scripts/validate_catalogue.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --check app.js
   deploy:
     needs: validate
     environment:
