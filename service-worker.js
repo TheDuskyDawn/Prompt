@@ -2,6 +2,7 @@ const CACHE_NAME = "prompt-vault-v1";
 const CORE_ASSETS = [
   "./",
   "./index.html",
+  "./guide.html",
   "./styles.css",
   "./app.js",
   "./data/resources.json",
