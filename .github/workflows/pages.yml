@@ -29,9 +29,23 @@ jobs:
       - run: python scripts/check_performance.py
       - run: python scripts/check_contrast.py
       - run: python scripts/check_accessibility.py
+  browser-tests:
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save @playwright/test
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e
   deploy:
     if: github.event_name != 'pull_request'
-    needs: validate
+    needs: [validate, browser-tests]
     permissions:
       pages: write
       id-token: write
