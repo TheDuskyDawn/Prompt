@@ -3,12 +3,6 @@ from pathlib import Path
 import sys
 
 PAGES = [Path("index.html"), Path("privacy.html"), Path("guide.html"), Path("offline.html")]
-VOID_ELEMENTS = {
-    "area", "base", "br", "col", "embed", "hr", "img", "input", "link",
-    "meta", "param", "source", "track", "wbr"
-}
-
-
 class AccessibilityScanner(HTMLParser):
     def __init__(self):
         super().__init__(convert_charrefs=True)
@@ -72,15 +66,6 @@ class AccessibilityScanner(HTMLParser):
             )
             if not accessible_name:
                 self.controls.append(("unnamed-button", attrs, False))
-        if tag not in VOID_ELEMENTS:
-            # HTMLParser is not a browser tree builder; close the nearest matching
-            # open element so nested inline markup does not corrupt label tracking.
-            self.reset_tag_stack(tag)
-
-    def reset_tag_stack(self, tag):
-        # Kept intentionally small: only label nesting and button text are tracked.
-        return
-
     def handle_data(self, data):
         for button in self.buttons:
             button["text"] += data
@@ -118,5 +103,5 @@ for page in PAGES:
             errors.append("index.html: detail dialog must have aria-labelledby")
 
 if errors:
-    sys.exit("\\n".join(errors))
+    sys.exit("\n".join(errors))
 print(f"Static accessibility checks passed for {len(PAGES)} pages.")
