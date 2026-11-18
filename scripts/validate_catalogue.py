@@ -160,7 +160,7 @@ if pending_ids:
 # Flag likely duplicates for human review; do not auto-delete or reject near matches.
 normalised = []
 for item in resources:
-    text_value = re.sub(r"\\s+", " ", (item["title"] + " " + item["content"]).lower()).strip()
+    text_value = re.sub(r"\s+", " ", (item["title"] + " " + item["content"]).lower()).strip()
     normalised.append((item["id"], text_value))
 duplicate_warnings = []
 for index, (left_id, left_text) in enumerate(normalised):

@@ -102,6 +102,15 @@ function syncViewToURL() {
   history.replaceState(null, "", window.location.pathname + (query ? "?" + query : "") + "#library");
 }
 
+function getReviewState(item) {
+  const record = item.review_record || {};
+  if (!record.reviewed_at) return "not-reviewed";
+  const reviewedAt = Date.parse(record.reviewed_at + "T00:00:00Z");
+  if (!Number.isFinite(reviewedAt)) return "not-reviewed";
+  const interval = Number.isInteger(record.review_interval_days) && record.review_interval_days > 0 ? record.review_interval_days : 180;
+  return Date.now() > reviewedAt + interval * 86400000 ? "stale" : "current";
+}
+
 function render() {
   const query = $("#search").value.trim().toLowerCase();
   const terms = query.split(/\s+/).filter(Boolean);
@@ -150,7 +159,7 @@ function render() {
   $("#cards").innerHTML = list.map((item) => {
     const isFavourite = favourites.has(item.id);
     return '<article class="card"><div class="cardtop"><span class="kind">' +
-      escapeHTML(item.type) + " · " + escapeHTML(item.category) + " · " + escapeHTML(item.difficulty) + " · " + escapeHTML(item.review_status) + " · Quality: " + escapeHTML(item.quality_review?.status || "not-assessed") + " · Review: " + escapeHTML(item.review_record?.status || "not-reviewed") + " · Test: " + escapeHTML(item.testing?.status || "untested") +
+      escapeHTML(item.type) + " · " + escapeHTML(item.category) + " · " + escapeHTML(item.difficulty) + " · " + escapeHTML(item.review_status) + " · Quality: " + escapeHTML(item.quality_review?.status || "not-assessed") + " · Review: " + escapeHTML(getReviewState(item)) + " · Test: " + escapeHTML(item.testing?.status || "untested") +
       '</span><button class="fav ' + (isFavourite ? "on" : "") + '" data-fav="' +
       escapeHTML(item.id) + '" aria-label="' + (isFavourite ? "Remove " : "Add ") +
       escapeHTML(item.title) + ' ' + (isFavourite ? "from" : "to") +
@@ -230,7 +239,7 @@ function openDetail(id) {
     : '<p class="detailmeta">This resource has no fill-in fields.</p>';
 
   $("#detailBody").innerHTML = '<p class="eyebrow">' + escapeHTML(item.type) + " / " +
-    escapeHTML(item.category) + " / " + escapeHTML(item.difficulty) + " / Review: " + escapeHTML(item.review_status) + " · Quality review: " + escapeHTML(item.quality_review?.status || "not-assessed") + " · Content review: " + escapeHTML(item.review_record?.status || "not-reviewed") + " · Model testing: " + escapeHTML(item.testing?.status || "untested") +
+    escapeHTML(item.category) + " / " + escapeHTML(item.difficulty) + " / Review: " + escapeHTML(item.review_status) + " · Quality review: " + escapeHTML(item.quality_review?.status || "not-assessed") + " · Content review: " + escapeHTML(getReviewState(item)) + " · Model testing: " + escapeHTML(item.testing?.status || "untested") +
     '</p><h2 id="detailTitle">' + escapeHTML(item.title) +
     '</h2><p class="detailmeta">' + escapeHTML(item.description) +
     '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +

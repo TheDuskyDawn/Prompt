@@ -8,7 +8,7 @@ async function loadQualityDashboard(){
       total:resources.length,
       qualityPending:resources.filter(x=>!x.quality_review||x.quality_review.status==="not-assessed").length,
       reviewPending:resources.filter(x=>!x.review_record||x.review_record.status==="not-reviewed").length,
-      stale:resources.filter(x=>x.review_record?.status==="stale").length,
+      stale:resources.filter(x=>{const r=x.review_record||{};if(!r.reviewed_at)return false;const t=Date.parse(r.reviewed_at+"T00:00:00Z");const d=(Number.isInteger(r.review_interval_days)&&r.review_interval_days>0?r.review_interval_days:180)*86400000;return Number.isFinite(t)&&Date.now()>t+d;}).length,
       untested:resources.filter(x=>!x.testing||x.testing.status==="untested").length,
       compatibility:resources.filter(x=>x.compatibility?.length).length,
       examples:resources.filter(x=>x.expected_output).length,

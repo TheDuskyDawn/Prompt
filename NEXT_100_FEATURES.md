@@ -25,15 +25,15 @@
 ### Stage 1 — Trust, quality, and provenance
 
 101. [x] [P0] Add a structured quality rubric covering clarity, completeness, usefulness, originality, and limitations. **Implemented on the planning branch; existing resources remain unassessed until a human review is recorded.**
-102. [P0] Add per-resource review dates and automatic stale-review flags.
-103. [P0] Add explicit tested/not-tested status separate from editorial curation.
-104. [P0] Add model compatibility records with model name, version, date, and test scope.
-105. [P0] Add expected-output examples for resources where examples improve understanding.
-106. [P0] Add failure-mode notes describing common ways a prompt can go wrong.
-107. [P1] Add resource version history with concise change summaries.
-108. [P1] Add source/provenance fields for references and inspiration, without copying third-party prompts.
-109. [P1] Add duplicate and near-duplicate detection to catalogue validation.
-110. [P1] Add a quality-review dashboard generated from the JSON catalogue.
+102. [x] [P0] Add per-resource review dates and automatic stale-review flags. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
+103. [x] [P0] Add explicit tested/not-tested status separate from editorial curation. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
+104. [x] [P0] Add model compatibility records with model name, version, date, and test scope. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
+105. [x] [P0] Add expected-output examples for resources where examples improve understanding. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
+106. [x] [P0] Add failure-mode notes describing common ways a prompt can go wrong. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
+107. [x] [P1] Add resource version history with concise change summaries. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
+108. [x] [P1] Add source/provenance fields for references and inspiration, without copying third-party prompts. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
+109. [x] [P1] Add duplicate and near-duplicate detection to catalogue validation. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
+110. [x] [P1] Add a quality-review dashboard generated from the JSON catalogue. **Metadata, validation, and interface support implemented; resource-specific evidence remains blank until documented.**
 
 ### Stage 2 — Better discovery and navigation
 
