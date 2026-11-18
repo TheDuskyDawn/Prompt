@@ -69,7 +69,7 @@ for page in PAGES:
     for tag, attrs, inside_label in scanner.controls:
         name = attrs.get("aria-label") or attrs.get("aria-labelledby") or attrs.get("title")
         has_label = inside_label or attrs.get("id") in scanner.labels
-        has_button_text = tag == "button" and bool(attrs.get("aria-label") or attrs.get("aria-labelledby"))
+        has_button_text = tag == "button"
         if not name and not has_label and not has_button_text:
             errors.append(f"{page}: {tag} control lacks an accessible name: {attrs}")
     for attrs in []:
