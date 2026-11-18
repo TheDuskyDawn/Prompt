@@ -31,7 +31,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 22. [x] Add resource-type filtering.
 23. [x] Add category filtering.
 24. [x] Add tag filtering.
-25. [x] Add alphabetical and date sorting.
+30. [x] Add alphabetical and date sorting.
 26. [x] Add an empty state.
 27. [x] Add responsive resource cards.
 28. [x] Add a resource detail dialog.
@@ -124,6 +124,6 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 
 ## Current implementation
 
-The live catalogue contains 25 original prompts and skills across five curated collections. Implemented features include full-text search; type, category, collection, difficulty, tag, and favourites filters; related-resource recommendations; sorting; prompt personalisation; live preview; copy and text download; full catalogue JSON export; shareable filtered and individual-resource links; local favourites backup/restore; theme preference; offline caching; dedicated offline fallback page; install metadata; an offline status indicator; privacy notice; online user guide; contribution and security policies; and CI checks for catalogue data, JavaScript, local links, and PWA assets.
+The live catalogue contains 30 original prompts and skills across five curated collections. Implemented features include full-text search; type, category, collection, difficulty, tag, and favourites filters; related-resource recommendations; sorting; prompt personalisation; live preview; copy and text download; full catalogue JSON export; shareable filtered and individual-resource links; local favourites backup/restore; theme preference; offline caching; dedicated offline fallback page; install metadata; an offline status indicator; privacy notice; online user guide; contribution and security policies; and CI checks for catalogue data, JavaScript, local links, and PWA assets.
 
 Automated browser coverage now includes favourites backup validation, shareable filter restoration, theme persistence, offline navigation to secondary pages, keyboard operation of the resource dialog, and skip navigation. The service worker caches each successful navigation under its own URL and falls back to the requested page before the library or offline page. The remaining work is tracked above. Accounts, ratings, and cross-device sync remain deferred because they require additional services, privacy decisions, and moderation capacity.

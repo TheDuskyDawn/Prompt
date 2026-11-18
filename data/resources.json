@@ -489,5 +489,104 @@
     ],
     "content": "For each meaningful project decision, record:\n1. Date and decision title.\n2. Context and the problem being addressed.\n3. Options considered, including doing nothing where relevant.\n4. Criteria and constraints that mattered.\n5. The chosen option and concise rationale.\n6. Known trade-offs, risks, and assumptions.\n7. Who made or approved the decision, if stated.\n8. What evidence or event would trigger a review.\nKeep entries factual and brief. Do not rewrite old decisions as if the outcome had been obvious.",
     "review_status": "curated"
+  },
+  {
+    "id": "prompt-scenario-planning",
+    "type": "prompt",
+    "category": "Planning",
+    "title": "Explore plausible future scenarios",
+    "description": "Compare possible futures without pretending to predict which one will happen.",
+    "tags": [
+      "scenario-planning",
+      "strategy",
+      "risk"
+    ],
+    "date": "2026-11-18",
+    "content": "Act as a careful scenario-planning facilitator for this decision: [DECISION OR QUESTION]. Time horizon: [TIME HORIZON]. Context and constraints: [CONTEXT]. First separate known facts, assumptions, and unknowns. Identify the most important forces that could shape the outcome. Build three or four distinct, plausible scenarios; do not present them as predictions or assign unsupported probabilities. For each scenario, describe what changes, early signals to watch, potential opportunities and risks, and actions that would remain useful. Finish with contingency triggers, key questions to investigate, and assumptions that should be revisited. Do not invent data or hide uncertainty.",
+    "difficulty": "intermediate",
+    "collections": [
+      "Project Builder",
+      "Research & Decisions"
+    ],
+    "review_status": "curated"
+  },
+  {
+    "id": "skill-technical-documentation",
+    "type": "skill",
+    "category": "Development",
+    "title": "Create maintainable technical documentation",
+    "description": "Turn an existing tool, codebase, or API into accurate documentation people can follow.",
+    "tags": [
+      "documentation",
+      "developer",
+      "api"
+    ],
+    "date": "2026-11-18",
+    "content": "Use this workflow to document [TOOL, CODEBASE, OR API]. 1. Identify the intended reader and the task they need to complete. 2. Inspect only the supplied source material and list confirmed behaviours. 3. Record prerequisites, supported versions, setup, and a minimal quick-start path. 4. Explain the main concepts and common workflows in task order. 5. Add examples with expected outputs and label any untested example. 6. Document errors, edge cases, limitations, and troubleshooting. 7. Link related sections and define unfamiliar terms. 8. Check every command, option, and claim against the source. 9. Finish with maintenance notes and the date or version the documentation describes. Never invent flags, endpoints, or behaviour; mark missing information as a question for the maintainer.",
+    "difficulty": "intermediate",
+    "collections": [
+      "Developer Toolkit"
+    ],
+    "review_status": "curated"
+  },
+  {
+    "id": "prompt-data-quality-review",
+    "type": "prompt",
+    "category": "Research",
+    "title": "Review a dataset for quality and limitations",
+    "description": "Build a transparent data-quality assessment before analysis or reporting.",
+    "tags": [
+      "data-quality",
+      "research",
+      "validation"
+    ],
+    "date": "2026-11-18",
+    "content": "Help assess the quality of this dataset using only the schema, documentation, and appropriately anonymised sample I provide: [DATASET DESCRIPTION]. Intended use: [ANALYSIS OR DECISION]. Define the unit of observation and explain what each important field represents. Check or propose checks for missing values, duplicates, invalid formats, inconsistent categories, outliers, time coverage, sampling gaps, possible leakage, and measurement bias. Distinguish observed issues from risks that still need testing. For each issue, describe its likely impact, a reproducible check, and a cautious remediation option. Include provenance, privacy, and representativeness questions. Do not infer facts from unseen rows, fabricate statistics, or request personal or confidential records. End with a readiness assessment and explicit limitations.",
+    "difficulty": "advanced",
+    "collections": [
+      "Research & Decisions",
+      "Developer Toolkit"
+    ],
+    "review_status": "curated"
+  },
+  {
+    "id": "prompt-constructive-feedback",
+    "type": "prompt",
+    "category": "Writing",
+    "title": "Turn observations into constructive feedback",
+    "description": "Write specific, respectful feedback focused on actions and useful next steps.",
+    "tags": [
+      "feedback",
+      "communication",
+      "writing"
+    ],
+    "date": "2026-11-18",
+    "content": "Help me prepare constructive feedback about [SITUATION OR PIECE OF WORK]. Audience and relationship: [CONTEXT]. My goal: [DESIRED OUTCOME]. Use only the observations I provide. Separate the situation, observable behaviour or work, and its impact. Avoid guessing motives or judging someone's personality. Acknowledge what is working, identify one or two specific improvements, and suggest a practical next step. Use direct, respectful language and invite the other person's perspective. If evidence is missing or the issue is sensitive, ask clarifying questions before drafting. Return a concise version and a warmer conversational version. Do not present this draft as a substitute for a fair, context-aware human decision.",
+    "difficulty": "beginner",
+    "collections": [
+      "Writing Desk",
+      "Getting Started"
+    ],
+    "review_status": "curated"
+  },
+  {
+    "id": "skill-lesson-design",
+    "type": "skill",
+    "category": "Learning",
+    "title": "Design a clear, engaging lesson",
+    "description": "Plan a lesson with measurable outcomes, guided practice, and checks for understanding.",
+    "tags": [
+      "teaching",
+      "lesson-design",
+      "learning"
+    ],
+    "date": "2026-11-18",
+    "content": "Use this sequence to design a lesson on [TOPIC] for [LEARNER GROUP]. 1. Identify learners' prior knowledge, needs, and constraints. 2. Write two or three observable learning objectives. 3. Select the essential ideas and remove distracting detail. 4. Order the content from foundational concepts to application. 5. Create a short explanation and a concrete example. 6. Add guided practice with worked steps and useful hints. 7. Add an independent task that directly checks the objectives. 8. Include quick formative questions and likely misconceptions. 9. Offer accessible alternatives for reading, listening, and participation where practical. 10. Close with a recap and a next step. Explain how each activity supports an objective, and flag any assumptions about curriculum or learner level that need confirmation.",
+    "difficulty": "intermediate",
+    "collections": [
+      "Learning Lab",
+      "Getting Started"
+    ],
+    "review_status": "curated"
   }
 ]
