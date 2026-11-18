@@ -38,10 +38,11 @@ Prompt Vault should not compete on raw prompt count. Its strongest achievable po
 
 - Free, static hosting on GitHub Pages.
 - Search across resource text, title, description, category, and tags.
-- Type, category, tag, and favourites filters; alphabetical and date sorting.
-- Detail view, copy, plain-text download, and shareable direct links.
+- Type, category, five curated collections, difficulty, tag, and favourites filters; alphabetical and date sorting.
+- Detail view, variable-based prompt personalisation with live preview, copy, plain-text download, and shareable direct links.
 - Shareable filtered views.
 - Browser-local favourites and theme preference, with JSON backup and restore.
+- Offline caching and web-app install metadata for supported browsers.
 - Curated prompts and reusable skills in a separate JSON catalogue.
 - Catalogue validation, JavaScript syntax checks, and local-link checks in GitHub Actions.
 - Contribution issue form and published content guidelines.
@@ -72,11 +73,11 @@ Prompt Vault should not compete on raw prompt count. Its strongest achievable po
 |---|---|---|---|
 | P0 | Grow the catalogue with reviewed original resources | The collection is currently too small for broad discovery | Yes |
 | P0 | Add quality metadata and review status | Helps users judge relevance and trust | Yes |
-| P1 | Add curated collections and difficulty/use-case filters | Improves discovery without requiring accounts | Yes |
+| P1 | Add curated collections and difficulty/use-case filters | Improves discovery without requiring accounts | Implemented |
 | P1 | Add a clear contribution review workflow | Enables growth while preventing low-quality or unsafe submissions | Partly; GitHub Issues/PRs work now |
-| P1 | Add browser-side prompt variables or fill-in fields | Makes prompts easier to reuse | Yes |
+| P1 | Add browser-side prompt variables or fill-in fields | Makes prompts easier to reuse | Implemented |
 | P2 | Add version history and change notes per resource | Helps users understand revisions | Yes, using Git history/data |
-| P2 | Evaluate offline/PWA support | Useful for a lightweight reference library | Mostly |
+| P2 | Evaluate offline/PWA support | Useful for a lightweight reference library | Implemented; verify across devices |
 | P3 | Evaluate accounts, sync, ratings, and moderation dashboards | Only worthwhile after genuine demand | No; requires a backend or external service |
 
 ## Research sources
