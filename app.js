@@ -33,11 +33,34 @@ async function init() {
     const categories = [...new Set(items.map((item) => item.category))].sort();
     $("#category").innerHTML = '<option value="all">All categories</option>' +
       categories.map((category) => '<option value="' + escapeHTML(category) + '">' + escapeHTML(category) + '</option>').join("");
+    restoreViewFromURL();
     render();
   } catch (error) {
     $("#cards").innerHTML = '<p class="empty" role="alert">The catalogue could not be loaded. Please refresh or try again later.</p>';
     console.error(error);
   }
+}
+
+function restoreViewFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  $("#search").value = params.get("q") || "";
+  $("#type").value = ["all", "prompt", "skill"].includes(params.get("type")) ? params.get("type") : "all";
+  $("#category").value = [...$("#category").options].some((option) => option.value === params.get("category")) ? params.get("category") : "all";
+  $("#sort").value = ["featured", "az", "newest"].includes(params.get("sort")) ? params.get("sort") : "featured";
+  $("#favourites").checked = params.get("favourites") === "1";
+  activeTag = params.get("tag") || "all";
+}
+
+function syncViewToURL() {
+  const params = new URLSearchParams();
+  if ($("#search").value.trim()) params.set("q", $("#search").value.trim());
+  if ($("#type").value !== "all") params.set("type", $("#type").value);
+  if ($("#category").value !== "all") params.set("category", $("#category").value);
+  if ($("#sort").value !== "featured") params.set("sort", $("#sort").value);
+  if ($("#favourites").checked) params.set("favourites", "1");
+  if (activeTag !== "all") params.set("tag", activeTag);
+  const query = params.toString();
+  history.replaceState(null, "", window.location.pathname + (query ? "?" + query : "") + "#library");
 }
 
 function render() {
@@ -59,6 +82,7 @@ function render() {
   if (sort === "newest") list.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
   $("#count").textContent = list.length + " of " + items.length + " shown";
+  syncViewToURL();
   $("#cards").innerHTML = list.map((item) => {
     const isFavourite = favourites.has(item.id);
     return '<article class="card"><div class="cardtop"><span class="kind">' +
@@ -206,4 +230,10 @@ $("#favourites-file").addEventListener("change", async (event) => {
   } catch (error) {
     alert(error.message || "Could not read that backup file.");
   }
+});
+
+$("#share-view").addEventListener("click", async () => {
+  const button = $("#share-view");
+  try { await copyText(window.location.href); button.textContent = "Link copied ✓"; }
+  catch (error) { button.textContent = "Could not copy link"; console.warn(error); }
 });
