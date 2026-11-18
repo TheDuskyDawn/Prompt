@@ -25,6 +25,7 @@ jobs:
       - run: node --check app.js
       - run: node --check service-worker.js
       - run: python scripts/check_links.py
+      - run: python scripts/check_pwa.py
   deploy:
     needs: validate
     environment:
