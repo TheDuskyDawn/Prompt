@@ -144,16 +144,41 @@ async function copyText(text) {
   if (!copied) throw new Error("Clipboard permission unavailable");
 }
 
+function getFilledContent(item) {
+  let content = item.content;
+  const variables = $("#variables");
+  if (!variables) return content;
+  variables.querySelectorAll("[data-variable]").forEach((field) => {
+    const token = "[" + field.dataset.variable + "]";
+    const value = field.value.trim();
+    if (value) content = content.split(token).join(value);
+  });
+  return content;
+}
+
 function openDetail(id) {
   const item = items.find((entry) => entry.id === id);
   if (!item) return;
+  const variables = [...new Set([...item.content.matchAll(/\[([A-Z][A-Z0-9 _/-]{1,40})\]/g)].map((match) => match[1]))];
+  const variableMarkup = variables.length
+    ? '<div id="variables" class="variables">' + variables.map((name, index) =>
+        '<label for="variable-' + index + '">' + escapeHTML(name.replace(/[_-]/g, " ")) + '</label>' +
+        '<textarea id="variable-' + index + '" data-variable="' + escapeHTML(name) +
+        '" rows="2" placeholder="Enter ' + escapeHTML(name.toLowerCase().replace(/[_-]/g, " ")) + '"></textarea>'
+      ).join("") + '</div>'
+    : '<p class="detailmeta">This resource has no fill-in fields.</p>';
+
   $("#detailBody").innerHTML = '<p class="eyebrow">' + escapeHTML(item.type) + " / " +
-    escapeHTML(item.category) + '</p><h2 id="detailTitle">' + escapeHTML(item.title) +
+    escapeHTML(item.category) + " / " + escapeHTML(item.difficulty) +
+    '</p><h2 id="detailTitle">' + escapeHTML(item.title) +
     '</h2><p class="detailmeta">' + escapeHTML(item.description) +
     '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
-    '</div><h3>Content</h3><div class="detailtext" id="resourceText">' +
+    '</div><h3>Personalise this resource</h3>' + variableMarkup +
+    '<h3>Ready-to-use preview</h3><div class="detailtext" id="resourceText">' +
     escapeHTML(item.content) + '</div><div class="detail-actions"><button class="copy" id="copy">Copy ' +
-    escapeHTML(item.type) + '</button><button class="copy-link" id="share-resource">Copy resource link</button><button class="copy-link" id="download-resource">Download .txt</button></div>';
+    escapeHTML(item.type) + '</button><button class="copy-link" id="share-resource">Copy resource link</button>' +
+    '<button class="copy-link" id="download-resource">Download .txt</button></div>';
+
   const detailParams = new URLSearchParams(window.location.search);
   detailParams.set("resource", item.id);
   history.replaceState(null, "", window.location.pathname + "?" + detailParams.toString() + "#library");
@@ -162,10 +187,10 @@ function openDetail(id) {
   $("#copy").onclick = async () => {
     const button = $("#copy");
     try {
-      await copyText(item.content);
+      await copyText(getFilledContent(item));
       button.textContent = "Copied ✓";
     } catch (error) {
-      button.textContent = "Copy unavailable — select the text above";
+      button.textContent = "Copy unavailable — select the preview above";
       console.warn(error);
     }
   };
@@ -259,6 +284,13 @@ $("#favourites-file").addEventListener("change", async (event) => {
   } catch (error) {
     alert(error.message || "Could not read that backup file.");
   }
+});
+
+$("#detailBody").addEventListener("input", (event) => {
+  if (!event.target.matches("[data-variable]")) return;
+  const itemId = new URLSearchParams(window.location.search).get("resource");
+  const item = items.find((entry) => entry.id === itemId);
+  if (item) $("#resourceText").textContent = getFilledContent(item);
 });
 
 $("#detailBody").addEventListener("click", async (event) => {
