@@ -94,7 +94,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 75. [x] Add robots.txt.
 76. [x] Improve semantic HTML structure.
 77. [x] Add a canonical URL.
-78. [~] Review font loading and offline font fallback.
+78. [x] Review font loading and offline fallback; Google Fonts requests use display=swap and system sans-serif fallbacks remain available offline.
 79. [~] Add automated asset-size budgets and font preconnect; run a measured Lighthouse audit on mobile and desktop.
 80. [~] Complete a manual accessibility audit.
 
@@ -104,9 +104,9 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 83. [x] Evaluate authentication; accounts are not needed for the current feature set.
 84. [x] Evaluate cross-device sync; local export/import is the current privacy-friendly option.
 85. [x] Evaluate ratings; defer until there is enough usage and moderation capacity.
-86. [~] Design a moderation queue using issue and pull-request review.
+86. [x] Design a moderation queue using issue forms, pending/community/curated review states, and pull-request review.
 87. [x] Evaluate analytics with privacy; no analytics or tracking are currently installed.
-88. [~] Evaluate version history; Git history and the changelog provide the current baseline.
+88. [x] Evaluate version history; Git commit history and the changelog provide the current baseline.
 89. [x] Add curated collections and shareable resource links.
 90. [x] Estimate hosting and maintenance costs; current static hosting has no paid backend.
 
