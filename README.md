@@ -9,6 +9,7 @@ A free, static library of reusable AI prompts and skills, designed for GitHub Pa
 - Sort alphabetically or by date
 - Open a resource detail view and copy its content
 - Back up favourites to JSON and restore them on another browser
+- Curated collection of 15 original starter resources
 - Save favourites and light/dark theme preference locally
 - Responsive layout, keyboard focus indicators, and accessible labels
 - Automatically validate catalogue data and JavaScript syntax before deployment
