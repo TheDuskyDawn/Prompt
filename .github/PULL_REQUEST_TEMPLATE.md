@@ -6,6 +6,7 @@ Describe the change and why it is useful.
 
 - Resource IDs:
 - Categories/collections:
+- Difficulty levels:
 
 ## Validation
 
