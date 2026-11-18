@@ -12,7 +12,11 @@
     ],
     "date": "2026-11-18",
     "content": "Act as a patient expert teacher. Explain [TOPIC] to someone with [KNOWLEDGE LEVEL]. Start with a plain-language overview, define essential terms, use one practical analogy, then walk through a concrete example. Organise the explanation from foundational ideas to advanced details. End with 5 short questions to check understanding. If something is uncertain, say so.",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "collections": [
+      "Getting Started",
+      "Learning Lab"
+    ]
   },
   {
     "id": "prompt-study-planner",
@@ -27,7 +31,11 @@
     ],
     "date": "2026-11-18",
     "content": "Help me plan study for [SUBJECT/GOAL]. Deadline: [DATE]. Available time: [HOURS PER DAY]. Current level: [LEVEL]. Break the goal into weekly milestones and short daily sessions. Include practice, revision, breaks, and buffer time. Ask about missing constraints before finalising. Keep the plan realistic and explain how to adjust it if I fall behind.",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "collections": [
+      "Getting Started",
+      "Project Builder"
+    ]
   },
   {
     "id": "prompt-debug-helper",
@@ -42,7 +50,10 @@
     ],
     "date": "2026-11-18",
     "content": "Act as a careful debugging partner. Review the code and error below. First restate the observed behaviour, then identify likely causes ranked by evidence. Ask for missing context if needed. Propose the smallest safe fix, explain why it works, and provide a test case. Do not invent APIs or claim code was executed. Code: [PASTE CODE] Error: [PASTE ERROR]",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "collections": [
+      "Developer Toolkit"
+    ]
   },
   {
     "id": "prompt-writing-editor",
@@ -57,7 +68,11 @@
     ],
     "date": "2026-11-18",
     "content": "Edit the draft below for clarity, grammar, structure, and flow. Preserve its meaning, personality, and approximate length. Avoid adding unsupported facts or making it sound generic. Return (1) the revised draft and (2) a concise list of important changes. If a sentence is ambiguous, flag it rather than guessing. Draft: [PASTE DRAFT]",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "collections": [
+      "Getting Started",
+      "Writing Desk"
+    ]
   },
   {
     "id": "prompt-research-brief",
@@ -72,7 +87,10 @@
     ],
     "date": "2026-11-18",
     "content": "Prepare a research brief on [QUESTION]. Define scope and key terms. Separate established facts, interpretations, and unresolved questions. Prefer primary and authoritative sources; include publication dates and links when research tools are available. Note disagreements and limitations. Never fabricate citations. Finish with a short executive summary and the most useful next questions.",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "collections": [
+      "Research & Decisions"
+    ]
   },
   {
     "id": "skill-project-planner",
@@ -87,7 +105,10 @@
     ],
     "date": "2026-11-18",
     "content": "1. Clarify the outcome and who it serves.\n2. Define scope and explicitly list exclusions.\n3. Identify users, constraints, dependencies, and risks.\n4. Break work into milestones with testable acceptance criteria.\n5. Prioritise by impact, effort, and dependency.\n6. Assign an owner and a measurable completion condition to each task.\n7. Review progress regularly and update the plan when evidence changes.\n8. Close with a retrospective and documented decisions.",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "collections": [
+      "Project Builder"
+    ]
   },
   {
     "id": "skill-quality-review",
@@ -102,7 +123,11 @@
     ],
     "date": "2026-11-18",
     "content": "Review checklist:\n- Does the result satisfy the stated goal and acceptance criteria?\n- Are factual claims supported and uncertainty labelled?\n- Are edge cases and failure states handled?\n- Is the structure accessible and easy to navigate?\n- Are names, links, and instructions consistent?\n- Are privacy and security risks considered?\n- Are tests or examples included where useful?\n- List issues by severity and recommend specific fixes.",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "collections": [
+      "Developer Toolkit",
+      "Project Builder"
+    ]
   },
   {
     "id": "prompt-product-requirements",
@@ -117,7 +142,10 @@
     ],
     "date": "2026-11-18",
     "content": "Act as a product analyst. Help turn this idea into a concise product requirements document: [IDEA]. First identify the target users and problem. Separate confirmed facts from assumptions, and ask clarifying questions where a decision would materially change the solution. Then draft: problem statement, user stories, goals and non-goals, functional requirements, accessibility and privacy considerations, edge cases, success measures, and testable acceptance criteria. Prioritise requirements as must-have, should-have, or later. Do not invent market evidence.",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "collections": [
+      "Project Builder"
+    ]
   },
   {
     "id": "prompt-compare-options",
@@ -132,7 +160,10 @@
     ],
     "date": "2026-11-18",
     "content": "Help me compare these options: [OPTIONS]. My goal and constraints are: [GOAL AND CONSTRAINTS]. Propose decision criteria and explain why each matters. Ask me to confirm the criteria and weights before scoring if they are not provided. Build a comparison table, distinguish sourced facts from estimates, identify trade-offs and unknowns, and run a brief sensitivity check showing whether different priorities change the result. End with a reasoned recommendation and what evidence could change it. Never fabricate data or citations.",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "collections": [
+      "Research & Decisions"
+    ]
   },
   {
     "id": "prompt-learn-by-practice",
@@ -147,7 +178,11 @@
     ],
     "date": "2026-11-18",
     "content": "Be my learning coach for [TOPIC]. My current level is [LEVEL], and my goal is [GOAL]. Teach one small concept at a time. Start by checking what I already understand. Give me a worked example, then a similar question to solve independently. Wait for my attempt before revealing the solution. Give kind, specific feedback and a hint before the full answer. Gradually increase difficulty, revisit earlier ideas, and finish with a short recap and a few questions for later review.",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "collections": [
+      "Getting Started",
+      "Learning Lab"
+    ]
   },
   {
     "id": "prompt-brainstorm-options",
@@ -162,7 +197,11 @@
     ],
     "date": "2026-11-18",
     "content": "Help me brainstorm ideas for [CHALLENGE]. Context: [CONTEXT]. Constraints: [CONSTRAINTS]. First ask up to three important clarifying questions if needed. Generate a varied set of ideas, including practical, unusual, and low-cost options. Avoid repeating the same concept with different wording. Group related ideas, explain the core value and main drawback of each, then shortlist the strongest three against my constraints. Do not present speculation as proven fact.",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "collections": [
+      "Getting Started",
+      "Writing Desk"
+    ]
   },
   {
     "id": "prompt-meeting-action-notes",
@@ -177,7 +216,11 @@
     ],
     "date": "2026-11-18",
     "content": "Organise the notes below into a concise meeting record. Separate: (1) purpose, (2) key discussion points, (3) decisions actually made, (4) action items with owner and deadline only when stated, and (5) unresolved questions. Preserve uncertainty and mark missing owners or dates as 'not specified'. Do not invent agreement or assign tasks to people. Notes: [PASTE NOTES]",
-    "difficulty": "beginner"
+    "difficulty": "beginner",
+    "collections": [
+      "Project Builder",
+      "Writing Desk"
+    ]
   },
   {
     "id": "prompt-risk-register",
@@ -192,7 +235,11 @@
     ],
     "date": "2026-11-18",
     "content": "Help create a risk register for [PROJECT]. Context and constraints: [DETAILS]. Identify plausible risks across delivery, technical quality, privacy, security, accessibility, budget, and dependencies. For each risk, state its cause, possible impact, early warning sign, likelihood and impact using clearly defined scales, mitigation, and contingency. Distinguish evidence from assumptions. Prioritise the risks that deserve attention first, and identify what information would improve the assessment.",
-    "difficulty": "advanced"
+    "difficulty": "advanced",
+    "collections": [
+      "Project Builder",
+      "Research & Decisions"
+    ]
   },
   {
     "id": "prompt-accessibility-review",
@@ -207,7 +254,10 @@
     ],
     "date": "2026-11-18",
     "content": "Review this website or interface for accessibility: [URL, SCREENSHOT DESCRIPTION, OR CODE]. Check semantic structure, headings, keyboard navigation, visible focus, labels, names and roles, contrast, zoom/reflow, error feedback, reduced motion, and dialog behaviour. Separate issues you can verify from items that require hands-on testing or assistive technology. For each issue, describe its user impact, severity, and a concrete fix. Do not claim formal WCAG conformance without sufficient testing.",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "collections": [
+      "Developer Toolkit"
+    ]
   },
   {
     "id": "skill-research-source-check",
@@ -222,6 +272,9 @@
     ],
     "date": "2026-11-18",
     "content": "1. Write the exact claim or question being checked.\n2. Find the original or primary source where possible.\n3. Record the author, publisher, publication date, and relevant evidence.\n4. Check whether the source directly supports the claim or only discusses a related topic.\n5. Compare independent, reputable sources and note disagreements.\n6. Check whether information may be outdated or context-dependent.\n7. Separate confirmed facts, interpretation, and unknowns.\n8. Keep a short source trail so another reader can reproduce the check.\n9. Never invent a quotation, citation, statistic, or source.",
-    "difficulty": "intermediate"
+    "difficulty": "intermediate",
+    "collections": [
+      "Research & Decisions"
+    ]
   }
 ]
