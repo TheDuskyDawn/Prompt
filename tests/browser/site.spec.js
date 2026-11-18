@@ -80,3 +80,51 @@ test("supports offline navigation after the service worker is ready", async ({ p
   await expect(page.locator("h1")).toContainText("Find the right words");
   await context.setOffline(false);
 });
+
+
+test("exports a versioned favourites backup", async ({ page }) => {
+  await page.locator('[data-fav="prompt-clear-explainer"]').click();
+  const downloadPromise = page.waitForEvent("download");
+  await page.locator("#export-favourites").click();
+  const download = await downloadPromise;
+  expect(download.suggestedFilename()).toBe("prompt-vault-favourites.json");
+  const file = await download.path();
+  const fs = await import("node:fs/promises");
+  const backup = JSON.parse(await fs.readFile(file, "utf8"));
+  expect(backup.format).toBe("prompt-vault-favourites");
+  expect(backup.version).toBe(1);
+  expect(backup.favourites).toContain("prompt-clear-explainer");
+});
+
+test("imports valid favourites and ignores unknown resource IDs", async ({ page }) => {
+  page.on("dialog", dialog => dialog.accept());
+  const chooserPromise = page.waitForEvent("filechooser");
+  await page.locator("#import-favourites").click();
+  const chooser = await chooserPromise;
+  await chooser.setFiles({
+    name: "favourites.json",
+    mimeType: "application/json",
+    buffer: Buffer.from(JSON.stringify({
+      format: "prompt-vault-favourites",
+      version: 1,
+      favourites: ["prompt-clear-explainer", "not-a-real-resource"]
+    }))
+  });
+  await page.locator("#favourites").check();
+  await expect(page.locator(".card")).toHaveCount(1);
+  await expect(page.locator(".card h3")).toContainText("Explain a complex topic clearly");
+});
+
+test("restores a shareable filtered view from the URL", async ({ page }) => {
+  await page.goto("/?q=boundary&difficulty=advanced");
+  await expect(page.locator("#search")).toHaveValue("boundary");
+  await expect(page.locator("#difficulty")).toHaveValue("advanced");
+  await expect(page.locator(".card")).not.toHaveCount(0);
+});
+
+test("persists the selected theme after reload", async ({ page }) => {
+  await page.locator("#theme").click();
+  await expect(page.locator("body")).toHaveClass(/light/);
+  await page.reload();
+  await expect(page.locator("body")).toHaveClass(/light/);
+});
