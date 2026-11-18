@@ -35,6 +35,8 @@ async function init() {
       categories.map((category) => '<option value="' + escapeHTML(category) + '">' + escapeHTML(category) + '</option>').join("");
     restoreViewFromURL();
     render();
+    const resourceId = new URLSearchParams(window.location.search).get("resource");
+    if (resourceId) openDetail(resourceId);
   } catch (error) {
     $("#cards").innerHTML = '<p class="empty" role="alert">The catalogue could not be loaded. Please refresh or try again later.</p>';
     console.error(error);
@@ -133,6 +135,9 @@ function openDetail(id) {
     '</div><h3>Content</h3><div class="detailtext" id="resourceText">' +
     escapeHTML(item.content) + '</div><button class="copy" id="copy">Copy ' +
     escapeHTML(item.type) + "</button>";
+  const detailParams = new URLSearchParams(window.location.search);
+  detailParams.set("resource", item.id);
+  history.replaceState(null, "", window.location.pathname + "?" + detailParams.toString() + "#library");
   $("#detail").showModal();
   $("#copy").focus();
   $("#copy").onclick = async () => {
@@ -173,6 +178,11 @@ $("#tags").addEventListener("click", (event) => {
 });
 
 $("#close").onclick = () => $("#detail").close();
+$("#detail").addEventListener("close", () => {
+  const params = new URLSearchParams(window.location.search);
+  params.delete("resource");
+  history.replaceState(null, "", window.location.pathname + (params.toString() ? "?" + params.toString() : "") + "#library");
+});
 $("#detail").addEventListener("click", (event) => {
   if (event.target === $("#detail")) $("#detail").close();
 });
@@ -230,6 +240,13 @@ $("#favourites-file").addEventListener("change", async (event) => {
   } catch (error) {
     alert(error.message || "Could not read that backup file.");
   }
+});
+
+$("#detailBody").addEventListener("click", async (event) => {
+  if (event.target.id !== "share-resource") return;
+  const button = event.target;
+  try { await copyText(window.location.href); button.textContent = "Link copied ✓"; }
+  catch (error) { button.textContent = "Could not copy link"; console.warn(error); }
 });
 
 $("#share-view").addEventListener("click", async () => {
