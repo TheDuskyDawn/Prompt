@@ -41,7 +41,7 @@ for index, item in enumerate(resources, start=1):
     if item["type"] not in {"prompt", "skill"}:
         sys.exit(f"{prefix}: type must be prompt or skill")
 
-    if item["review_status"] not in {"curated", "community", "pending"}:
+    if not isinstance(item["review_status"], str) or item["review_status"] not in {"curated", "community", "pending"}:
         sys.exit(f"{prefix}: review_status must be curated, community, or pending")
 
     if not isinstance(item["collections"], list) or not item["collections"]:

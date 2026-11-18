@@ -53,3 +53,5 @@ Notable project changes are recorded here.
 - Verify keyboard focus returns to the invoking resource card after the detail dialog closes, and reject oversized favourites backups without changing saved data.
 - Added explicit review-status metadata to every catalogue entry, validated it in CI, and surfaced provenance in resource cards and details.
 - Expanded browser regression coverage for tag URL restoration, type/category filtering, empty states, and visible review provenance.
+- Added axe-core browser accessibility scans for the library and resource detail dialog, failing deployment on serious or critical WCAG violations.
+- Clarified that new community contributions must start as pending and only maintainers assign reviewed statuses.
