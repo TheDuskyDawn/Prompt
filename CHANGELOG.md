@@ -51,3 +51,4 @@ Notable project changes are recorded here.
 - Expanded the QA roadmap to distinguish automated coverage from remaining hands-on device and cross-browser checks.
 - Delay revoking the favourites-export object URL until the browser has had time to begin the download.
 - Verify keyboard focus returns to the invoking resource card after the detail dialog closes, and reject oversized favourites backups without changing saved data.
+- Added explicit review-status metadata to every catalogue entry, validated it in CI, and surfaced provenance in resource cards and details.
