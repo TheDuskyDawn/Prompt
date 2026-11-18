@@ -79,7 +79,9 @@ test("supports offline navigation after the service worker is ready", async ({ p
   await context.setOffline(true);
   await page.reload();
   await expect(page.locator("h1")).toContainText("Find the right words");
+  await expect(page.locator("#network-status")).toBeVisible();
   await context.setOffline(false);
+  await expect(page.locator("#network-status")).toBeHidden();
 });
 
 
@@ -315,4 +317,15 @@ test("removes stale favourite IDs from browser storage on load", async ({ page }
 test("focuses search with the Ctrl+K keyboard shortcut", async ({ page }) => {
   await page.keyboard.press("Control+k");
   await expect(page.locator("#search")).toBeFocused();
+});
+
+
+test("follows the device color scheme when no theme is saved", async ({ page }) => {
+  await page.evaluate(() => localStorage.removeItem("pv-theme"));
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.reload();
+  await expect(page.locator("body")).toHaveClass(/light/);
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.reload();
+  await expect(page.locator("body")).not.toHaveClass(/light/);
 });

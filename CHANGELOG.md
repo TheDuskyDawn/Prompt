@@ -59,3 +59,4 @@ Notable project changes are recorded here.
 - Search now matches every query term across separate resource fields, not only an exact contiguous phrase, while retaining relevance ranking.
 - Sanitize browser-stored favourites against the current catalogue during load so deleted or malformed IDs do not persist into backups.
 - Added a Ctrl/Command+K keyboard shortcut to focus the resource search field.
+- Added browser checks for the offline status indicator and device color-scheme preference when no theme override is saved.
