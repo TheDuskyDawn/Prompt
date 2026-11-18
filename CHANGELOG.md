@@ -38,3 +38,5 @@ Notable project changes are recorded here.
 - Added direct links to resource suggestion and bug report forms on the site.
 
 - Added an online user guide and included it in offline caching and automated checks.
+
+- Added a cached offline fallback page for navigation failures.
