@@ -58,6 +58,8 @@ Run a local static server from the repository root (for example, python -m http.
 
 Check JavaScript syntax with node --check app.js.
 
+See [privacy.html](https://theduskydawn.github.io/Prompt/privacy.html) for how browser storage, offline caching, and external services are handled.
+
 ## Project research
 
 See [MARKET_ANALYSIS.md](MARKET_ANALYSIS.md) for competitor patterns, positioning, and prioritised opportunities. See [CONTENT_GUIDELINES.md](CONTENT_GUIDELINES.md) for submission standards.
