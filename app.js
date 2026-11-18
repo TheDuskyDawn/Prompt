@@ -61,6 +61,7 @@ function restoreViewFromURL() {
   $("#type").value = ["all", "prompt", "skill"].includes(params.get("type")) ? params.get("type") : "all";
   $("#category").value = [...$("#category").options].some((option) => option.value === params.get("category")) ? params.get("category") : "all";
   $("#sort").value = ["featured", "az", "newest"].includes(params.get("sort")) ? params.get("sort") : "featured";
+  $("#difficulty").value = ["all", "beginner", "intermediate", "advanced"].includes(params.get("difficulty")) ? params.get("difficulty") : "all";
   $("#favourites").checked = params.get("favourites") === "1";
   activeTag = params.get("tag") || "all";
   if (activeTag !== "all" && !items.some((item) => item.tags.includes(activeTag))) activeTag = "all";
@@ -72,6 +73,7 @@ function syncViewToURL() {
   if ($("#type").value !== "all") params.set("type", $("#type").value);
   if ($("#category").value !== "all") params.set("category", $("#category").value);
   if ($("#sort").value !== "featured") params.set("sort", $("#sort").value);
+  if ($("#difficulty").value !== "all") params.set("difficulty", $("#difficulty").value);
   if ($("#favourites").checked) params.set("favourites", "1");
   if (activeTag !== "all") params.set("tag", activeTag);
   const resourceId = new URLSearchParams(window.location.search).get("resource");
@@ -85,11 +87,13 @@ function render() {
   const type = $("#type").value;
   const category = $("#category").value;
   const sort = $("#sort").value;
+  const difficulty = $("#difficulty").value;
   const onlyFavourites = $("#favourites").checked;
 
   const list = items.filter((item) =>
     (type === "all" || item.type === type) &&
     (category === "all" || item.category === category) &&
+    (difficulty === "all" || item.difficulty === difficulty) &&
     (activeTag === "all" || item.tags.includes(activeTag)) &&
     (!onlyFavourites || favourites.has(item.id)) &&
     [item.title, item.description, item.category, item.content, ...item.tags].join(" ").toLowerCase().includes(query)
@@ -103,7 +107,7 @@ function render() {
   $("#cards").innerHTML = list.map((item) => {
     const isFavourite = favourites.has(item.id);
     return '<article class="card"><div class="cardtop"><span class="kind">' +
-      escapeHTML(item.type) + " · " + escapeHTML(item.category) +
+      escapeHTML(item.type) + " · " + escapeHTML(item.category) + " · " + escapeHTML(item.difficulty) +
       '</span><button class="fav ' + (isFavourite ? "on" : "") + '" data-fav="' +
       escapeHTML(item.id) + '" aria-label="' + (isFavourite ? "Remove " : "Add ") +
       escapeHTML(item.title) + ' ' + (isFavourite ? "from" : "to") +
@@ -187,7 +191,7 @@ $("#tags").addEventListener("click", (event) => {
   }
 });
 
-["search", "type", "category", "sort", "favourites"].forEach((id) => {
+["search", "type", "category", "sort", "difficulty", "favourites"].forEach((id) => {
   const control = $("#" + id);
   control.addEventListener(id === "search" ? "input" : "change", render);
 });
