@@ -255,3 +255,11 @@ test("shows a helpful empty state when nothing matches", async ({ page }) => {
   await expect(page.locator(".card")).toHaveCount(0);
   await expect(page.locator("#empty")).toBeVisible();
 });
+
+
+test("restores alphabetical sorting from a shareable URL", async ({ page }) => {
+  await page.locator("#sort").selectOption("az");
+  await expect(page).toHaveURL(/sort=az/);
+  await page.reload();
+  await expect(page.locator(".card h3").first()).toHaveText("Build a practical project risk register");
+});
