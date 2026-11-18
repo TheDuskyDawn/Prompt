@@ -10,7 +10,7 @@ A free, static library of reusable AI prompts and skills, designed for GitHub Pa
 - Personalise fill-in fields with a live preview, then copy or download the completed prompt
 - Open a resource detail view, discover related resources, copy content, or download it as a plain-text file
 - Share filtered views and direct links to individual resources
-- Back up favourites to JSON and restore them on another browser
+- Export the complete catalogue as JSON and back up favourites separately
 - Curated collection of 20 original starter resources
 - Save favourites and light/dark theme preference locally; the initial theme follows the device preference
 - Offline caching through a service worker, a dedicated offline fallback page, and install metadata for supported browsers
