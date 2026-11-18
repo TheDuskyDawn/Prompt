@@ -267,7 +267,10 @@ $("#theme").onclick = () => {
   updateThemeButton();
 };
 
-if (readStorage("pv-theme") === "light") document.body.classList.add("light");
+const savedTheme = readStorage("pv-theme");
+if (savedTheme === "light" || (!savedTheme && window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches)) {
+  document.body.classList.add("light");
+}
 updateThemeButton();
 init();
 
