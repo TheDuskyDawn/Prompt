@@ -28,6 +28,7 @@ jobs:
       - run: python scripts/check_pwa.py
       - run: python scripts/check_performance.py
       - run: python scripts/check_contrast.py
+      - run: python scripts/check_accessibility.py
   deploy:
     if: github.event_name != 'pull_request'
     needs: validate
