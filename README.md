@@ -4,14 +4,15 @@ A free, static library of reusable AI prompts and skills, designed for GitHub Pa
 
 ## Features
 
-- Search titles, descriptions, categories, tags, and resource content
+- Search across resource content and metadata with multi-term matching and relevance ranking
+- Jump to search with Ctrl+K or Command+K
 - Filter by prompt/skill type, category, curated collection, difficulty, tag, and favourites, with one-click reset
 - Sort alphabetically or by date
 - Personalise fill-in fields with a live preview, then copy or download the completed prompt
 - Open a resource detail view, discover related resources, copy content, or download it as a plain-text file
 - Share filtered views and direct links to individual resources
 - Export the complete catalogue as JSON and back up favourites separately
-- Curated collection of 25 original starter resources with explicit review-status metadata
+- Curated collection of 25 original starter resources with explicit review-status metadata and provenance labels
 - Save favourites and light/dark theme preference locally; the initial theme follows the device preference
 - Offline caching through a service worker, a dedicated offline fallback page, and install metadata for supported browsers
 - Retryable loading states, responsive layout, skip navigation, reduced-motion support, keyboard focus indicators, and accessible labels
