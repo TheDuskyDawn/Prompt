@@ -298,3 +298,15 @@ test("matches multi-word searches across different resource fields", async ({ pa
   await page.locator("#search").fill("software boundary");
   await expect(page.locator(".card h3", { hasText: "Generate practical software test cases" })).toBeVisible();
 });
+
+
+test("removes stale favourite IDs from browser storage on load", async ({ page }) => {
+  await page.addInitScript(() => {
+    localStorage.setItem("pv-favs", JSON.stringify(["prompt-clear-explainer", "deleted-resource"]));
+  });
+  await page.reload();
+  const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("pv-favs")));
+  expect(stored).toEqual(["prompt-clear-explainer"]);
+  await page.locator("#favourites").check();
+  await expect(page.locator(".card")).toHaveCount(1);
+});

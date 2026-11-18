@@ -38,6 +38,12 @@ async function init() {
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error("Catalogue must be a JSON array");
     items = data;
+    const validFavouriteIds = new Set(items.map((item) => item.id));
+    const cleanedFavourites = [...favourites].filter((id) => typeof id === "string" && validFavouriteIds.has(id));
+    if (cleanedFavourites.length !== favourites.size) {
+      favourites = new Set(cleanedFavourites);
+      saveFavourites();
+    }
     $("#download-catalogue").disabled = false;
     $("#cards").setAttribute("aria-busy", "false");
     $("#total").textContent = items.length;

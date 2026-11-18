@@ -40,7 +40,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 
 ## Stage 4 — Personalisation
 31. [x] Add favourites.
-32. [x] Persist favourites locally.
+32. [x] Persist favourites locally and remove stale IDs when the catalogue changes.
 33. [x] Add a theme toggle.
 34. [x] Persist the theme preference.
 35. [x] Add clear feedback after copy.
