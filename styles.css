@@ -17,3 +17,5 @@
 .kind{text-transform:uppercase}.toolbar select{width:100%}
 
 .variables{display:grid;gap:7px;margin:12px 0 18px}.variables label{font-size:12px;color:var(--muted);font-weight:700;text-transform:capitalize}.variables textarea{width:100%;resize:vertical;min-height:62px;background:var(--panel2);border:1px solid var(--line);border-radius:8px;color:var(--text);padding:10px;font:inherit;font-size:14px}.variables textarea:focus{outline:2px solid var(--accent);outline-offset:2px}
+
+.network-status{font-size:11px;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:5px 8px}.network-status[hidden]{display:none}
