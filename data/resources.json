@@ -1,0 +1,100 @@
+[
+  {
+    "id": "prompt-clear-explainer",
+    "type": "prompt",
+    "category": "Learning",
+    "title": "Explain a complex topic clearly",
+    "description": "Turn a difficult subject into a clear, layered explanation.",
+    "tags": [
+      "learning",
+      "explanation",
+      "beginner"
+    ],
+    "date": "2026-11-18",
+    "content": "Act as a patient expert teacher. Explain [TOPIC] to someone with [KNOWLEDGE LEVEL]. Start with a plain-language overview, define essential terms, use one practical analogy, then walk through a concrete example. Organise the explanation from foundational ideas to advanced details. End with 5 short questions to check understanding. If something is uncertain, say so."
+  },
+  {
+    "id": "prompt-study-planner",
+    "type": "prompt",
+    "category": "Productivity",
+    "title": "Build a realistic study plan",
+    "description": "Create a balanced plan around a goal, deadline, and available time.",
+    "tags": [
+      "study",
+      "planning",
+      "productivity"
+    ],
+    "date": "2026-11-18",
+    "content": "Help me plan study for [SUBJECT/GOAL]. Deadline: [DATE]. Available time: [HOURS PER DAY]. Current level: [LEVEL]. Break the goal into weekly milestones and short daily sessions. Include practice, revision, breaks, and buffer time. Ask about missing constraints before finalising. Keep the plan realistic and explain how to adjust it if I fall behind."
+  },
+  {
+    "id": "prompt-debug-helper",
+    "type": "prompt",
+    "category": "Development",
+    "title": "Debug code systematically",
+    "description": "Get a structured diagnosis instead of a guessed fix.",
+    "tags": [
+      "coding",
+      "debugging",
+      "developer"
+    ],
+    "date": "2026-11-18",
+    "content": "Act as a careful debugging partner. Review the code and error below. First restate the observed behaviour, then identify likely causes ranked by evidence. Ask for missing context if needed. Propose the smallest safe fix, explain why it works, and provide a test case. Do not invent APIs or claim code was executed. Code: [PASTE CODE] Error: [PASTE ERROR]"
+  },
+  {
+    "id": "prompt-writing-editor",
+    "type": "prompt",
+    "category": "Writing",
+    "title": "Improve a draft without losing its voice",
+    "description": "Edit for clarity, flow, and correctness while preserving intent.",
+    "tags": [
+      "writing",
+      "editing",
+      "communication"
+    ],
+    "date": "2026-11-18",
+    "content": "Edit the draft below for clarity, grammar, structure, and flow. Preserve its meaning, personality, and approximate length. Avoid adding unsupported facts or making it sound generic. Return (1) the revised draft and (2) a concise list of important changes. If a sentence is ambiguous, flag it rather than guessing. Draft: [PASTE DRAFT]"
+  },
+  {
+    "id": "prompt-research-brief",
+    "type": "prompt",
+    "category": "Research",
+    "title": "Create an evidence-aware research brief",
+    "description": "Organise a question into findings, evidence, and open questions.",
+    "tags": [
+      "research",
+      "analysis",
+      "fact-check"
+    ],
+    "date": "2026-11-18",
+    "content": "Prepare a research brief on [QUESTION]. Define scope and key terms. Separate established facts, interpretations, and unresolved questions. Prefer primary and authoritative sources; include publication dates and links when research tools are available. Note disagreements and limitations. Never fabricate citations. Finish with a short executive summary and the most useful next questions."
+  },
+  {
+    "id": "skill-project-planner",
+    "type": "skill",
+    "category": "Productivity",
+    "title": "Project planning workflow",
+    "description": "A reusable sequence for turning an idea into an actionable project.",
+    "tags": [
+      "planning",
+      "workflow",
+      "projects"
+    ],
+    "date": "2026-11-18",
+    "content": "1. Clarify the outcome and who it serves.\\n2. Define scope and explicitly list exclusions.\\n3. Identify users, constraints, dependencies, and risks.\\n4. Break work into milestones with testable acceptance criteria.\\n5. Prioritise by impact, effort, and dependency.\\n6. Assign an owner and a measurable completion condition to each task.\\n7. Review progress regularly and update the plan when evidence changes.\\n8. Close with a retrospective and documented decisions."
+  },
+  {
+    "id": "skill-quality-review",
+    "type": "skill",
+    "category": "Development",
+    "title": "Quality review checklist",
+    "description": "Review an output for correctness, usability, and maintainability.",
+    "tags": [
+      "quality",
+      "review",
+      "testing"
+    ],
+    "date": "2026-11-18",
+    "content": "Review checklist:\\n- Does the result satisfy the stated goal and acceptance criteria?\\n- Are factual claims supported and uncertainty labelled?\\n- Are edge cases and failure states handled?\\n- Is the structure accessible and easy to navigate?\\n- Are names, links, and instructions consistent?\\n- Are privacy and security risks considered?\\n- Are tests or examples included where useful?\\n- List issues by severity and recommend specific fixes."
+  }
+]
