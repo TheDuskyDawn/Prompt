@@ -6,6 +6,7 @@ const CORE_ASSETS = [
   "./app.js",
   "./data/resources.json",
   "./assets/favicon.svg",
+  "./assets/app-icon.svg",
   "./manifest.webmanifest"
 ];
 
