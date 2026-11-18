@@ -1,1 +1,163 @@
-const $=s=>document.querySelector(s);let items=[],activeTag='all',favs=new Set(JSON.parse(localStorage.getItem('pv-favs')||'[]'));const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));async function init(){try{const r=await fetch('data/resources.json');if(!r.ok)throw Error('Could not load catalogue');items=await r.json();$('#total').textContent=items.length;const cats=[...new Set(items.map(x=>x.category))].sort();$('#category').innerHTML='<option value="all">All categories</option>'+cats.map(x=>'<option>'+esc(x)+'</option>').join('');render()}catch(e){$('#cards').innerHTML='<p class="empty">The catalogue could not be loaded. Please refresh.</p>';console.error(e)}}function render(){let q=$('#search').value.toLowerCase(),type=$('#type').value,cat=$('#category').value,sort=$('#sort').value;let list=items.filter(x=>(type==='all'||x.type===type)&&(cat==='all'||x.category===cat)&&(activeTag==='all'||x.tags.includes(activeTag))&&(!$('#favourites').checked||favs.has(x.id))&&[x.title,x.description,x.category,...x.tags].join(' ').toLowerCase().includes(q));if(sort==='az')list.sort((a,b)=>a.title.localeCompare(b.title));if(sort==='newest')list.sort((a,b)=>(b.date||'').localeCompare(a.date||''));$('#count').textContent=list.length+' shown';$('#cards').innerHTML=list.map(x=>'<article class="card"><div class="cardtop"><span class="kind">'+esc(x.type)+' · '+esc(x.category)+'</span><button class="fav '+(favs.has(x.id)?'on':'')+'" data-fav="'+esc(x.id)+'" aria-label="Toggle favourite">'+(favs.has(x.id)?'★':'☆')+'</button></div><h3>'+esc(x.title)+'</h3><p>'+esc(x.description)+'</p><div class="cardbottom"><div class="chips">'+x.tags.slice(0,3).map(t=>'<span>'+esc(t)+'</span>').join('')+'</div><button class="open" data-open="'+esc(x.id)+'">View →</button></div></article>').join('');$('#empty').hidden=!!list.length;let tags=[...new Set(items.flatMap(x=>x.tags))].sort();$('#tags').innerHTML='<button class="tag '+(activeTag==='all'?'active':'')+'" data-tag="all">All tags</button>'+tags.map(t=>'<button class="tag '+(activeTag===t?'active':'')+'" data-tag="'+esc(t)+'">'+esc(t)+'</button>').join('')}function detail(id){let x=items.find(i=>i.id===id);if(!x)return;$('#detailBody').innerHTML='<p class="eyebrow">'+esc(x.type)+' / '+esc(x.category)+'</p><h2>'+esc(x.title)+'</h2><p class="detailmeta">'+esc(x.description)+'</p><div class="chips">'+x.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div><h3>Content</h3><div class="detailtext" id="resourceText">'+esc(x.content)+'</div><button class="copy" id="copy">Copy '+esc(x.type)+'</button>';$('#detail').showModal();$('#copy').onclick=async()=>{await navigator.clipboard.writeText(x.content);$('#copy').textContent='Copied ✓';setTimeout(()=>$('#copy').textContent='Copy '+x.type,1500)}}$('#cards').addEventListener('click',e=>{let f=e.target.closest('[data-fav]'),o=e.target.closest('[data-open]');if(f){let id=f.dataset.fav;favs.has(id)?favs.delete(id):favs.add(id);localStorage.setItem('pv-favs',JSON.stringify([...favs]));render()}if(o)detail(o.dataset.open)});$('#tags').addEventListener('click',e=>{let t=e.target.closest('[data-tag]');if(t){activeTag=t.dataset.tag;render()}});['search','type','category','sort','favourites'].forEach(id=>$('#'+id).addEventListener(id==='search'?'input':'change',render));$('#close').onclick=()=>$('#detail').close();$('#detail').addEventListener('click',e=>{if(e.target===$('#detail'))$('#detail').close()});$('#theme').onclick=()=>{document.body.classList.toggle('light');localStorage.setItem('pv-theme',document.body.classList.contains('light')?'light':'dark')};if(localStorage.getItem('pv-theme')==='light')document.body.classList.add('light');init();
+const $ = (selector) => document.querySelector(selector);
+let items = [];
+let activeTag = "all";
+let favourites = new Set();
+try {
+  favourites = new Set(JSON.parse(localStorage.getItem("pv-favs") || "[]"));
+} catch {
+  localStorage.removeItem("pv-favs");
+}
+
+const escapeHTML = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({
+  "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+})[char]);
+
+function saveFavourites() {
+  localStorage.setItem("pv-favs", JSON.stringify([...favourites]));
+}
+
+function updateThemeButton() {
+  const light = document.body.classList.contains("light");
+  $("#theme").setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+  $("#theme").textContent = light ? "☾" : "☼";
+}
+
+async function init() {
+  try {
+    const response = await fetch("data/resources.json");
+    if (!response.ok) throw new Error("Catalogue request failed (" + response.status + ")");
+    const data = await response.json();
+    if (!Array.isArray(data)) throw new Error("Catalogue must be a JSON array");
+    items = data;
+    $("#total").textContent = items.length;
+    const categories = [...new Set(items.map((item) => item.category))].sort();
+    $("#category").innerHTML = '<option value="all">All categories</option>' +
+      categories.map((category) => '<option value="' + escapeHTML(category) + '">' + escapeHTML(category) + '</option>').join("");
+    render();
+  } catch (error) {
+    $("#cards").innerHTML = '<p class="empty" role="alert">The catalogue could not be loaded. Please refresh or try again later.</p>';
+    console.error(error);
+  }
+}
+
+function render() {
+  const query = $("#search").value.trim().toLowerCase();
+  const type = $("#type").value;
+  const category = $("#category").value;
+  const sort = $("#sort").value;
+  const onlyFavourites = $("#favourites").checked;
+
+  const list = items.filter((item) =>
+    (type === "all" || item.type === type) &&
+    (category === "all" || item.category === category) &&
+    (activeTag === "all" || item.tags.includes(activeTag)) &&
+    (!onlyFavourites || favourites.has(item.id)) &&
+    [item.title, item.description, item.category, item.content, ...item.tags].join(" ").toLowerCase().includes(query)
+  );
+
+  if (sort === "az") list.sort((a, b) => a.title.localeCompare(b.title));
+  if (sort === "newest") list.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
+
+  $("#count").textContent = list.length + " of " + items.length + " shown";
+  $("#cards").innerHTML = list.map((item) => {
+    const isFavourite = favourites.has(item.id);
+    return '<article class="card"><div class="cardtop"><span class="kind">' +
+      escapeHTML(item.type) + " · " + escapeHTML(item.category) +
+      '</span><button class="fav ' + (isFavourite ? "on" : "") + '" data-fav="' +
+      escapeHTML(item.id) + '" aria-label="' + (isFavourite ? "Remove " : "Add ") +
+      escapeHTML(item.title) + ' ' + (isFavourite ? "from" : "to") +
+      ' favourites" aria-pressed="' + isFavourite + '">' + (isFavourite ? "★" : "☆") +
+      '</button></div><h3>' + escapeHTML(item.title) + '</h3><p>' +
+      escapeHTML(item.description) + '</p><div class="cardbottom"><div class="chips">' +
+      item.tags.slice(0, 3).map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
+      '</div><button class="open" data-open="' + escapeHTML(item.id) + '">View →</button></div></article>';
+  }).join("");
+
+  $("#empty").hidden = list.length > 0;
+  const tags = [...new Set(items.flatMap((item) => item.tags))].sort();
+  $("#tags").innerHTML = '<button class="tag ' + (activeTag === "all" ? "active" : "") +
+    '" data-tag="all" aria-pressed="' + (activeTag === "all") + '">All tags</button>' +
+    tags.map((tag) => '<button class="tag ' + (activeTag === tag ? "active" : "") +
+      '" data-tag="' + escapeHTML(tag) + '" aria-pressed="' + (activeTag === tag) +
+      '">' + escapeHTML(tag) + "</button>").join("");
+}
+
+async function copyText(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+  const temporary = document.createElement("textarea");
+  temporary.value = text;
+  temporary.setAttribute("readonly", "");
+  temporary.style.position = "fixed";
+  temporary.style.opacity = "0";
+  document.body.append(temporary);
+  temporary.select();
+  const copied = document.execCommand("copy");
+  temporary.remove();
+  if (!copied) throw new Error("Clipboard permission unavailable");
+}
+
+function openDetail(id) {
+  const item = items.find((entry) => entry.id === id);
+  if (!item) return;
+  $("#detailBody").innerHTML = '<p class="eyebrow">' + escapeHTML(item.type) + " / " +
+    escapeHTML(item.category) + '</p><h2 id="detailTitle">' + escapeHTML(item.title) +
+    '</h2><p class="detailmeta">' + escapeHTML(item.description) +
+    '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
+    '</div><h3>Content</h3><div class="detailtext" id="resourceText">' +
+    escapeHTML(item.content) + '</div><button class="copy" id="copy">Copy ' +
+    escapeHTML(item.type) + "</button>";
+  $("#detail").showModal();
+  $("#copy").focus();
+  $("#copy").onclick = async () => {
+    const button = $("#copy");
+    try {
+      await copyText(item.content);
+      button.textContent = "Copied ✓";
+    } catch (error) {
+      button.textContent = "Copy unavailable — select the text above";
+      console.warn(error);
+    }
+  };
+}
+
+$("#cards").addEventListener("click", (event) => {
+  const favouriteButton = event.target.closest("[data-fav]");
+  const openButton = event.target.closest("[data-open]");
+  if (favouriteButton) {
+    const id = favouriteButton.dataset.fav;
+    favourites.has(id) ? favourites.delete(id) : favourites.add(id);
+    saveFavourites();
+    render();
+  }
+  if (openButton) openDetail(openButton.dataset.open);
+});
+
+$("#tags").addEventListener("click", (event) => {
+  const tagButton = event.target.closest("[data-tag]");
+  if (tagButton) {
+    activeTag = tagButton.dataset.tag;
+    render();
+  }
+});
+
+["search", "type", "category", "sort", "favourites"].forEach((id) => {
+  const control = $("#" + id);
+  control.addEventListener(id === "search" ? "input" : "change", render);
+});
+
+$("#close").onclick = () => $("#detail").close();
+$("#detail").addEventListener("click", (event) => {
+  if (event.target === $("#detail")) $("#detail").close();
+});
+$("#theme").onclick = () => {
+  document.body.classList.toggle("light");
+  localStorage.setItem("pv-theme", document.body.classList.contains("light") ? "light" : "dark");
+  updateThemeButton();
+};
+
+if (localStorage.getItem("pv-theme") === "light") document.body.classList.add("light");
+updateThemeButton();
+init();
