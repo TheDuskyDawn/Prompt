@@ -16,6 +16,7 @@ Notable project changes are recorded here.
 - Added difficulty metadata and a difficulty filter with shareable URL state.
 - Added five curated collections and a collection filter.
 - Added a web app manifest and offline caching service worker.
+- Added pull-request validation, PWA checks, and a reviewer checklist.
 - Added fill-in fields that personalise prompts with a live preview before copying or downloading.
 - Added market analysis and positioning recommendations.
 - Added retryable loading states, resilient local storage, skip navigation, and reduced-motion support.
