@@ -40,7 +40,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - run: npm install --no-save @playwright/test
+      - run: npm install --no-save @playwright/test @axe-core/playwright
       - run: npx playwright install --with-deps chromium
       - run: npm run test:e2e
   deploy:

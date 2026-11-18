@@ -1,4 +1,5 @@
 import { test, expect } from "@playwright/test";
+import AxeBuilder from "@axe-core/playwright";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -262,4 +263,26 @@ test("restores alphabetical sorting from a shareable URL", async ({ page }) => {
   await expect(page).toHaveURL(/sort=az/);
   await page.reload();
   await expect(page.locator(".card h3").first()).toHaveText("Build a practical project risk register");
+});
+
+
+test("has no serious or critical automated accessibility violations", async ({ page }) => {
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+    .analyze();
+  const seriousViolations = results.violations.filter((violation) =>
+    violation.impact === "serious" || violation.impact === "critical"
+  );
+  expect(seriousViolations).toEqual([]);
+});
+
+test("resource detail dialog has no serious or critical accessibility violations", async ({ page }) => {
+  await page.locator('[data-open="prompt-clear-explainer"]').click();
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+    .analyze();
+  const seriousViolations = results.violations.filter((violation) =>
+    violation.impact === "serious" || violation.impact === "critical"
+  );
+  expect(seriousViolations).toEqual([]);
 });

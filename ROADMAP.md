@@ -48,7 +48,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 37. [x] Make the layout and controls responsive on mobile.
 38. [x] Add visible keyboard focus states.
 39. [x] Add automated 4.5:1 text contrast checks across both themes.
-40. [~] Add static accessibility checks; complete a manual screen-reader audit.
+40. [x] Add static accessibility checks and automated axe-core scans for library and resource dialogs; complete a manual screen-reader audit.
 
 ## Stage 5 — Quality
 41. [x] Validate JSON catalogue data.
