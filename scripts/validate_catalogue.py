@@ -64,7 +64,7 @@ for index, item in enumerate(resources, start=1):
             sys.exit(f"{prefix}: quality scores must be integers from 1 to 5")
         if not isinstance(quality.get("reviewer"), str) or not quality["reviewer"].strip():
             sys.exit(f"{prefix}: completed quality reviews require a reviewer")
-        if not isinstance(quality.get("reviewed_at"), str) or not re.fullmatch(r"\\d{4}-\\d{2}-\\d{2}", quality["reviewed_at"]):
+        if not isinstance(quality.get("reviewed_at"), str) or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", quality["reviewed_at"]):
             sys.exit(f"{prefix}: completed quality reviews require reviewed_at in YYYY-MM-DD format")
         try:
             date.fromisoformat(quality["reviewed_at"])
