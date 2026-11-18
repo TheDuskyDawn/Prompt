@@ -17,7 +17,7 @@ Prompt Vault should not compete on raw prompt count. Its strongest achievable po
 | Curated directories | AI Prompt Database; BeforePrompt | Curated entries, searchable categories, use-case metadata | Keep every entry self-contained, tested by humans, and clear about limitations |
 | Prompt-management products | Quox Prompts Library; local/offline prompt managers | Personal collections, create/organise, export/import, search | Keep the basic library open, lightweight, and account-free |
 | Specialist libraries | PromptHero and other visual-prompt directories | Strong focus on image/video generation and visual examples | Stay broadly useful across learning, writing, research, development, and planning |
-| Marketplaces | PromptBase and similar services | Paid specialist listings and creator marketplace models | Avoid a paywall; prioritise trust, clarity, and free reuse |
+| Marketplaces | Paid prompt marketplaces | Specialist listings and creator marketplace models | Avoid a paywall; prioritise trust, clarity, and free reuse |
 
 ## Features users increasingly expect
 
@@ -89,7 +89,6 @@ These public pages were reviewed for product positioning and feature patterns. T
 - Quox Prompts Library — https://quox.ai/docs/prompts-library
 - PromptVault offline/local library — https://opencode.terrychan.org/chiuta/PromptVault
 - Free AI Prompt Library — https://freeaipromptlibrary.com/
-- PromptBase — https://promptbase.com/
 - BeforePrompt — https://beforeprompt.com/prompt-library
 
 ## Conclusion
