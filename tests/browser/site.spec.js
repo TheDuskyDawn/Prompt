@@ -366,3 +366,18 @@ test("falls back to document copy when clipboard permission is denied", async ({
   await page.locator("#copy").click();
   await expect(page.locator("#copy")).toHaveText("Copied ✓");
 });
+
+
+test("explains how to copy manually when both clipboard methods fail", async ({ page }) => {
+  await page.addInitScript(() => {
+    Object.defineProperty(navigator, "clipboard", {
+      configurable: true,
+      value: { writeText: async () => { throw new Error("permission denied"); } }
+    });
+    document.execCommand = () => false;
+  });
+  await page.reload();
+  await page.locator('[data-open="prompt-clear-explainer"]').click();
+  await page.locator("#copy").click();
+  await expect(page.locator("#copy")).toHaveText("Copy unavailable — select the preview above");
+});
