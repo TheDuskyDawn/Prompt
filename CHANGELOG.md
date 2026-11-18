@@ -15,6 +15,7 @@ Notable project changes are recorded here.
 - Added plain-text downloads for individual prompts and skills.
 - Added difficulty metadata and a difficulty filter with shareable URL state.
 - Added five curated collections and a collection filter.
+- Added a one-click reset for all library filters.
 - Added a web app manifest and offline caching service worker.
 - Added pull-request validation, PWA checks, and a reviewer checklist.
 - Added a public privacy notice and checks for its local links.
