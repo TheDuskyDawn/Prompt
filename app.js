@@ -38,6 +38,7 @@ async function init() {
     const data = await response.json();
     if (!Array.isArray(data)) throw new Error("Catalogue must be a JSON array");
     items = data;
+    $("#download-catalogue").disabled = false;
     $("#cards").setAttribute("aria-busy", "false");
     $("#total").textContent = items.length;
     const categories = [...new Set(items.map((item) => item.category))].sort();
