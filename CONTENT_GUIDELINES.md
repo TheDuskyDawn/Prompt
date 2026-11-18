@@ -27,7 +27,7 @@ Prompt Vault aims to publish original, practical, reusable resources.
 - Use a concise category and a few relevant tags.
 - Choose beginner, intermediate, or advanced difficulty based on the amount of prior knowledge required.
 - Select one or more existing curated collections that genuinely fit the resource.
-- Set review_status to curated only after maintainer review; use pending for unreviewed suggestions and community for accepted community submissions.
+- Set review_status to curated after maintainer review or community after an accepted community submission. Keep pending suggestions in the issue queue; never publish them in the catalogue.
 - Use a valid YYYY-MM-DD date.
 - Keep titles, descriptions, and content within the limits enforced by the catalogue validator.
 
