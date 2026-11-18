@@ -32,3 +32,5 @@ Notable project changes are recorded here.
 - Added static accessibility checks for page language, headings, IDs, labels, skip navigation, and dialog naming.
 
 - Added related-resource recommendations based on shared collections and tags.
+
+- Respect the device color-scheme preference when no theme choice has been saved.
