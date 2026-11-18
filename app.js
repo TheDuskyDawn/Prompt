@@ -97,6 +97,7 @@ function syncViewToURL() {
 
 function render() {
   const query = $("#search").value.trim().toLowerCase();
+  const terms = query.split(/\s+/).filter(Boolean);
   const type = $("#type").value;
   const category = $("#category").value;
   const collection = $("#collection").value;
@@ -104,24 +105,28 @@ function render() {
   const difficulty = $("#difficulty").value;
   const onlyFavourites = $("#favourites").checked;
 
-  const list = items.filter((item) =>
-    (type === "all" || item.type === type) &&
-    (category === "all" || item.category === category) &&
-    (collection === "all" || item.collections.includes(collection)) &&
-    (difficulty === "all" || item.difficulty === difficulty) &&
-    (activeTag === "all" || item.tags.includes(activeTag)) &&
-    (!onlyFavourites || favourites.has(item.id)) &&
-    [item.title, item.description, item.category, item.type, item.difficulty, ...item.collections, item.content, item.review_status, ...item.tags].join(" ").toLowerCase().split(/\\s+/).filter(Boolean).every((term) => [item.title, item.description, item.category, item.type, item.difficulty, ...item.collections, item.content, item.review_status, ...item.tags].join(" ").toLowerCase().includes(term))
-  );
+  const list = items.filter((item) => {
+    const searchable = [
+      item.title, item.description, item.category, item.type, item.difficulty,
+      ...item.collections, item.content, item.review_status, ...item.tags
+    ].join(" ").toLowerCase();
+    return (type === "all" || item.type === type) &&
+      (category === "all" || item.category === category) &&
+      (collection === "all" || item.collections.includes(collection)) &&
+      (difficulty === "all" || item.difficulty === difficulty) &&
+      (activeTag === "all" || item.tags.includes(activeTag)) &&
+      (!onlyFavourites || favourites.has(item.id)) &&
+      terms.every((term) => searchable.includes(term));
+  });
 
-  if (sort === "featured" && query) {
+  if (sort === "featured" && terms.length) {
     const relevance = (item) => {
       const title = item.title.toLowerCase();
       const description = item.description.toLowerCase();
       const tags = item.tags.join(" ").toLowerCase();
       const metadata = [item.category, item.type, item.difficulty, ...item.collections, item.review_status].join(" ").toLowerCase();
       const content = item.content.toLowerCase();
-      return query.split(/\\s+/).filter(Boolean).reduce((score, term) =>
+      return terms.reduce((score, term) =>
         score + (title.includes(term) ? 16 : 0) +
           (description.includes(term) ? 8 : 0) +
           (tags.includes(term) ? 6 : 0) +
