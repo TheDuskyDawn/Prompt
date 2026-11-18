@@ -31,7 +31,7 @@ Favourites and theme settings stay in the current browser. They are not synced t
 
 1. In GitHub, open Settings → Pages.
 2. Set the source to GitHub Actions.
-3. The workflow in .github/workflows/pages.yml validates the catalogue and JavaScript, then deploys after pushes to main.
+3. The workflow in .github/workflows/pages.yml validates the catalogue, JavaScript, local links, and PWA assets on pull requests and pushes; it deploys only from main.
 
 The site is static and requires no server or paid backend.
 
