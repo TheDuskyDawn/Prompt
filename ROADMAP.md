@@ -37,6 +37,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 28. [x] Add a resource detail dialog.
 29. [x] Add copy actions with feedback and fallback.
 30. [x] Add keyboard-friendly interactions and visible focus.
+30a. [x] Add a Surprise me action to open a random resource for visitors who want to explore.
 
 ## Stage 4 — Personalisation
 31. [x] Add favourites.

@@ -461,3 +461,11 @@ function updateNetworkStatus() {
 window.addEventListener("online", updateNetworkStatus);
 window.addEventListener("offline", updateNetworkStatus);
 updateNetworkStatus();
+
+
+$("#surprise").addEventListener("click", () => {
+  if (!items.length) return;
+  const candidates = items.filter((item) => !new URLSearchParams(window.location.search).has("resource") || item.id !== new URLSearchParams(window.location.search).get("resource"));
+  const pool = candidates.length ? candidates : items;
+  openDetail(pool[Math.floor(Math.random() * pool.length)].id);
+});

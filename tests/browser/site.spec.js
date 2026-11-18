@@ -405,3 +405,11 @@ test("avoids horizontal page overflow at narrow phone widths", async ({ page }) 
     }
   }
 });
+
+
+test("opens a randomly selected resource from Surprise me", async ({ page }) => {
+  await page.locator("#surprise").click();
+  await expect(page.locator("#detail")).toBeVisible();
+  await expect(page.locator("#detailBody h2")).not.toBeEmpty();
+  await expect(page).toHaveURL(/resource=[a-z0-9-]+/);
+});
