@@ -335,3 +335,13 @@ if ("serviceWorker" in navigator) {
     navigator.serviceWorker.register("./service-worker.js").catch((error) => console.warn("Offline support could not be enabled.", error));
   });
 }
+
+function updateNetworkStatus() {
+  const status = $("#network-status");
+  const offline = !navigator.onLine;
+  status.hidden = !offline;
+  status.textContent = offline ? "Offline mode" : "";
+}
+window.addEventListener("online", updateNetworkStatus);
+window.addEventListener("offline", updateNetworkStatus);
+updateNetworkStatus();
