@@ -296,6 +296,14 @@ $("#detail").addEventListener("close", () => {
 $("#detail").addEventListener("click", (event) => {
   if (event.target === $("#detail")) $("#detail").close();
 });
+document.addEventListener("keydown", (event) => {
+  if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k" && !$("#detail").open) {
+    event.preventDefault();
+    $("#search").focus();
+    $("#search").select();
+  }
+});
+
 $("#theme").onclick = () => {
   document.body.classList.toggle("light");
   writeStorage("pv-theme", document.body.classList.contains("light") ? "light" : "dark");

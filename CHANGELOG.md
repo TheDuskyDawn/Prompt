@@ -58,3 +58,4 @@ Notable project changes are recorded here.
 - Improved default search relevance so title, description, and tag matches appear ahead of incidental mentions in resource content.
 - Search now matches every query term across separate resource fields, not only an exact contiguous phrase, while retaining relevance ranking.
 - Sanitize browser-stored favourites against the current catalogue during load so deleted or malformed IDs do not persist into backups.
+- Added a Ctrl/Command+K keyboard shortcut to focus the resource search field.

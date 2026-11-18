@@ -310,3 +310,9 @@ test("removes stale favourite IDs from browser storage on load", async ({ page }
   await page.locator("#favourites").check();
   await expect(page.locator(".card")).toHaveCount(1);
 });
+
+
+test("focuses search with the Ctrl+K keyboard shortcut", async ({ page }) => {
+  await page.keyboard.press("Control+k");
+  await expect(page.locator("#search")).toBeFocused();
+});

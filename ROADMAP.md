@@ -46,7 +46,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 35. [x] Add clear feedback after copy.
 36. [x] Add difficulty and collection metadata.
 37. [x] Make the layout and controls responsive on mobile.
-38. [x] Add visible keyboard focus states.
+38. [x] Add visible keyboard focus states and a Ctrl/Command+K search shortcut.
 39. [x] Add automated 4.5:1 text contrast checks across both themes.
 40. [x] Add static accessibility checks and automated axe-core scans for library and resource dialogs; complete a manual screen-reader audit.
 
