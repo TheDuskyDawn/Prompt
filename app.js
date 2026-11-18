@@ -149,7 +149,7 @@ function openDetail(id) {
     '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
     '</div><h3>Content</h3><div class="detailtext" id="resourceText">' +
     escapeHTML(item.content) + '</div><div class="detail-actions"><button class="copy" id="copy">Copy ' +
-    escapeHTML(item.type) + '</button><button class="copy-link" id="share-resource">Copy resource link</button></div>';
+    escapeHTML(item.type) + '</button><button class="copy-link" id="share-resource">Copy resource link</button><button class="copy-link" id="download-resource">Download .txt</button></div>';
   const detailParams = new URLSearchParams(window.location.search);
   detailParams.set("resource", item.id);
   history.replaceState(null, "", window.location.pathname + "?" + detailParams.toString() + "#library");
@@ -258,10 +258,27 @@ $("#favourites-file").addEventListener("change", async (event) => {
 });
 
 $("#detailBody").addEventListener("click", async (event) => {
-  if (event.target.id !== "share-resource") return;
-  const button = event.target;
-  try { await copyText(window.location.href); button.textContent = "Link copied ✓"; }
-  catch (error) { button.textContent = "Could not copy link"; console.warn(error); }
+  if (event.target.id === "share-resource") {
+    const button = event.target;
+    try { await copyText(window.location.href); button.textContent = "Link copied ✓"; }
+    catch (error) { button.textContent = "Could not copy link"; console.warn(error); }
+  }
+  if (event.target.id === "download-resource") {
+    const itemId = new URLSearchParams(window.location.search).get("resource");
+    const item = items.find((entry) => entry.id === itemId);
+    if (!item) return;
+    const content = item.title + "\n\n" + item.content + "\n";
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = item.id + ".txt";
+    document.body.append(link);
+    link.click();
+    link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+    event.target.textContent = "Downloaded ✓";
+  }
 });
 
 $("#share-view").addEventListener("click", async () => {
