@@ -38,7 +38,7 @@ class AccessibilityScanner(HTMLParser):
         if tag == "dialog" and attrs.get("aria-labelledby"):
             self.dialog_labelled = True
         if tag in {"button", "input", "select", "textarea"}:
-            if tag == "input" and attrs.get("type") == "hidden":
+            if "hidden" in attrs or (tag == "input" and attrs.get("type") == "hidden"):
                 pass
             else:
                 self.controls.append((tag, attrs, "label" in self.stack))
