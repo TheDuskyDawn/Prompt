@@ -59,7 +59,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 46. [x] Reject empty content and invalid metadata.
 47. [x] Add CI validation.
 48. [~] Exercise missing-data and network-failure cases on real devices.
-49. [~] Add automated search-behaviour tests for edge cases.
+49. [x] Add automated browser tests for search, filters, favourites, personalisation, and downloads.
 50. [x] Implement clipboard fallback and permission-error feedback.
 
 ## Stage 6 — Deployment
@@ -113,8 +113,8 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 ## Stage 10 — Launch and maintenance
 91. [x] Run an initial content review.
 92. [x] Run automated local-link checks.
-93. [ ] Complete hands-on mobile-device testing.
-94. [ ] Complete hands-on desktop-browser testing.
+93. [~] Add automated mobile viewport tests; complete hands-on device testing.
+94. [~] Add automated desktop browser tests; complete hands-on cross-browser testing.
 95. [~] Verify deployment from a clean, final commit and smoke-test all live assets.
 96. [x] Write launch notes in the changelog.
 97. [x] Publish the project overview in README.
