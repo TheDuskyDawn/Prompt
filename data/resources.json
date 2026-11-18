@@ -371,5 +371,98 @@
       "Project Builder"
     ],
     "content": "1. Review the goals and commitments you set for this week.\n2. Record what was completed and what remains, without judgement.\n3. Note important outcomes, blockers, and lessons learned.\n4. Identify tasks that can be removed, delegated, or postponed.\n5. Choose up to three meaningful priorities for next week.\n6. Break each priority into a small first action.\n7. Add realistic time estimates and leave buffer space.\n8. Check that the plan allows for rest and existing commitments.\n9. Revisit the plan midweek and adjust when circumstances change."
+  },
+  {
+    "id": "prompt-code-review",
+    "type": "prompt",
+    "category": "Development",
+    "title": "Review code for clarity and maintainability",
+    "description": "Get a structured review focused on correctness, readability, and safe improvements.",
+    "tags": [
+      "code-review",
+      "development",
+      "quality"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "intermediate",
+    "collections": [
+      "Developer Toolkit"
+    ],
+    "content": "Review the code below for correctness, readability, maintainability, and likely edge cases. Context and intended behaviour: [CONTEXT]. First summarise what the code appears to do. Then list findings by severity, pointing to the relevant function or section. Explain why each issue matters and suggest the smallest practical improvement. Distinguish confirmed defects from questions that need more context. Do not invent test results or claim the code was executed. Code: [PASTE CODE]"
+  },
+  {
+    "id": "prompt-study-quiz",
+    "type": "prompt",
+    "category": "Learning",
+    "title": "Create a knowledge-check quiz",
+    "description": "Generate a balanced quiz with explanations and a separate answer key.",
+    "tags": [
+      "learning",
+      "quiz",
+      "revision"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "beginner",
+    "collections": [
+      "Learning Lab",
+      "Getting Started"
+    ],
+    "content": "Create a learning quiz about [TOPIC] for someone at [LEVEL]. Cover the most important concepts without relying on trick questions. Include a mix of recall, explanation, and application questions. Put the answer key and short explanations in a separate section after the questions. Label any assumptions and avoid facts that are not established in the supplied material: [SOURCE MATERIAL, IF ANY]."
+  },
+  {
+    "id": "prompt-email-draft",
+    "type": "prompt",
+    "category": "Writing",
+    "title": "Draft a clear and considerate email",
+    "description": "Turn key points into a concise email with an appropriate tone and clear next step.",
+    "tags": [
+      "email",
+      "writing",
+      "communication"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "beginner",
+    "collections": [
+      "Writing Desk",
+      "Getting Started"
+    ],
+    "content": "Draft an email for this situation: [SITUATION]. Recipient and relationship: [RECIPIENT]. Desired outcome: [OUTCOME]. Key points to include: [POINTS]. Use a [TONE] tone, keep it concise, and make the requested next step clear. Do not invent dates, promises, or facts. Provide a subject line and one polished draft. If important details are missing, use clear placeholders rather than guessing."
+  },
+  {
+    "id": "prompt-project-retrospective",
+    "type": "prompt",
+    "category": "Productivity",
+    "title": "Run a constructive project retrospective",
+    "description": "Turn project outcomes into lessons and specific improvements without blame.",
+    "tags": [
+      "retrospective",
+      "projects",
+      "teamwork"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "intermediate",
+    "collections": [
+      "Project Builder"
+    ],
+    "content": "Facilitate a constructive retrospective for [PROJECT OR PERIOD]. Context and outcomes: [DETAILS]. Organise observations into what worked, what was difficult, what surprised us, and what we learned. Separate evidence from interpretation and avoid blaming individuals. Identify a small number of improvements, each with an owner only if one is provided, a first action, and a way to tell whether it helped. End with open questions."
+  },
+  {
+    "id": "skill-decision-log",
+    "type": "skill",
+    "category": "Planning",
+    "title": "Maintain a lightweight decision log",
+    "description": "Record important decisions with context, options, rationale, and review triggers.",
+    "tags": [
+      "decisions",
+      "documentation",
+      "projects"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "intermediate",
+    "collections": [
+      "Project Builder",
+      "Research & Decisions"
+    ],
+    "content": "For each meaningful project decision, record:\n1. Date and decision title.\n2. Context and the problem being addressed.\n3. Options considered, including doing nothing where relevant.\n4. Criteria and constraints that mattered.\n5. The chosen option and concise rationale.\n6. Known trade-offs, risks, and assumptions.\n7. Who made or approved the decision, if stated.\n8. What evidence or event would trigger a review.\nKeep entries factual and brief. Do not rewrite old decisions as if the outcome had been obvious."
   }
 ]
