@@ -5,7 +5,7 @@ A free, static library of reusable AI prompts and skills, designed for GitHub Pa
 ## Features
 
 - Search titles, descriptions, categories, tags, and resource content
-- Filter by prompt/skill type, category, tag, and favourites
+- Filter by prompt/skill type, category, difficulty, tag, and favourites
 - Sort alphabetically or by date
 - Open a resource detail view, copy its content, or download it as a plain-text file
 - Share filtered views and direct links to individual resources
@@ -44,6 +44,7 @@ Add an object to data/resources.json with these fields:
 - description: summary (maximum 240 characters)
 - tags: non-empty array of unique strings
 - date: valid date in YYYY-MM-DD format
+- difficulty: beginner, intermediate, or advanced
 - content: resource text (maximum 12,000 characters)
 
 The catalogue is loaded automatically; do not edit the HTML to add entries. Run python scripts/validate_catalogue.py before submitting a change.
@@ -53,6 +54,10 @@ The catalogue is loaded automatically; do not edit the HTML to add entries. Run 
 Run a local static server from the repository root (for example, python -m http.server 8000) and open http://localhost:8000.
 
 Check JavaScript syntax with node --check app.js.
+
+## Project research
+
+See [MARKET_ANALYSIS.md](MARKET_ANALYSIS.md) for competitor patterns, positioning, and prioritised opportunities. See [CONTENT_GUIDELINES.md](CONTENT_GUIDELINES.md) for submission standards.
 
 ## Contributions
 
