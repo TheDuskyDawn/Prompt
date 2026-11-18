@@ -276,5 +276,100 @@
     "collections": [
       "Research & Decisions"
     ]
+  },
+  {
+    "id": "prompt-meeting-agenda",
+    "type": "prompt",
+    "category": "Productivity",
+    "title": "Create a focused meeting agenda",
+    "description": "Turn a meeting goal into a time-boxed agenda with decisions and preparation.",
+    "tags": [
+      "meetings",
+      "planning",
+      "communication"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "beginner",
+    "collections": [
+      "Project Builder",
+      "Writing Desk"
+    ],
+    "content": "Create a focused agenda for a meeting about [TOPIC]. Desired outcome: [OUTCOME]. Attendees and available time: [DETAILS]. Include a short objective, preparation needed, time-boxed discussion items, decisions to make, and a closing recap. Prioritise the essential items so the meeting can finish on time. Do not invent attendees or decisions."
+  },
+  {
+    "id": "prompt-test-case-generator",
+    "type": "prompt",
+    "category": "Development",
+    "title": "Generate practical software test cases",
+    "description": "Create test scenarios from requirements, including edge cases and expected results.",
+    "tags": [
+      "testing",
+      "software",
+      "quality"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "intermediate",
+    "collections": [
+      "Developer Toolkit",
+      "Project Builder"
+    ],
+    "content": "Act as a careful software test analyst. Review these requirements: [REQUIREMENTS]. Identify assumptions and ambiguities first. Then create test cases with an ID, scenario, preconditions, steps, test data, and expected result. Include normal, boundary, invalid-input, accessibility, and failure-state cases where relevant. Map each test to a requirement. Do not invent product behaviour that is not specified; mark open questions clearly."
+  },
+  {
+    "id": "prompt-user-guide-writer",
+    "type": "prompt",
+    "category": "Writing",
+    "title": "Write a clear step-by-step user guide",
+    "description": "Turn product information into an accessible guide for first-time users.",
+    "tags": [
+      "documentation",
+      "writing",
+      "how-to"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "beginner",
+    "collections": [
+      "Writing Desk",
+      "Getting Started"
+    ],
+    "content": "Write a user guide for [PRODUCT OR TASK] for readers with [EXPERIENCE LEVEL]. Use only the information provided: [SOURCE NOTES]. Organise it into purpose, prerequisites, numbered steps, expected result, common problems, and where to get help. Use plain language, short sentences, descriptive headings, and warnings only where necessary. Flag missing information rather than making up interface labels or behaviour."
+  },
+  {
+    "id": "prompt-error-message-explainer",
+    "type": "prompt",
+    "category": "Development",
+    "title": "Explain an error message and next checks",
+    "description": "Translate a technical error into likely causes and safe diagnostic steps.",
+    "tags": [
+      "debugging",
+      "troubleshooting",
+      "developer"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "beginner",
+    "collections": [
+      "Developer Toolkit",
+      "Learning Lab"
+    ],
+    "content": "Explain this error message in plain language: [ERROR MESSAGE]. Context: [WHAT I WAS DOING]. Environment: [DEVICE, APP, OR LANGUAGE]. Describe what the message means, list likely causes in order of evidence, and suggest safe checks that do not delete data or expose secrets. Ask for missing details when needed. Do not guess at a definitive cause or claim a fix was tested."
+  },
+  {
+    "id": "skill-weekly-review",
+    "type": "skill",
+    "category": "Productivity",
+    "title": "Weekly reflection and planning workflow",
+    "description": "Review progress, capture lessons, and choose a realistic next set of priorities.",
+    "tags": [
+      "reflection",
+      "planning",
+      "productivity"
+    ],
+    "date": "2026-11-18",
+    "difficulty": "beginner",
+    "collections": [
+      "Getting Started",
+      "Project Builder"
+    ],
+    "content": "1. Review the goals and commitments you set for this week.\n2. Record what was completed and what remains, without judgement.\n3. Note important outcomes, blockers, and lessons learned.\n4. Identify tasks that can be removed, delegated, or postponed.\n5. Choose up to three meaningful priorities for next week.\n6. Break each priority into a small first action.\n7. Add realistic time estimates and leave buffer space.\n8. Check that the plan allows for rest and existing commitments.\n9. Revisit the plan midweek and adjust when circumstances change."
   }
 ]
