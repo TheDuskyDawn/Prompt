@@ -54,7 +54,7 @@ Add an object to data/resources.json with these fields:
 - date: valid date in YYYY-MM-DD format
 - difficulty: beginner, intermediate, or advanced
 - collections: non-empty array of curated collection names
-- review_status: curated, community, or pending
+- review_status: curated or community (pending submissions are not published)
 - content: resource text (maximum 12,000 characters)
 
 The catalogue is loaded automatically; do not edit the HTML to add entries. Run python scripts/validate_catalogue.py before submitting a change.
