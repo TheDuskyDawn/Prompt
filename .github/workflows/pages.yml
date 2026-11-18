@@ -2,6 +2,8 @@ name: Deploy Prompt Vault to GitHub Pages
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,6 +29,7 @@ jobs:
       - run: python scripts/check_links.py
       - run: python scripts/check_pwa.py
   deploy:
+    if: github.event_name != 'pull_request'
     needs: validate
     environment:
       name: github-pages
