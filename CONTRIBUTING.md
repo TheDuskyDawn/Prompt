@@ -1,6 +1,6 @@
 # Contributing to Prompt Vault
 
-Thanks for helping improve the library.
+Thanks for helping improve the library. Please follow the [Code of Conduct](CODE_OF_CONDUCT.md), [Content Guidelines](CONTENT_GUIDELINES.md), and [Security Policy](SECURITY.md).
 
 ## Suggesting a resource
 Open a GitHub Issue and include:
