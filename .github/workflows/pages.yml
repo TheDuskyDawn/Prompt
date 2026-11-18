@@ -19,6 +19,7 @@ jobs:
         with:
           python-version: '3.x'
       - run: python scripts/validate_catalogue.py
+      - run: python scripts/test_catalogue_validator.py
       - uses: actions/setup-node@v4
         with:
           node-version: '22'

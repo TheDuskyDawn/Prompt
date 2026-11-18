@@ -64,3 +64,4 @@ Notable project changes are recorded here.
 - Added a Ctrl/Command+K shortcut to focus and select the library search field.
 
 - Hardened catalogue validation so pending, unreviewed submissions cannot be published.
+- Added isolated regression tests proving pending resources are rejected, accepted community resources pass, and invalid review states fail catalogue validation.
