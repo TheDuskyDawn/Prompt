@@ -4,6 +4,7 @@ const CORE_ASSETS = [
   "./index.html",
   "./guide.html",
   "./privacy.html",
+  "./offline.html",
   "./styles.css",
   "./app.js",
   "./data/resources.json",
@@ -13,6 +14,7 @@ const CORE_ASSETS = [
 ];
 
 const INDEX_URL = new URL("./index.html", self.location.href).toString();
+const OFFLINE_URL = new URL("./offline.html", self.location.href).toString();
 const CORE_URLS = CORE_ASSETS.map((asset) => new URL(asset, self.location.href).toString());
 
 self.addEventListener("install", (event) => {
@@ -45,7 +47,7 @@ self.addEventListener("fetch", (event) => {
           caches.open(CACHE_NAME).then((cache) => cache.put(INDEX_URL, copy));
           return response;
         })
-        .catch(() => caches.match(INDEX_URL))
+        .catch(() => caches.match(INDEX_URL).then((cached) => cached || caches.match(OFFLINE_URL)))
     );
     return;
   }
