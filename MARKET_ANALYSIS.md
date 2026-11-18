@@ -43,7 +43,7 @@ Prompt Vault should not compete on raw prompt count. Its strongest achievable po
 - Shareable filtered views.
 - Browser-local favourites and theme preference, with JSON backup and restore.
 - Offline caching and web-app install metadata for supported browsers.
-- Curated prompts and reusable skills in a separate JSON catalogue.
+- 20 curated prompts and reusable skills in a separate JSON catalogue.
 - Catalogue validation, JavaScript syntax checks, and local-link checks in GitHub Actions.
 - Contribution issue form and published content guidelines.
 - No user account or server required for browsing.
