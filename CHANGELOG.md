@@ -62,3 +62,5 @@ Notable project changes are recorded here.
 - Added browser checks for the offline status indicator and device color-scheme preference when no theme override is saved.
 
 - Added a Ctrl/Command+K shortcut to focus and select the library search field.
+
+- Hardened catalogue validation so pending, unreviewed submissions cannot be published.
