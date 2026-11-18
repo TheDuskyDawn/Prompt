@@ -320,12 +320,11 @@ test("focuses search with the Ctrl+K keyboard shortcut", async ({ page }) => {
 });
 
 
-test("follows the device color scheme when no theme is saved", async ({ page }) => {
+test("follows live device color-scheme changes when no theme is saved", async ({ page }) => {
   await page.evaluate(() => localStorage.removeItem("pv-theme"));
   await page.emulateMedia({ colorScheme: "light" });
   await page.reload();
   await expect(page.locator("body")).toHaveClass(/light/);
   await page.emulateMedia({ colorScheme: "dark" });
-  await page.reload();
   await expect(page.locator("body")).not.toHaveClass(/light/);
 });
