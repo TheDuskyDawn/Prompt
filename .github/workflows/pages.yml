@@ -23,6 +23,7 @@ jobs:
         with:
           node-version: '22'
       - run: node --check app.js
+      - run: node --check service-worker.js
       - run: python scripts/check_links.py
   deploy:
     needs: validate
