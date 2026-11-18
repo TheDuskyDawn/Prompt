@@ -1,0 +1,9 @@
+{
+  "name": "prompt-vault",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:e2e": "playwright test"
+  }
+}
