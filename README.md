@@ -7,7 +7,7 @@ A free, static library of reusable AI prompts and skills, designed for GitHub Pa
 - Search titles, descriptions, categories, tags, and resource content
 - Filter by prompt/skill type, category, tag, and favourites
 - Sort alphabetically or by date
-- Open a resource detail view and copy its content
+- Open a resource detail view, copy its content, or download it as a plain-text file
 - Share filtered views and direct links to individual resources
 - Back up favourites to JSON and restore them on another browser
 - Curated collection of 15 original starter resources
