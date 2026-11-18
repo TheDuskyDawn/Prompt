@@ -115,7 +115,7 @@ function render() {
   const list = items.filter((item) => {
     const searchable = [
       item.title, item.description, item.category, item.type, item.difficulty,
-      ...item.collections, item.content, item.review_status, item.quality_review?.status, ...item.tags
+      ...item.collections, item.content, item.review_status, item.quality_review?.status, item.review_record?.status, item.testing?.status, ...item.tags
     ].join(" ").toLowerCase();
     return (type === "all" || item.type === type) &&
       (category === "all" || item.category === category) &&
@@ -150,7 +150,7 @@ function render() {
   $("#cards").innerHTML = list.map((item) => {
     const isFavourite = favourites.has(item.id);
     return '<article class="card"><div class="cardtop"><span class="kind">' +
-      escapeHTML(item.type) + " · " + escapeHTML(item.category) + " · " + escapeHTML(item.difficulty) + " · " + escapeHTML(item.review_status) + " · Quality: " + escapeHTML(item.quality_review?.status || "not-assessed") +
+      escapeHTML(item.type) + " · " + escapeHTML(item.category) + " · " + escapeHTML(item.difficulty) + " · " + escapeHTML(item.review_status) + " · Quality: " + escapeHTML(item.quality_review?.status || "not-assessed") + " · Review: " + escapeHTML(item.review_record?.status || "not-reviewed") + " · Test: " + escapeHTML(item.testing?.status || "untested") +
       '</span><button class="fav ' + (isFavourite ? "on" : "") + '" data-fav="' +
       escapeHTML(item.id) + '" aria-label="' + (isFavourite ? "Remove " : "Add ") +
       escapeHTML(item.title) + ' ' + (isFavourite ? "from" : "to") +
@@ -230,11 +230,11 @@ function openDetail(id) {
     : '<p class="detailmeta">This resource has no fill-in fields.</p>';
 
   $("#detailBody").innerHTML = '<p class="eyebrow">' + escapeHTML(item.type) + " / " +
-    escapeHTML(item.category) + " / " + escapeHTML(item.difficulty) + " / Review: " + escapeHTML(item.review_status) + " · Quality review: " + escapeHTML(item.quality_review?.status || "not-assessed") +
+    escapeHTML(item.category) + " / " + escapeHTML(item.difficulty) + " / Review: " + escapeHTML(item.review_status) + " · Quality review: " + escapeHTML(item.quality_review?.status || "not-assessed") + " · Content review: " + escapeHTML(item.review_record?.status || "not-reviewed") + " · Model testing: " + escapeHTML(item.testing?.status || "untested") +
     '</p><h2 id="detailTitle">' + escapeHTML(item.title) +
     '</h2><p class="detailmeta">' + escapeHTML(item.description) +
     '</p><div class="chips">' + item.tags.map((tag) => "<span>" + escapeHTML(tag) + "</span>").join("") +
-    '</div><div class="collection-list">' + item.collections.map((name) => '<span>' + escapeHTML(name) + '</span>').join("") + '</div><h3>Personalise this resource</h3>' + variableMarkup +
+    '</div><section class="resource-evidence"><h3>Evidence and maintenance</h3><p class="detailmeta">Content review: ' + escapeHTML(item.review_record?.status || "not-reviewed") + (item.review_record?.reviewed_at ? " · Reviewed " + escapeHTML(item.review_record.reviewed_at) : " · No review date recorded") + '</p><p class="detailmeta">Model testing: ' + escapeHTML(item.testing?.status || "untested") + '</p><p class="detailmeta">Compatibility records: ' + (item.compatibility?.length || 0) + ' · Version entries: ' + (item.version_history?.length || 0) + '</p>' + (item.expected_output ? '<h4>Expected output</h4><p>' + escapeHTML(item.expected_output) + '</p>' : '') + (item.failure_modes?.length ? '<h4>Known failure modes</h4><ul>' + item.failure_modes.map((failure) => '<li>' + escapeHTML(failure) + '</li>').join("") + '</ul>' : '') + '</section><div class="collection-list">' + item.collections.map((name) => '<span>' + escapeHTML(name) + '</span>').join("") + '</div><h3>Personalise this resource</h3>' + variableMarkup +
     '<h3>Ready-to-use preview</h3><div class="detailtext" id="resourceText">' +
     escapeHTML(item.content) + '</div><div class="detail-actions"><button class="copy" id="copy">Copy ' +
     escapeHTML(item.type) + '</button><button class="copy-link" id="share-resource">Copy resource link</button>' +

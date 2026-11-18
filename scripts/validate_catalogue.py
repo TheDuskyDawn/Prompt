@@ -1,5 +1,6 @@
 import json
 import re
+from difflib import SequenceMatcher
 import sys
 from datetime import date
 from pathlib import Path
@@ -78,6 +79,49 @@ for index, item in enumerate(resources, start=1):
         if quality_status == "needs-revision" and minimum > 2:
             sys.exit(f"{prefix}: needs-revision requires at least one score of 1 or 2")
 
+    review_record = item.get("review_record")
+    if not isinstance(review_record, dict) or review_record.get("status") not in {"not-reviewed", "current", "stale"}:
+        sys.exit(f"{prefix}: invalid review_record")
+    if review_record.get("status") == "not-reviewed" and review_record.get("reviewed_at") is not None:
+        sys.exit(f"{prefix}: not-reviewed records cannot have reviewed_at")
+    if type(review_record.get("review_interval_days")) is not int or review_record["review_interval_days"] < 1:
+        sys.exit(f"{prefix}: review_interval_days must be a positive integer")
+    if review_record.get("reviewed_at") is not None:
+        try:
+            date.fromisoformat(review_record["reviewed_at"])
+        except (TypeError, ValueError):
+            sys.exit(f"{prefix}: reviewed_at must be a valid YYYY-MM-DD date")
+
+    testing = item.get("testing")
+    if not isinstance(testing, dict) or testing.get("status") not in {"untested", "tested", "partial"}:
+        sys.exit(f"{prefix}: invalid testing status")
+    if not isinstance(testing.get("records"), list):
+        sys.exit(f"{prefix}: testing.records must be an array")
+    if testing["status"] == "untested" and testing["records"]:
+        sys.exit(f"{prefix}: untested resources cannot contain test records")
+
+    if not isinstance(item.get("compatibility"), list):
+        sys.exit(f"{prefix}: compatibility must be an array")
+    for record in item["compatibility"]:
+        if not isinstance(record, dict) or not all(isinstance(record.get(key), str) and record[key].strip() for key in ("model", "tested_at", "scope")):
+            sys.exit(f"{prefix}: compatibility records require model, tested_at, and scope")
+        try:
+            date.fromisoformat(record["tested_at"])
+        except ValueError:
+            sys.exit(f"{prefix}: compatibility tested_at must be a valid date")
+
+    if item.get("expected_output") is not None and not isinstance(item["expected_output"], str):
+        sys.exit(f"{prefix}: expected_output must be text or null")
+    if not isinstance(item.get("failure_modes"), list) or any(not isinstance(x, str) or not x.strip() for x in item["failure_modes"]):
+        sys.exit(f"{prefix}: failure_modes must be an array of non-empty strings")
+    if not isinstance(item.get("version_history"), list):
+        sys.exit(f"{prefix}: version_history must be an array")
+    provenance = item.get("provenance")
+    if not isinstance(provenance, dict) or provenance.get("kind") not in {"original", "adapted", "third-party-permission"}:
+        sys.exit(f"{prefix}: invalid provenance record")
+    if not isinstance(provenance.get("sources"), list) or any(not isinstance(x, str) or not x.strip() for x in provenance["sources"]):
+        sys.exit(f"{prefix}: provenance.sources must be an array of non-empty strings")
+
     if not isinstance(item["collections"], list) or not item["collections"]:
         sys.exit(f"{prefix}: collections must be a non-empty array")
     if any(not isinstance(name, str) or not name.strip() for name in item["collections"]):
@@ -113,4 +157,19 @@ if pending_ids:
         + ", ".join(pending_ids)
     )
 
+# Flag likely duplicates for human review; do not auto-delete or reject near matches.
+normalised = []
+for item in resources:
+    text_value = re.sub(r"\\s+", " ", (item["title"] + " " + item["content"]).lower()).strip()
+    normalised.append((item["id"], text_value))
+duplicate_warnings = []
+for index, (left_id, left_text) in enumerate(normalised):
+    for right_id, right_text in normalised[index + 1:]:
+        similarity = SequenceMatcher(None, left_text, right_text, autojunk=False).ratio()
+        if similarity >= 0.90:
+            duplicate_warnings.append(f"{left_id} ~ {right_id} ({similarity:.0%})")
 print(f"Validated {len(resources)} resources across {len(seen_ids)} unique IDs.")
+if duplicate_warnings:
+    print("Possible near-duplicates for human review:")
+    for warning in duplicate_warnings:
+        print(f" - {warning}")

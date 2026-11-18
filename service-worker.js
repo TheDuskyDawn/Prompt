@@ -4,6 +4,8 @@ const CORE_ASSETS = [
   "./index.html",
   "./guide.html",
   "./quality.html",
+  "./quality-dashboard.html",
+  "./quality-dashboard.js",
   "./privacy.html",
   "./offline.html",
   "./styles.css",
