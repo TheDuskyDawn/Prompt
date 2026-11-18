@@ -30,4 +30,4 @@
 ## Stage 10 — Launch and maintenance
 91. Run content review. 92. Run link check. 93. Test on mobile. 94. Test on desktop. 95. Test deployment from clean commit. 96. Write launch notes. 97. Publish project overview. 98. Collect feedback. 99. Prioritise improvements. 100. Review roadmap quarterly.
 
-**Current implementation:** foundation, catalogue, search/filter/sort, detail/copy, local favourites/theme, validation, and Pages deployment. Advanced submissions, accounts, ratings, and cross-device sync are future work requiring additional services or moderation.
+**Current implementation:** foundation, 15 curated resources, full-text search, type/category/tag/favourites filters, sorting, detail/copy, browser-local favourites and theme, JSON favourites backup/restore, stronger schema validation, JavaScript syntax checks, local-link checks, documentation, and a successful first Pages deployment. Advanced submissions, accounts, ratings, and cross-device sync remain future work requiring additional services or moderation.
