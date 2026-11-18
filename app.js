@@ -43,6 +43,9 @@ async function init() {
     const categories = [...new Set(items.map((item) => item.category))].sort();
     $("#category").innerHTML = '<option value="all">All categories</option>' +
       categories.map((category) => '<option value="' + escapeHTML(category) + '">' + escapeHTML(category) + '</option>').join("");
+    const collections = [...new Set(items.flatMap((item) => item.collections))].sort();
+    $("#collection").innerHTML = '<option value="all">All collections</option>' +
+      collections.map((name) => '<option value="' + escapeHTML(name) + '">' + escapeHTML(name) + '</option>').join("");
     restoreViewFromURL();
     render();
     const resourceId = new URLSearchParams(window.location.search).get("resource");
@@ -60,6 +63,7 @@ function restoreViewFromURL() {
   $("#search").value = params.get("q") || "";
   $("#type").value = ["all", "prompt", "skill"].includes(params.get("type")) ? params.get("type") : "all";
   $("#category").value = [...$("#category").options].some((option) => option.value === params.get("category")) ? params.get("category") : "all";
+  $("#collection").value = [...$("#collection").options].some((option) => option.value === params.get("collection")) ? params.get("collection") : "all";
   $("#sort").value = ["featured", "az", "newest"].includes(params.get("sort")) ? params.get("sort") : "featured";
   $("#difficulty").value = ["all", "beginner", "intermediate", "advanced"].includes(params.get("difficulty")) ? params.get("difficulty") : "all";
   $("#favourites").checked = params.get("favourites") === "1";
@@ -72,6 +76,7 @@ function syncViewToURL() {
   if ($("#search").value.trim()) params.set("q", $("#search").value.trim());
   if ($("#type").value !== "all") params.set("type", $("#type").value);
   if ($("#category").value !== "all") params.set("category", $("#category").value);
+  if ($("#collection").value !== "all") params.set("collection", $("#collection").value);
   if ($("#sort").value !== "featured") params.set("sort", $("#sort").value);
   if ($("#difficulty").value !== "all") params.set("difficulty", $("#difficulty").value);
   if ($("#favourites").checked) params.set("favourites", "1");
@@ -86,6 +91,7 @@ function render() {
   const query = $("#search").value.trim().toLowerCase();
   const type = $("#type").value;
   const category = $("#category").value;
+  const collection = $("#collection").value;
   const sort = $("#sort").value;
   const difficulty = $("#difficulty").value;
   const onlyFavourites = $("#favourites").checked;
@@ -93,6 +99,7 @@ function render() {
   const list = items.filter((item) =>
     (type === "all" || item.type === type) &&
     (category === "all" || item.category === category) &&
+    (collection === "all" || item.collections.includes(collection)) &&
     (difficulty === "all" || item.difficulty === difficulty) &&
     (activeTag === "all" || item.tags.includes(activeTag)) &&
     (!onlyFavourites || favourites.has(item.id)) &&
@@ -216,7 +223,7 @@ $("#tags").addEventListener("click", (event) => {
   }
 });
 
-["search", "type", "category", "sort", "difficulty", "favourites"].forEach((id) => {
+["search", "type", "category", "collection", "sort", "difficulty", "favourites"].forEach((id) => {
   const control = $("#" + id);
   control.addEventListener(id === "search" ? "input" : "change", render);
 });
