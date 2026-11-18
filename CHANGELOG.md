@@ -69,3 +69,4 @@ Notable project changes are recorded here.
 - Added a browser security regression test proving personalised prompt input is rendered as text, not executable HTML.
 - Updated workflow concurrency so new pushes no longer cancel an active validation or deployment; only the newest pending run is retained by GitHub.
 - Clipboard copying now falls back to the legacy document copy method when the modern clipboard API rejects a write.
+- Added coverage ensuring a visitor's explicit theme choice takes precedence over later operating-system theme changes.

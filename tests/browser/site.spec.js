@@ -381,3 +381,16 @@ test("explains how to copy manually when both clipboard methods fail", async ({ 
   await page.locator("#copy").click();
   await expect(page.locator("#copy")).toHaveText("Copy unavailable — select the preview above");
 });
+
+
+test("keeps an explicit theme choice when the device preference changes", async ({ page }) => {
+  await page.evaluate(() => localStorage.removeItem("pv-theme"));
+  await page.emulateMedia({ colorScheme: "light" });
+  await page.reload();
+  await expect(page.locator("body")).toHaveClass(/light/);
+  await page.locator("#theme").click();
+  await expect(page.locator("body")).not.toHaveClass(/light/);
+  await page.emulateMedia({ colorScheme: "dark" });
+  await page.emulateMedia({ colorScheme: "light" });
+  await expect(page.locator("body")).not.toHaveClass(/light/);
+});
