@@ -113,7 +113,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 ## Stage 10 — Launch and maintenance
 91. [x] Run an initial content review.
 92. [x] Run automated local-link checks.
-93. [~] Add automated 320px mobile viewport coverage; complete hands-on testing on physical phones and tablets.
+93. [~] Add automated 320px and 360px overflow coverage for the library, guide, privacy, and offline pages; complete hands-on testing on physical phones and tablets.
 94. [~] Add automated Chromium browser coverage; complete hands-on desktop and cross-browser testing.
 95. [~] Verify deployment from a clean, final commit and smoke-test all live assets.
 96. [x] Write launch notes in the changelog.

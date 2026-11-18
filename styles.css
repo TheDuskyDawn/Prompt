@@ -32,3 +32,6 @@
 
 .library-actions button:disabled{opacity:.45;cursor:not-allowed}
 .policy p a{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+
+
+@media(max-width:480px){.sectionhead{align-items:flex-start;flex-direction:column;gap:12px}.library-actions{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:7px}}

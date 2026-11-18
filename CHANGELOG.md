@@ -70,3 +70,4 @@ Notable project changes are recorded here.
 - Updated workflow concurrency so new pushes no longer cancel an active validation or deployment; only the newest pending run is retained by GitHub.
 - Clipboard copying now falls back to the legacy document copy method when the modern clipboard API rejects a write.
 - Added coverage ensuring a visitor's explicit theme choice takes precedence over later operating-system theme changes.
+- Added 320px and 360px viewport regression checks across the library, guide, privacy, and offline pages; adjusted narrow-screen library header wrapping to prevent horizontal overflow.
