@@ -36,3 +36,5 @@ Notable project changes are recorded here.
 - Respect the device color-scheme preference when no theme choice has been saved.
 
 - Added direct links to resource suggestion and bug report forms on the site.
+
+- Added an online user guide and included it in offline caching and automated checks.
