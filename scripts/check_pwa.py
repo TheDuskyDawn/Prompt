@@ -50,4 +50,9 @@ for event in ('"install"', '"activate"', '"fetch"'):
     if event not in worker:
         sys.exit(f"Service worker is missing its {event} handler")
 
+navigation_handler = worker.split('if (request.mode == "navigate")', 1)[-1].split("return;", 1)[0]
+for required in ("cache.put(request, response.clone())", "caches.match(request)", "caches.match(OFFLINE_URL)"):
+    if required not in navigation_handler:
+        sys.exit(f"Navigation caching is missing required offline behaviour: {required}")
+
 print(f"Validated manifest, {len(manifest['icons'])} app icon(s), and {len(assets)} offline assets.")
