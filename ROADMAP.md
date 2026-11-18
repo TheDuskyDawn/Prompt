@@ -59,7 +59,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 46. [x] Reject empty content and invalid metadata.
 47. [x] Add CI validation.
 48. [~] Exercise missing-data and network-failure cases on real devices.
-49. [x] Add automated browser tests for search, filters, favourites, personalisation, and downloads.
+49. [x] Add automated browser tests for discovery, favourites backup/restore, personalisation, shareable URLs, theme persistence, offline navigation, downloads, and keyboard interactions.
 50. [x] Implement clipboard fallback and permission-error feedback.
 
 ## Stage 6 — Deployment
@@ -113,8 +113,8 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 ## Stage 10 — Launch and maintenance
 91. [x] Run an initial content review.
 92. [x] Run automated local-link checks.
-93. [~] Add automated mobile viewport tests; complete hands-on device testing.
-94. [~] Add automated desktop browser tests; complete hands-on cross-browser testing.
+93. [~] Add automated 320px mobile viewport coverage; complete hands-on testing on physical phones and tablets.
+94. [~] Add automated Chromium browser coverage; complete hands-on desktop and cross-browser testing.
 95. [~] Verify deployment from a clean, final commit and smoke-test all live assets.
 96. [x] Write launch notes in the changelog.
 97. [x] Publish the project overview in README.
@@ -126,4 +126,4 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 
 The live catalogue contains 25 original prompts and skills across five curated collections. Implemented features include full-text search; type, category, collection, difficulty, tag, and favourites filters; related-resource recommendations; sorting; prompt personalisation; live preview; copy and text download; full catalogue JSON export; shareable filtered and individual-resource links; local favourites backup/restore; theme preference; offline caching; dedicated offline fallback page; install metadata; an offline status indicator; privacy notice; online user guide; contribution and security policies; and CI checks for catalogue data, JavaScript, local links, and PWA assets.
 
-The remaining work is tracked above. Accounts, ratings, and cross-device sync remain deferred because they require additional services, privacy decisions, and moderation capacity.
+Automated browser coverage now includes favourites backup validation, shareable filter restoration, theme persistence, offline navigation to secondary pages, keyboard operation of the resource dialog, and skip navigation. The service worker caches each successful navigation under its own URL and falls back to the requested page before the library or offline page. The remaining work is tracked above. Accounts, ratings, and cross-device sync remain deferred because they require additional services, privacy decisions, and moderation capacity.
