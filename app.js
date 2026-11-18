@@ -298,7 +298,7 @@ $("#export-favourites").addEventListener("click", () => {
   document.body.append(link);
   link.click();
   link.remove();
-  URL.revokeObjectURL(url);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
 });
 
 $("#import-favourites").addEventListener("click", () => $("#favourites-file").click());

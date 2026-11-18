@@ -191,6 +191,7 @@ test("opens and closes a resource using only the keyboard", async ({ page }) => 
   await page.keyboard.press("Escape");
   await expect(page.locator("#detail")).not.toBeVisible();
   await expect(page).not.toHaveURL(/resource=prompt-clear-explainer/);
+  await expect(openButton).toBeFocused();
 });
 
 test("provides a working skip link for keyboard navigation", async ({ page }) => {
@@ -200,4 +201,21 @@ test("provides a working skip link for keyboard navigation", async ({ page }) =>
   await page.keyboard.press("Enter");
   await expect(page).toHaveURL(/#main-content$/);
   await expect(page.locator("#main-content")).toBeFocused();
+});
+
+
+test("rejects oversized favourites backups without changing saved items", async ({ page }) => {
+  await page.locator('[data-fav="prompt-clear-explainer"]').click();
+  const chooserPromise = page.waitForEvent("filechooser");
+  await page.locator("#import-favourites").click();
+  const chooser = await chooserPromise;
+  page.once("dialog", dialog => dialog.accept());
+  await chooser.setFiles({
+    name: "oversized.json",
+    mimeType: "application/json",
+    buffer: Buffer.alloc(100001, 65)
+  });
+  await page.locator("#favourites").check();
+  await expect(page.locator(".card")).toHaveCount(1);
+  await expect(page.locator(".card h3")).toContainText("Explain a complex topic clearly");
 });

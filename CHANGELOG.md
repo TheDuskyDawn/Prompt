@@ -49,3 +49,5 @@ Notable project changes are recorded here.
 - Fixed offline navigation so each successfully visited page is cached under its own URL, with a page-specific offline fallback before the library fallback.
 - Added browser regression coverage for invalid favourites imports, unfilled placeholders, clearing filters, unknown resource links, keyboard dialog operation, skip navigation, theme persistence, and offline guide navigation.
 - Expanded the QA roadmap to distinguish automated coverage from remaining hands-on device and cross-browser checks.
+- Delay revoking the favourites-export object URL until the browser has had time to begin the download.
+- Verify keyboard focus returns to the invoking resource card after the detail dialog closes, and reject oversized favourites backups without changing saved data.
