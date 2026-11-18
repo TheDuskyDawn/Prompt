@@ -303,7 +303,7 @@ $("#detailBody").addEventListener("click", async (event) => {
     const itemId = new URLSearchParams(window.location.search).get("resource");
     const item = items.find((entry) => entry.id === itemId);
     if (!item) return;
-    const content = item.title + "\n\n" + item.content + "\n";
+    const content = item.title + "\n\n" + getFilledContent(item) + "\n";
     const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
