@@ -81,7 +81,7 @@
       "projects"
     ],
     "date": "2026-11-18",
-    "content": "1. Clarify the outcome and who it serves.\\n2. Define scope and explicitly list exclusions.\\n3. Identify users, constraints, dependencies, and risks.\\n4. Break work into milestones with testable acceptance criteria.\\n5. Prioritise by impact, effort, and dependency.\\n6. Assign an owner and a measurable completion condition to each task.\\n7. Review progress regularly and update the plan when evidence changes.\\n8. Close with a retrospective and documented decisions."
+    "content": "1. Clarify the outcome and who it serves.\n2. Define scope and explicitly list exclusions.\n3. Identify users, constraints, dependencies, and risks.\n4. Break work into milestones with testable acceptance criteria.\n5. Prioritise by impact, effort, and dependency.\n6. Assign an owner and a measurable completion condition to each task.\n7. Review progress regularly and update the plan when evidence changes.\n8. Close with a retrospective and documented decisions."
   },
   {
     "id": "skill-quality-review",
@@ -95,7 +95,7 @@
       "testing"
     ],
     "date": "2026-11-18",
-    "content": "Review checklist:\\n- Does the result satisfy the stated goal and acceptance criteria?\\n- Are factual claims supported and uncertainty labelled?\\n- Are edge cases and failure states handled?\\n- Is the structure accessible and easy to navigate?\\n- Are names, links, and instructions consistent?\\n- Are privacy and security risks considered?\\n- Are tests or examples included where useful?\\n- List issues by severity and recommend specific fixes."
+    "content": "Review checklist:\n- Does the result satisfy the stated goal and acceptance criteria?\n- Are factual claims supported and uncertainty labelled?\n- Are edge cases and failure states handled?\n- Is the structure accessible and easy to navigate?\n- Are names, links, and instructions consistent?\n- Are privacy and security risks considered?\n- Are tests or examples included where useful?\n- List issues by severity and recommend specific fixes."
   },
   {
     "id": "prompt-product-requirements",
@@ -138,5 +138,75 @@
     ],
     "date": "2026-11-18",
     "content": "Be my learning coach for [TOPIC]. My current level is [LEVEL], and my goal is [GOAL]. Teach one small concept at a time. Start by checking what I already understand. Give me a worked example, then a similar question to solve independently. Wait for my attempt before revealing the solution. Give kind, specific feedback and a hint before the full answer. Gradually increase difficulty, revisit earlier ideas, and finish with a short recap and a few questions for later review."
+  },
+  {
+    "id": "prompt-brainstorm-options",
+    "type": "prompt",
+    "category": "Creative",
+    "title": "Generate and refine creative ideas",
+    "description": "Explore varied concepts, then evaluate and improve the strongest directions.",
+    "tags": [
+      "brainstorming",
+      "creativity",
+      "ideation"
+    ],
+    "date": "2026-11-18",
+    "content": "Help me brainstorm ideas for [CHALLENGE]. Context: [CONTEXT]. Constraints: [CONSTRAINTS]. First ask up to three important clarifying questions if needed. Generate a varied set of ideas, including practical, unusual, and low-cost options. Avoid repeating the same concept with different wording. Group related ideas, explain the core value and main drawback of each, then shortlist the strongest three against my constraints. Do not present speculation as proven fact."
+  },
+  {
+    "id": "prompt-meeting-action-notes",
+    "type": "prompt",
+    "category": "Productivity",
+    "title": "Turn notes into clear action items",
+    "description": "Organise rough meeting notes into decisions, owners, deadlines, and open questions.",
+    "tags": [
+      "meetings",
+      "notes",
+      "organisation"
+    ],
+    "date": "2026-11-18",
+    "content": "Organise the notes below into a concise meeting record. Separate: (1) purpose, (2) key discussion points, (3) decisions actually made, (4) action items with owner and deadline only when stated, and (5) unresolved questions. Preserve uncertainty and mark missing owners or dates as 'not specified'. Do not invent agreement or assign tasks to people. Notes: [PASTE NOTES]"
+  },
+  {
+    "id": "prompt-risk-register",
+    "type": "prompt",
+    "category": "Planning",
+    "title": "Build a practical project risk register",
+    "description": "Identify project risks with causes, impact, warning signs, and realistic mitigations.",
+    "tags": [
+      "risk",
+      "projects",
+      "planning"
+    ],
+    "date": "2026-11-18",
+    "content": "Help create a risk register for [PROJECT]. Context and constraints: [DETAILS]. Identify plausible risks across delivery, technical quality, privacy, security, accessibility, budget, and dependencies. For each risk, state its cause, possible impact, early warning sign, likelihood and impact using clearly defined scales, mitigation, and contingency. Distinguish evidence from assumptions. Prioritise the risks that deserve attention first, and identify what information would improve the assessment."
+  },
+  {
+    "id": "prompt-accessibility-review",
+    "type": "prompt",
+    "category": "Development",
+    "title": "Review a website for accessibility",
+    "description": "Audit a page against practical accessibility principles and produce actionable fixes.",
+    "tags": [
+      "accessibility",
+      "web",
+      "quality"
+    ],
+    "date": "2026-11-18",
+    "content": "Review this website or interface for accessibility: [URL, SCREENSHOT DESCRIPTION, OR CODE]. Check semantic structure, headings, keyboard navigation, visible focus, labels, names and roles, contrast, zoom/reflow, error feedback, reduced motion, and dialog behaviour. Separate issues you can verify from items that require hands-on testing or assistive technology. For each issue, describe its user impact, severity, and a concrete fix. Do not claim formal WCAG conformance without sufficient testing."
+  },
+  {
+    "id": "skill-research-source-check",
+    "type": "skill",
+    "category": "Research",
+    "title": "Research source verification workflow",
+    "description": "Assess source quality and trace claims back to reliable evidence.",
+    "tags": [
+      "research",
+      "sources",
+      "fact-check"
+    ],
+    "date": "2026-11-18",
+    "content": "1. Write the exact claim or question being checked.\n2. Find the original or primary source where possible.\n3. Record the author, publisher, publication date, and relevant evidence.\n4. Check whether the source directly supports the claim or only discusses a related topic.\n5. Compare independent, reputable sources and note disagreements.\n6. Check whether information may be outdated or context-dependent.\n7. Separate confirmed facts, interpretation, and unknowns.\n8. Keep a short source trail so another reader can reproduce the check.\n9. Never invent a quotation, citation, statistic, or source."
   }
 ]
