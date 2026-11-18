@@ -311,10 +311,24 @@ $("#theme").onclick = () => {
 };
 
 const savedTheme = readStorage("pv-theme");
-if (savedTheme === "light" || (!savedTheme && window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches)) {
+const systemTheme = window.matchMedia ? window.matchMedia("(prefers-color-scheme: light)") : null;
+const hasSavedTheme = savedTheme === "light" || savedTheme === "dark";
+if (savedTheme === "light" || (!hasSavedTheme && systemTheme && systemTheme.matches)) {
   document.body.classList.add("light");
 }
 updateThemeButton();
+
+if (systemTheme) {
+  const syncSystemTheme = (event) => {
+    const preference = readStorage("pv-theme");
+    if (preference !== "light" && preference !== "dark") {
+      document.body.classList.toggle("light", event.matches);
+      updateThemeButton();
+    }
+  };
+  if (systemTheme.addEventListener) systemTheme.addEventListener("change", syncSystemTheme);
+  else if (systemTheme.addListener) systemTheme.addListener(syncSystemTheme);
+}
 init();
 
 
