@@ -161,3 +161,49 @@ $("#theme").onclick = () => {
 if (localStorage.getItem("pv-theme") === "light") document.body.classList.add("light");
 updateThemeButton();
 init();
+
+
+$("#export-favourites").addEventListener("click", () => {
+  const payload = {
+    format: "prompt-vault-favourites",
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    favourites: [...favourites]
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = "prompt-vault-favourites.json";
+  document.body.append(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+});
+
+$("#import-favourites").addEventListener("click", () => $("#favourites-file").click());
+
+$("#favourites-file").addEventListener("change", async (event) => {
+  const file = event.target.files[0];
+  event.target.value = "";
+  if (!file) return;
+  if (file.size > 100000) {
+    alert("That backup file is too large to import.");
+    return;
+  }
+  try {
+    const backup = JSON.parse(await file.text());
+    if (backup.format !== "prompt-vault-favourites" || backup.version !== 1 ||
+        !Array.isArray(backup.favourites) ||
+        !backup.favourites.every((id) => typeof id === "string")) {
+      throw new Error("This is not a supported Prompt Vault favourites backup.");
+    }
+    const validIds = new Set(items.map((item) => item.id));
+    favourites = new Set(backup.favourites.filter((id) => validIds.has(id)));
+    saveFavourites();
+    render();
+    alert("Favourites imported successfully.");
+  } catch (error) {
+    alert(error.message || "Could not read that backup file.");
+  }
+});
