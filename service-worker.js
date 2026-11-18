@@ -1,4 +1,4 @@
-const CACHE_NAME = "prompt-vault-v3";
+const CACHE_NAME = "prompt-vault-v4";
 const CORE_ASSETS = [
   "./",
   "./index.html",
@@ -42,22 +42,28 @@ self.addEventListener("fetch", (event) => {
   if (request.mode === "navigate") {
     event.respondWith(
       fetch(request)
-        .then((response) => {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(INDEX_URL, copy));
+        .then(async (response) => {
+          if (response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(request, response.clone());
+          }
           return response;
         })
-        .catch(() => caches.match(INDEX_URL).then((cached) => cached || caches.match(OFFLINE_URL)))
+        .catch(async () => {
+          const cachedPage = await caches.match(request);
+          if (cachedPage) return cachedPage;
+          return (await caches.match(INDEX_URL)) || caches.match(OFFLINE_URL);
+        })
     );
     return;
   }
 
   event.respondWith(
     fetch(request)
-      .then((response) => {
+      .then(async (response) => {
         if (response.ok) {
-          const copy = response.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put(request, response.clone());
         }
         return response;
       })
