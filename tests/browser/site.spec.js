@@ -116,17 +116,19 @@ test("imports valid favourites and ignores unknown resource IDs", async ({ page 
 });
 
 test("restores a shareable filtered view from the URL", async ({ page }) => {
-  await page.goto("/?q=boundary&difficulty=advanced");
-  await expect(page.locator("#search")).toHaveValue("boundary");
+  await page.goto("/?q=risk&difficulty=advanced");
+  await expect(page.locator("#search")).toHaveValue("risk");
   await expect(page.locator("#difficulty")).toHaveValue("advanced");
   await expect(page.locator(".card")).not.toHaveCount(0);
 });
 
 test("persists the selected theme after reload", async ({ page }) => {
+  const initiallyLight = await page.locator("body").evaluate((body) => body.classList.contains("light"));
+  const expectedLight = !initiallyLight;
   await page.locator("#theme").click();
-  await expect(page.locator("body")).toHaveClass(/light/);
+  await expect.poll(() => page.locator("body").evaluate((body) => body.classList.contains("light"))).toBe(expectedLight);
   await page.reload();
-  await expect(page.locator("body")).toHaveClass(/light/);
+  await expect.poll(() => page.locator("body").evaluate((body) => body.classList.contains("light"))).toBe(expectedLight);
 });
 
 
