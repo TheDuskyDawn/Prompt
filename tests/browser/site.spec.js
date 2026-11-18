@@ -167,6 +167,7 @@ test("resets every active filter", async ({ page }) => {
 test("handles unknown direct resource IDs without opening a broken dialog", async ({ page }) => {
   await page.goto("/?resource=not-a-real-resource");
   await expect(page.locator("#detail")).not.toBeVisible();
+  await expect(page).not.toHaveURL(/resource=not-a-real-resource/);
   await expect(page.locator(".card")).toHaveCount(25);
 });
 
