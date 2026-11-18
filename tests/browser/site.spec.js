@@ -169,3 +169,14 @@ test("handles unknown direct resource IDs without opening a broken dialog", asyn
   await expect(page.locator("#detail")).not.toBeVisible();
   await expect(page.locator(".card")).toHaveCount(25);
 });
+
+test("keeps the visited guide available when navigating offline", async ({ page, context }) => {
+  await page.evaluate(async () => { await navigator.serviceWorker.ready; });
+  await page.waitForFunction(() => Boolean(navigator.serviceWorker.controller));
+  await page.goto("/guide.html");
+  await expect(page.locator("h1")).toHaveText("Make the library work for you.");
+  await context.setOffline(true);
+  await page.reload();
+  await expect(page.locator("h1")).toHaveText("Make the library work for you.");
+  await context.setOffline(false);
+});
