@@ -66,7 +66,7 @@ Run a local static server from the repository root (for example, python -m http.
 
 Check JavaScript syntax with node --check app.js.
 
-See [QUALITY_RUBRIC.md](QUALITY_RUBRIC.md) for the editorial scoring standard and [RESOURCE_REVIEW_CHECKLIST.md](RESOURCE_REVIEW_CHECKLIST.md) for publication checks. See [privacy.html](https://theduskydawn.github.io/Prompt/privacy.html) for how browser storage, offline caching, and external services are handled. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [RESOURCE_REVIEW_CHECKLIST.md](RESOURCE_REVIEW_CHECKLIST.md), and [SECURITY.md](SECURITY.md) for community, content review, and security guidance.
+See [quality.html](quality.html) for the editorial scoring standard and [RESOURCE_REVIEW_CHECKLIST.md](RESOURCE_REVIEW_CHECKLIST.md) for publication checks. See [privacy.html](https://theduskydawn.github.io/Prompt/privacy.html) for how browser storage, offline caching, and external services are handled. See [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md), [RESOURCE_REVIEW_CHECKLIST.md](RESOURCE_REVIEW_CHECKLIST.md), and [SECURITY.md](SECURITY.md) for community, content review, and security guidance.
 
 ## Project research
 

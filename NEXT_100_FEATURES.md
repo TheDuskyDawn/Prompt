@@ -24,7 +24,7 @@
 
 ### Stage 1 — Trust, quality, and provenance
 
-101. [P0] Add a structured quality rubric covering clarity, completeness, usefulness, originality, and limitations.
+101. [x] [P0] Add a structured quality rubric covering clarity, completeness, usefulness, originality, and limitations. **Implemented on the planning branch; existing resources remain unassessed until a human review is recorded.**
 102. [P0] Add per-resource review dates and automatic stale-review flags.
 103. [P0] Add explicit tested/not-tested status separate from editorial curation.
 104. [P0] Add model compatibility records with model name, version, date, and test scope.
