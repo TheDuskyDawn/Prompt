@@ -15,6 +15,7 @@ Describe the change and why it is useful.
 - [ ] Local HTML link checks pass.
 - [ ] PWA manifest and offline asset checks pass.
 - [ ] I checked the change on mobile and desktop where relevant.
+- [ ] I followed the Code of Conduct and Content Guidelines.
 
 ## Content checks
 
