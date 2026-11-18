@@ -72,4 +72,11 @@ for index, item in enumerate(resources, start=1):
     if len(item["content"]) > 12000:
         sys.exit(f"{prefix}: content exceeds 12,000 characters")
 
+pending_ids = [item["id"] for item in resources if item["review_status"] == "pending"]
+if pending_ids:
+    sys.exit(
+        "Pending resources must remain in the issue queue, not the public catalogue: "
+        + ", ".join(pending_ids)
+    )
+
 print(f"Validated {len(resources)} resources across {len(seen_ids)} unique IDs.")
