@@ -40,3 +40,5 @@ Notable project changes are recorded here.
 - Added an online user guide and included it in offline caching and automated checks.
 
 - Added a cached offline fallback page for navigation failures.
+
+- Added a detailed resource review checklist for maintainers and contributors.
