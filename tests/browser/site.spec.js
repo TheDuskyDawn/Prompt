@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("loads all curated resources", async ({ page }) => {
-  await expect(page.locator("#total")).toHaveText("30");
+  await expect(page.locator("#total")).toHaveText("31");
   await expect(page.locator(".card")).toHaveCount(31);
 });
 
