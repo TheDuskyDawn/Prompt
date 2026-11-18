@@ -44,3 +44,5 @@ Notable project changes are recorded here.
 - Added a detailed resource review checklist for maintainers and contributors.
 
 - Added a one-click JSON export of the complete resource catalogue.
+
+- Added Playwright browser tests for catalogue loading, search, filters, favourites, prompt personalisation, direct links, downloads, mobile overflow, and offline navigation.
