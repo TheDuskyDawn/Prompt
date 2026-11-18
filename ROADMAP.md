@@ -120,7 +120,7 @@ Status: [x] complete · [~] partially implemented or awaiting hands-on verificat
 97. [x] Publish the project overview in README.
 98. [x] Collect feedback through issue forms.
 99. [x] Prioritise improvements in this roadmap.
-100. [ ] Schedule a quarterly roadmap review.
+100. [x] Schedule an automated quarterly roadmap review, starting 18 February 2027.
 
 ## Current implementation
 
