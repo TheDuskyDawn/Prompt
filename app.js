@@ -51,6 +51,7 @@ function restoreViewFromURL() {
   $("#sort").value = ["featured", "az", "newest"].includes(params.get("sort")) ? params.get("sort") : "featured";
   $("#favourites").checked = params.get("favourites") === "1";
   activeTag = params.get("tag") || "all";
+  if (activeTag !== "all" && !items.some((item) => item.tags.includes(activeTag))) activeTag = "all";
 }
 
 function syncViewToURL() {
@@ -61,6 +62,8 @@ function syncViewToURL() {
   if ($("#sort").value !== "featured") params.set("sort", $("#sort").value);
   if ($("#favourites").checked) params.set("favourites", "1");
   if (activeTag !== "all") params.set("tag", activeTag);
+  const resourceId = new URLSearchParams(window.location.search).get("resource");
+  if (resourceId) params.set("resource", resourceId);
   const query = params.toString();
   history.replaceState(null, "", window.location.pathname + (query ? "?" + query : "") + "#library");
 }
