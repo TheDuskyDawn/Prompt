@@ -17,6 +17,10 @@ A free, static library of reusable AI prompts and skills, designed for GitHub Pa
 - Retryable loading states, responsive layout, skip navigation, reduced-motion support, keyboard focus indicators, and accessible labels
 - Automatically validate catalogue data, JavaScript, local links, PWA assets, and core asset-size budgets, and theme contrast, and static accessibility before deployment
 
+## User guide
+
+See the [online guide](https://theduskydawn.github.io/Prompt/guide.html) for search, filters, prompt personalisation, favourites, sharing, and offline use.
+
 ## Use the library
 
 1. Open the Prompt Vault website: https://theduskydawn.github.io/Prompt/
