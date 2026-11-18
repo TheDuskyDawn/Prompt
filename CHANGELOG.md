@@ -60,3 +60,5 @@ Notable project changes are recorded here.
 - Sanitize browser-stored favourites against the current catalogue during load so deleted or malformed IDs do not persist into backups.
 - Added a Ctrl/Command+K keyboard shortcut to focus the resource search field.
 - Added browser checks for the offline status indicator and device color-scheme preference when no theme override is saved.
+
+- Added a Ctrl/Command+K shortcut to focus and select the library search field.
