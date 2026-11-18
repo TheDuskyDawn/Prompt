@@ -278,6 +278,19 @@ test("has no serious or critical automated accessibility violations", async ({ p
   expect(seriousViolations).toEqual([]);
 });
 
+test("guide, privacy, and offline pages have no serious or critical accessibility violations", async ({ page }) => {
+  for (const path of ["/guide.html", "/privacy.html", "/offline.html"]) {
+    await page.goto(path);
+    const results = await new AxeBuilder({ page })
+      .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+      .analyze();
+    const seriousViolations = results.violations.filter((violation) =>
+      violation.impact === "serious" || violation.impact === "critical"
+    );
+    expect(seriousViolations, path).toEqual([]);
+  }
+});
+
 test("resource detail dialog has no serious or critical accessibility violations", async ({ page }) => {
   await page.locator('[data-open="prompt-clear-explainer"]').click();
   const results = await new AxeBuilder({ page })
