@@ -42,3 +42,5 @@ Notable project changes are recorded here.
 - Added a cached offline fallback page for navigation failures.
 
 - Added a detailed resource review checklist for maintainers and contributors.
+
+- Added a one-click JSON export of the complete resource catalogue.
