@@ -18,6 +18,8 @@ Do not include personal information, confidential data, copyrighted text you do 
 3. Keep IDs unique and use lowercase kebab-case IDs.
 4. Keep content clear, original, and broadly useful.
 5. Run `python scripts/validate_catalogue.py`.
-6. Open a pull request describing what changed and how it was checked.
+6. Run `node --check app.js` and `node --check service-worker.js`.
+7. Run `python scripts/check_links.py` and `python scripts/check_pwa.py`.
+8. Open a pull request describing what changed and how it was checked.
 
 Maintainers may edit, decline, or remove submissions to protect quality and safety.
