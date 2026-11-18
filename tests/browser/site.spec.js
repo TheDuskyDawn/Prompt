@@ -286,3 +286,9 @@ test("resource detail dialog has no serious or critical accessibility violations
   );
   expect(seriousViolations).toEqual([]);
 });
+
+
+test("ranks title matches ahead of mentions in resource content", async ({ page }) => {
+  await page.locator("#search").fill("study");
+  await expect(page.locator(".card h3").first()).toHaveText("Build a realistic study plan");
+});

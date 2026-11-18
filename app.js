@@ -114,6 +114,21 @@ function render() {
     [item.title, item.description, item.category, item.type, item.difficulty, ...item.collections, item.content, item.review_status, ...item.tags].join(" ").toLowerCase().includes(query)
   );
 
+  if (sort === "featured" && query) {
+    const relevance = (item) => {
+      const title = item.title.toLowerCase();
+      const description = item.description.toLowerCase();
+      const tags = item.tags.join(" ").toLowerCase();
+      const metadata = [item.category, item.type, item.difficulty, ...item.collections, item.review_status].join(" ").toLowerCase();
+      const content = item.content.toLowerCase();
+      return (title.includes(query) ? 16 : 0) +
+        (description.includes(query) ? 8 : 0) +
+        (tags.includes(query) ? 6 : 0) +
+        (metadata.includes(query) ? 3 : 0) +
+        (content.includes(query) ? 1 : 0);
+    };
+    list.sort((a, b) => relevance(b) - relevance(a));
+  }
   if (sort === "az") list.sort((a, b) => a.title.localeCompare(b.title));
   if (sort === "newest") list.sort((a, b) => (b.date || "").localeCompare(a.date || ""));
 
